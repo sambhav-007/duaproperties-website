@@ -1,6 +1,7 @@
 // src/pages/PropertyDetailPage.jsx
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+
 import propertiesData from '../data/properties.json';
 
 function PropertyDetailPage() {
