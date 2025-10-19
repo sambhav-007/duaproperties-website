@@ -1,0 +1,81 @@
+
+[
+  {
+    "id": "1",
+    "name": "Amayra Vista - Premium Residential Plots",
+    "type": "Residential Plot",
+    "status": "Sale",
+    "price": "₹54,900 / Sq. Yd.",
+    "min_plot_size_sqyd": 100,
+    "max_plot_size_sqyd": 150,
+    "bedrooms": null,
+    "bathrooms": null,
+    "area_sqft": null,
+    "location": "Kurali Bypass, NH-205, Adjacent GMADA Expressway, Mohali, Punjab",
+    "rera_id": "PBRERA-SAS80-PR1118",
+    "possession_date": "30th September, 2025",
+    "description": "Amayra Vista is a meticulously planned RERA-approved residential plotting project spanning 23 acres in a prime location off NH-205 near the GMADA Expressway. Offering a harmonious blend of nature and modern amenities, this secure gated community features 528 plots ranging from 100 to 150 Sq Yards, making it an ideal choice for both dream home builders and astute investors. Enjoy excellent connectivity to Chandigarh, Mohali, and major educational/commercial hubs.",
+    "highlights": [
+      "23 Acre Gated Community",
+      "528 Residential Plots (100-150 Sq. Yds.)",
+      "RERA Approved Project",
+      "Grand Entrance from NH-205",
+      "Wide Internal Roads",
+      "Strategic Location near GMADA Expressway",
+      "100 Ft. Road Connectivity",
+      "High Appreciation Potential"
+    ],
+    "amenities": [
+      "24x7 Security with CCTV",
+      "Lush Green Parks & Landscapes",
+      "Kids Play Area",
+      "Dedicated Jogging Tracks",
+      "Storm Water Drainage System",
+      "Sewerage Treatment Plant (STP)",
+      "LED Street Lighting",
+      "Underground Electrification",
+      "Water Supply & Rainwater Harvesting",
+      "Community Center (Proposed)",
+      "Commercial Area (Proposed)"
+    ],
+    "image_main": "/images/properties/amayra-vista-main.avif",
+    "images_gallery": [
+      "/images/properties/amayra-vista-aerial.jpeg",
+      "/images/properties/amayra-vista-aerialsiteplan.jpeg",
+      "/images/properties/amayra-vista-site-plan.png",
+      "/images/properties/amayra-vista-location.png",
+      "/images/properties/amayra-vista-plan.png"
+    ],
+    "video_url": null, 
+    "payment_plan": {
+      "basic_price": "₹54,900 / Per Square Yard",
+      "plot_sizes": ["100 Sq.Yds.", "111.11 Sq.Yds.", "125 Sq.Yds.", "127.77 Sq.Yds.", "133.33 Sq.Yds.", "150 Sq.Yds."],
+      "stages": [
+        { "name": "On Booking", "amount": "10%" },
+        { "name": "At the time of Agreement", "amount": "10%" },
+        { "name": "When the construction starts", "amount": "40%" },
+        { "name": "On completion of sewerage work", "amount": "20%" },
+        { "name": "On Possession (30th Sep, 2025)", "amount": "20% PLC Charges + IFMS + Community Center Charges + Other Charges Applicable (if Any)" }
+      ]
+    },
+    "other_charges": [
+      { "name": "PLC Charges", "details": "As Applicable (Front Facing, Corner, Wide Road & Front Open & Park on Back)" },
+      { "name": "Interest Free Maintenance Charges (IFMS)", "amount": "₹500 / Per Square Yard" },
+      { "name": "Community Center Charges", "amount": "₹500 / Per Square Yard" },
+      { "name": "Other Feature / Service Charges", "details": "As Applicable" }
+    ],
+    "notes": [
+      "Above prices are subject to change without prior notice.",
+      "Registration Charges & Stamp Duty as applicable to be paid additional.",
+      "Club Charges Rs. 0/- Per Square Yard (will be charged for 3 years in advance).",
+      "Electricity Meter Installation Charges Extra.",
+      "Water Supply Meter Charges as applicable.",
+      "Charges for house tax applicable as applicable.",
+      "Static Charges as applicable (if any) at the time of Possession.",
+      "DD is to be made in the name of 'Omni Pacific Colonizers Pvt. Ltd.' payable at Chandigarh.",
+      "Prices as applicable at the time of booking.",
+      "All Govt. Charges/duties/taxes are as extra and to be paid by the customer.",
+      "Power backup for Common Areas & Commercial Shops as applicable."
+    ]
+  }
+]
