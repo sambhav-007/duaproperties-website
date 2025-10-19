@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Import BrowserRouter, Routes and Route
 
 // Import Layout components
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer';
 
 // Import Page components (we'll create these next)
