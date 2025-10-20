@@ -122,7 +122,7 @@
       "/images/properties/amayra-skycity-plan.jpeg"
 
     ],
-    "video_url": "/videos/amayra-skycity-vid.mov", // Update if you find an official video
+    "video_url": "/videos/amayra-skycity-vid.mov", 
     "payment_plan": {
       "basic_price": "Available Upon Request",
       "stages": [
