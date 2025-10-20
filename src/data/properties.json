@@ -77,5 +77,63 @@
       "All Govt. Charges/duties/taxes are as extra and to be paid by the customer.",
       "Power backup for Common Areas & Commercial Shops as applicable."
     ]
+  },
+  {
+    "id": "2",
+    "name": "Amayra Sky City - Premium Apartments",
+    "type": "Apartment",
+    "status": "Sale",
+    "price": "Price on Request",
+    "bedrooms": "2, 3, 4",
+    "bathrooms": "2-4",
+    "area_sqft": null,
+    "location": "Adjacent to GMADA Expressway, Sector 127, Mohali, Punjab",
+    "rera_id": "PBRERA-SAS80-PR1015",
+    "possession_date": "Ready to Move (RTM)",
+    "description": "Amayra Sky City offers premium 2, 3, and 4 BHK apartments designed for modern urban living. Located strategically adjacent to the GMADA Expressway in Sector 127, Mohali, it combines luxury with convenience. Enjoy spacious interiors, high-end finishes, and a host of amenities tailored for a comfortable lifestyle. A RERA-approved project, ideal for families seeking contemporary homes.",
+    "highlights": [
+      "RERA Approved (PBRERA-SAS80-PR1015)",
+      "2, 3, 4 BHK Luxury Apartments",
+      "Ready to Move (RTM)",
+      "Strategic Location Sector 127, Mohali",
+      "Excellent Connectivity to Chandigarh & Kharar",
+      "Gated Community with 24/7 Security",
+      "Modern Architecture & High-End Finishes"
+    ],
+    "amenities": [
+      "Clubhouse & Community Hall",
+      "Gymnasium & Fitness Center",
+      "Swimming Pool",
+      "Kids Play Area",
+      "Landscaped Gardens",
+      "Jogging Track",
+      "Power Backup",
+      "Ample Parking Space",
+      "24x7 Water Supply",
+      "High-Speed Lifts",
+      "Fire Fighting System"
+    ],
+    "image_main": "/images/properties/amayra-skycity-main.jpeg",
+    "images_gallery": [
+      "/images/properties/amayra-skycity-entrance.jpeg",
+      "/images/properties/amayra-skycity-balcony.jpeg",
+      "/images/properties/amayra-skycity-gym.jpeg",
+      "/images/properties/amayra-skycity-court.jpeg",
+      "/images/properties/amayra-skycity-plan.jpeg"
+
+    ],
+    "video_url": "/videos/amayra-skycity-vid.mov", // Update if you find an official video
+    "payment_plan": {
+      "basic_price": "Available Upon Request",
+      "stages": [
+        { "name": "Contact for Details", "amount": "Personalized Consultation" }
+      ]
+    },
+    "other_charges": [],
+    "notes": [
+      "Prices are subject to change.",
+      "Custom payment plans available upon discussion.",
+      "Kindly contact us for detailed pricing and site visits."
+    ]
   }
 ]
