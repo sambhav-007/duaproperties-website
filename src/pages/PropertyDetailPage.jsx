@@ -182,7 +182,7 @@ function PropertyDetailPage() {
       />
       {/* --- END LIGHTBOX COMPONENT --- */}
 
-    </div> {/* !!! --- END NEW PARENT DIV HERE --- !!! */}
+    </div>
   );
 }
 
