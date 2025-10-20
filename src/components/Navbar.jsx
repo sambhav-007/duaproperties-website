@@ -1,19 +1,23 @@
 // src/components/Navbar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/dua-logo.jpg'; 
 
 function Navbar() {
   return (
-    <nav className="bg-dua-dark-green p-4 shadow-md">
+    <nav className="bg-white p-3 shadow-md sticky top-0 z-50"> {/* Made background white, added sticky */}
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white text-2xl font-bold">
-          Dua Properties
+        {/* Logo */}
+        <Link to="/">
+          <img src={logo} alt="Dua Properties Logo" className="h-10 w-auto" /> {/* Adjust height (h-10) as needed */}
         </Link>
-        <div className="space-x-4">
-          <Link to="/" className="text-white hover:text-dua-gold transition-colors duration-300">Home</Link>
-          <Link to="/properties" className="text-white hover:text-dua-gold transition-colors duration-300">Properties</Link>
-          <Link to="/about" className="text-white hover:text-dua-gold transition-colors duration-300">About</Link>
-          <Link to="/contact" className="text-white hover:text-dua-gold transition-colors duration-300">Contact</Link>
+
+        {/* Navigation Links */}
+        <div className="space-x-6"> {/* Increased spacing */}
+          <Link to="/" className="text-gray-700 hover:text-dua-gold transition-colors duration-300 font-medium">Home</Link>
+          <Link to="/properties" className="text-gray-700 hover:text-dua-gold transition-colors duration-300 font-medium">Properties</Link>
+          <Link to="/about" className="text-gray-700 hover:text-dua-gold transition-colors duration-300 font-medium">About</Link>
+          <Link to="/contact" className="text-gray-700 hover:text-dua-gold transition-colors duration-300 font-medium">Contact</Link>
         </div>
       </div>
     </nav>
