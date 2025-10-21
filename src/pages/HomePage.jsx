@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import propertiesData from '../data/properties.json'; // Import property data
 import PropertyCard from '../components/PropertyCard'; // Import the card component
+import BlurText from '../components/BlurText';
 
 // Define a background image URL (replace with a high-quality image URL or local path)
 const heroImageUrl = '/images/hero-background.avif'; // Place a 'hero-background.jpg' in public/images/
@@ -20,11 +21,15 @@ function HomePage() {
       >
         <div className="absolute inset-0 bg-black opacity-50"></div> {/* Dark overlay */}
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
-            Find Your Dream Property
-          </h1>
+          <BlurText
+            text="Find Your Dream Property"
+            delay={100} // Adjust delay between words/letters (milliseconds)
+            animateBy="words" // Animate 'words' or 'letters'
+            direction="top" // Animate from 'top' or 'bottom'
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight" // Pass existing styles
+          />
           <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto">
-            Discover premium residential and commercial properties with Dua Properties. Your future starts here.
+            Discover premium residential and commercial properties with Dua Property. Your future starts here.
           </p>
           <Link
             to="/properties"
