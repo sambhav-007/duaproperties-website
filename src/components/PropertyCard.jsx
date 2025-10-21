@@ -18,7 +18,7 @@ function PropertyCard({ property }) {
       initial={{ opacity: 0, y: 50 }} // Start hidden and slightly down
       whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position
       viewport={{ once: true, amount: 0.2 }} // Trigger animation once when 20% is visible
-      transition={{ duration: 0.5, ease: "easeOut" }} // Define animation speed and easing
+      transition={{ duration: 0.9, ease: "easeOut" }} // Define animation speed and easing
       className="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl" // Keep styling, removed hover:scale-105 for smoother scroll feel
     >      <Link to={`/property/${property.id}`} className="block">
         <img
