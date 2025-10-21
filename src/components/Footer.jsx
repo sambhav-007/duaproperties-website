@@ -1,8 +1,6 @@
 // src/components/Footer.jsx
 import React from 'react';
-// Optional: If you want icons for social media, you can use a library like react-icons
-// Run: npm install react-icons
-import { FaFacebookF, FaInstagram, FaYoutube, FaEnvelope } from 'react-icons/fa'; // Example icons
+import { FaFacebookF, FaInstagram, FaYoutube, FaEnvelope } from 'react-icons/fa'; 
 
 function Footer() {
   const currentYear = new Date().getFullYear();
