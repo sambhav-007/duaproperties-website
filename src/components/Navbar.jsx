@@ -16,11 +16,11 @@ function Navbar() {
         </Link>
 
         {/* Navigation Links */}
-        <div className="space-x-6"> {/* Increased spacing */}
-          <Link to="/" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium">Home</Link>
-          <Link to="/properties" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium">Properties</Link>
-          <Link to="/about" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium">About</Link>
-          <Link to="/contact" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium">Contact</Link>
+        <div className="flex flex-1 justify-end items-center space-x-3 sm:space-x-6"> {/* Added flex-1, justify-end, and responsive space-x */}
+          <Link to="/" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium text-sm sm:text-base">Home</Link> {/* Added responsive text-sm */}
+          <Link to="/properties" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium text-sm sm:text-base">Properties</Link>
+          <Link to="/about" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium text-sm sm:text-base">About</Link>
+          <Link to="/contact" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium text-sm sm:text-base">Contact</Link>
         </div>
       </div>
     </nav>

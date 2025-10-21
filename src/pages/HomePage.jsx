@@ -26,7 +26,7 @@ function HomePage() {
             delay={230} // Adjust delay between words/letters (milliseconds)
             animateBy="words" // Animate 'words' or 'letters'
             direction="top" // Animate from 'top' or 'bottom'
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight" // Pass existing styles
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-center" // Pass existing styles
           />
           <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto">
             Discover premium residential and commercial properties with Dua Property. Your future starts here.
