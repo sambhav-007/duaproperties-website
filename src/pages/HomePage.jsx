@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import propertiesData from '../data/properties.json'; // Import property data
 import PropertyCard from '../components/PropertyCard'; // Import the card component
 import BlurText from '../components/BlurText';
+import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
 
 // Define a background image URL (replace with a high-quality image URL or local path)
 const heroImageUrl = '/images/hero-background.jpg'; // Place a 'hero-background.jpg' in public/images/
