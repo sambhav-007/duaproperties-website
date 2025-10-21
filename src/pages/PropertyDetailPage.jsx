@@ -19,7 +19,7 @@ function PropertyDetailPage() {
     return (
       <div className="container mx-auto py-16 text-center">
         <h1 className="text-3xl font-bold text-red-600">Property Not Found</h1>
-        <p className="text-gray-700 mt-4">The property you are looking for does not exist.</p>
+        <p className="text-dua-body mt-4">The property you are looking for does not exist.</p>
         <Link to="/properties" className="mt-6 inline-block bg-dua-dark-green text-white py-2 px-4 rounded hover:bg-dua-gold transition-colors duration-300">
           Back to Properties
         </Link>
@@ -46,11 +46,11 @@ function PropertyDetailPage() {
 
       <div className="container mx-auto py-8 px-4">
         {/* Back Link */}
-        <Link to="/properties" className="text-dua-dark-green hover:underline mb-4 inline-block">&larr; Back to Properties</Link>
+        <Link to="/properties" className="text-dua-primary hover:underline mb-4 inline-block">&larr; Back to Properties</Link>
 
         {/* Header */}
-        <h1 className="text-4xl font-bold text-dua-dark-green mb-4">{property.name}</h1>
-        <p className="text-2xl text-dua-gold font-semibold mb-6">{property.price}</p>
+        <h1 className="text-4xl font-bold text-dua-primary mb-4">{property.name}</h1>
+        <p className="text-2xl text-dua-accent font-semibold mb-6">{property.price}</p>
         {property.rera_id && <p className="text-sm text-gray-500 mb-6">RERA ID: {property.rera_id}</p>}
 
         {/* Main Details Grid */}
@@ -61,11 +61,11 @@ function PropertyDetailPage() {
           </div>
           {/* Right Column: Overview & Details */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-3">Overview</h2>
-            <p className="text-lg text-gray-700 mb-4">{property.description || 'No description available.'}</p>
+            <h2 className="text-2xl font-bold text-dua-text mb-3">Overview</h2>
+            <p className="text-lg text-dua-body mb-4">{property.description || 'No description available.'}</p>
 
-            <h3 className="text-xl font-bold text-gray-800 mt-6 mb-2">Property Details</h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-1">
+            <h3 className="text-xl font-bold text-dua-text mt-6 mb-2">Property Details</h3>
+            <ul className="list-disc list-inside text-dua-body space-y-1">
               {property.location && <li><strong>Location:</strong> {property.location}</li>}
               {property.type && <li><strong>Type:</strong> {property.type}</li>}
               {property.status && <li><strong>Status:</strong> {property.status}</li>}
@@ -79,8 +79,8 @@ function PropertyDetailPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 bg-white p-6 rounded-lg shadow-sm">
           {/* Highlights Section */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Highlights</h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-2">
+            <h3 className="text-2xl font-bold text-dua-text mb-4">Highlights</h3>
+            <ul className="list-disc list-inside text-dua-body space-y-2">
               {/* GUARD ADDED */}
               {property.highlights && property.highlights.length > 0 ? (
                 property.highlights.map((item, index) => (
@@ -94,8 +94,8 @@ function PropertyDetailPage() {
 
           {/* Amenities Section */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Amenities</h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-2">
+            <h3 className="text-2xl font-bold text-dua-text mb-4">Amenities</h3>
+            <ul className="list-disc list-inside text-dua-body space-y-2">
               {/* GUARD ADDED */}
               {property.amenities && property.amenities.length > 0 ? (
                 property.amenities.map((item, index) => (
@@ -111,13 +111,13 @@ function PropertyDetailPage() {
         {/* Payment Plan */}
         {property.payment_plan && (
           <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Payment Plan</h2>
+            <h2 className="text-2xl font-bold text-dua-text mb-4">Payment Plan</h2>
             <p className="text-lg font-semibold mb-3">Basic Sale Price: {property.payment_plan.basic_price}</p>
             <ul className="divide-y divide-gray-200">
               {/* GUARD ADDED */}
               {property.payment_plan.stages && property.payment_plan.stages.map((stage, index) => (
                 <li key={index} className="flex justify-between py-3">
-                  <span className="text-gray-700">{stage.name}</span>
+                  <span className="text-dua-body">{stage.name}</span>
                   <span className="font-semibold text-gray-900">{stage.amount}</span>
                 </li>
               ))}
@@ -128,11 +128,11 @@ function PropertyDetailPage() {
         {/* Other Charges */}
         {property.other_charges && property.other_charges.length > 0 && (
           <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Other Charges</h2>
+            <h2 className="text-2xl font-bold text-dua-text mb-4">Other Charges</h2>
             <ul className="divide-y divide-gray-200">
               {property.other_charges.map((charge, index) => (
                 <li key={index} className="flex justify-between py-3">
-                  <span className="text-gray-700">{charge.name} {charge.details ? `(${charge.details})` : ''}</span>
+                  <span className="text-dua-body">{charge.name} {charge.details ? `(${charge.details})` : ''}</span>
                   <span className="font-semibold text-gray-900">{charge.amount}</span>
                 </li>
               ))}
@@ -143,7 +143,7 @@ function PropertyDetailPage() {
         {/* Gallery Section */}
         {property.images_gallery && property.images_gallery.length > 0 && (
           <div className="mt-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Gallery</h2>
+            <h2 className="text-2xl font-bold text-dua-text mb-4">Gallery</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {property.images_gallery.map((img, index) => (
                 <img
@@ -160,9 +160,9 @@ function PropertyDetailPage() {
 
         {/* Notes Section */}
         {property.notes && property.notes.length > 0 && (
-          <div className="mt-8 bg-gray-50 p-6 rounded-lg shadow-inner">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Notes</h2>
-            <ul className="list-disc list-inside text-gray-600 text-sm space-y-2">
+          <div className="mt-8 bg-dua-bg-light p-6 rounded-lg shadow-inner">
+            <h2 className="text-2xl font-bold text-dua-text mb-4">Notes</h2>
+            <ul className="list-disc list-inside text-dua-body text-sm space-y-2">
               {property.notes.map((note, index) => (
                 <li key={index}>{note}</li>
               ))}

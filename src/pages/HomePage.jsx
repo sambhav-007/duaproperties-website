@@ -33,7 +33,7 @@ function HomePage() {
           </p>
           <Link
             to="/properties"
-            className="bg-dua-gold text-dua-dark-green font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300"
+            className="bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300"
           >
             Explore Listings
           </Link>
@@ -41,9 +41,9 @@ function HomePage() {
       </section>
 
       {/* Featured Properties Section */}
-      <section className="py-16 bg-gray-50"> {/* Light gray background */}
+      <section className="py-16 bg-dua-bg-light"> {/* Light gray background */}
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-dua-dark-green mb-10">
+          <h2 className="text-3xl font-bold text-center text-dua-primary mb-10">
             Featured Properties
           </h2>
           {featuredProperties && featuredProperties.length > 0 ? (
@@ -58,7 +58,7 @@ function HomePage() {
           <div className="text-center mt-12">
             <Link
               to="/properties"
-              className="inline-block bg-dua-dark-green text-white py-3 px-6 rounded-md hover:bg-dua-gold transition-colors duration-300 text-lg"
+              className="inline-block bg-dua-primary text-white py-3 px-6 rounded-md hover:bg-dua-accent transition-colors duration-300 text-lg"
             >
               View All Properties
             </Link>

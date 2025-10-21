@@ -10,17 +10,17 @@ function Navbar() {
         {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center space-x-2"> {/* Use flex to align logo and text */}
           <img src={logo} alt="Dua Properties Logo" className="h-10 w-auto" /> {/* Adjust height as needed */}
-          <span className="text-xl font-bold text-dua-dark-green"> {/* Text styling */}
+          <span className="text-xl font-bold text-dua-primary"> {/* Text styling */}
             Dua Property
           </span>
         </Link>
 
         {/* Navigation Links */}
         <div className="space-x-6"> {/* Increased spacing */}
-          <Link to="/" className="text-gray-700 hover:text-dua-gold transition-colors duration-300 font-medium">Home</Link>
-          <Link to="/properties" className="text-gray-700 hover:text-dua-gold transition-colors duration-300 font-medium">Properties</Link>
-          <Link to="/about" className="text-gray-700 hover:text-dua-gold transition-colors duration-300 font-medium">About</Link>
-          <Link to="/contact" className="text-gray-700 hover:text-dua-gold transition-colors duration-300 font-medium">Contact</Link>
+          <Link to="/" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium">Home</Link>
+          <Link to="/properties" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium">Properties</Link>
+          <Link to="/about" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium">About</Link>
+          <Link to="/contact" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium">Contact</Link>
         </div>
       </div>
     </nav>
