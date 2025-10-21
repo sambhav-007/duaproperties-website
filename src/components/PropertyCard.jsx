@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPinIcon, BuildingOffice2Icon, BanknotesIcon } from '@heroicons/react/24/outline'; // Optional icons
+import { motion } from 'framer-motion';
 
 function PropertyCard({ property }) {
   if (!property) return null; // Handle case where property is undefined
@@ -13,13 +14,18 @@ function PropertyCard({ property }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-      <Link to={`/property/${property.id}`} className="block">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }} // Start hidden and slightly down
+      whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position
+      viewport={{ once: true, amount: 0.2 }} // Trigger animation once when 20% is visible
+      transition={{ duration: 0.5, ease: "easeOut" }} // Define animation speed and easing
+      className="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl" // Keep styling, removed hover:scale-105 for smoother scroll feel
+    >      <Link to={`/property/${property.id}`} className="block">
         <img
           src={property.image_main}
           alt={`Image of ${property.name}`}
           className="w-full h-56 object-cover" // Increased height
-          onError={(e) => { e.target.onerror = null; e.target.src="/images/placeholder.png" }} // Basic fallback image
+          onError={(e) => { e.target.onerror = null; e.target.src = "/images/placeholder.png" }} // Basic fallback image
         />
         <div className="p-4">
           <h3 className="text-xl font-semibold text-dua-text mb-1 truncate">{property.name}</h3>
@@ -34,19 +40,19 @@ function PropertyCard({ property }) {
             <span>{property.type}</span>
             {property.bedrooms && <span> • {property.bedrooms} BHK</span>}
             {property.area_sqft && <span> • {property.area_sqft} Sq.Ft.</span>}
-             {property.min_plot_size_sqyd && <span> • {property.min_plot_size_sqyd}-{property.max_plot_size_sqyd} Sq.Yd.</span>}
+            {property.min_plot_size_sqyd && <span> • {property.min_plot_size_sqyd}-{property.max_plot_size_sqyd} Sq.Yd.</span>}
           </div>
 
           <div className="flex justify-between items-center mt-3">
-             <p className="text-dua-accent font-bold text-lg">{formatPrice(property.price)}</p>
-             <span className={`text-xs font-semibold px-2 py-1 rounded ${property.status === 'Sale' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'}`}>
-               For {property.status}
-             </span>
-           </div>
+            <p className="text-dua-accent font-bold text-lg">{formatPrice(property.price)}</p>
+            <span className={`text-xs font-semibold px-2 py-1 rounded ${property.status === 'Sale' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'}`}>
+              For {property.status}
+            </span>
+          </div>
 
         </div>
       </Link>
-    </div>
+    </motion.div>
   );
 }
 

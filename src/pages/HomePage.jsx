@@ -40,6 +40,45 @@ function HomePage() {
         </div>
       </section>
 
+      {/* --- NEW: Why Choose Us Section --- */}
+      <section className="py-16 bg-white"> {/* White background for contrast */}
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-dua-primary mb-4">
+            Why Choose Dua Properties?
+          </h2>
+          <p className="text-lg text-dua-body mb-12 max-w-2xl mx-auto">
+            We are committed to providing exceptional service and finding the perfect property solutions for our clients in the Tricity area.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Feature 1 */}
+            <div className="flex flex-col items-center">
+              <ShieldCheckIcon className="h-12 w-12 text-dua-accent mb-3" />
+              <h3 className="text-xl font-semibold text-dua-text mb-2">Trusted Expertise</h3>
+              <p className="text-dua-body text-sm">Years of experience and deep market knowledge ensure you get the best advice.</p>
+            </div>
+            {/* Feature 2 */}
+            <div className="flex flex-col items-center">
+              <MapPinIcon className="h-12 w-12 text-dua-accent mb-3" />
+              <h3 className="text-xl font-semibold text-dua-text mb-2">Prime Locations</h3>
+              <p className="text-dua-body text-sm">Access to premium properties in Mohali, Chandigarh, Kharar, and surrounding areas.</p>
+            </div>
+            {/* Feature 3 */}
+            <div className="flex flex-col items-center">
+              <UserGroupIcon className="h-12 w-12 text-dua-accent mb-3" />
+              <h3 className="text-xl font-semibold text-dua-text mb-2">Client-Centric</h3>
+              <p className="text-dua-body text-sm">We prioritize your needs, offering personalized service from start to finish.</p>
+            </div>
+            {/* Feature 4 */}
+            <div className="flex flex-col items-center">
+              <CurrencyRupeeIcon className="h-12 w-12 text-dua-accent mb-3" />
+              <h3 className="text-xl font-semibold text-dua-text mb-2">Value & Transparency</h3>
+              <p className="text-dua-body text-sm">Honest dealings and competitive pricing for maximum value on your investment.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* --- END: Why Choose Us Section --- */}
+
       {/* Featured Properties Section */}
       <section className="py-16 bg-dua-bg-light"> {/* Light gray background */}
         <div className="container mx-auto px-4">
