@@ -22,8 +22,8 @@ function HomePage() {
         <div className="absolute inset-0 bg-black opacity-50"></div> {/* Dark overlay */}
         <div className="relative z-10 text-center px-4">
           <BlurText
-            text="Find Your Dream Property"
-            delay={100} // Adjust delay between words/letters (milliseconds)
+            text="Find Your Dream Property!"
+            delay={230} // Adjust delay between words/letters (milliseconds)
             animateBy="words" // Animate 'words' or 'letters'
             direction="top" // Animate from 'top' or 'bottom'
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight" // Pass existing styles
