@@ -6,7 +6,7 @@ import PropertyCard from '../components/PropertyCard'; // Import the card compon
 import BlurText from '../components/BlurText';
 
 // Define a background image URL (replace with a high-quality image URL or local path)
-const heroImageUrl = '/images/hero-background.avif'; // Place a 'hero-background.jpg' in public/images/
+const heroImageUrl = '/images/hero-background.jpg'; // Place a 'hero-background.jpg' in public/images/
 
 function HomePage() {
   // Select properties to feature (e.g., first 3)
