@@ -16,11 +16,35 @@ function Navbar() {
         </Link>
 
         {/* Navigation Links */}
-        <div className="flex flex-1 justify-end items-center space-x-3 sm:space-x-6"> {/* Added flex-1, justify-end, and responsive space-x */}
-          <Link to="/" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium text-sm sm:text-base">Home</Link> {/* Added responsive text-sm */}
-          <Link to="/properties" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium text-sm sm:text-base">Properties</Link>
-          <Link to="/about" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium text-sm sm:text-base">About</Link>
-          <Link to="/contact" className="text-dua-body hover:text-dua-accent transition-colors duration-300 font-medium text-sm sm:text-base">Contact</Link>
+        <div className="flex flex-1 justify-end items-center space-x-3 sm:space-x-6">
+          <Link
+            to="/"
+            className="relative text-dua-body font-medium text-sm sm:text-base group"
+          >
+            Home
+            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-dua-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
+          </Link>
+          <Link
+            to="/properties"
+            className="relative text-dua-body font-medium text-sm sm:text-base group"
+          >
+            Properties
+            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-dua-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
+          </Link>
+          <Link
+            to="/about"
+            className="relative text-dua-body font-medium text-sm sm:text-base group"
+          >
+            About
+            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-dua-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
+          </Link>
+          <Link
+            to="/contact"
+            className="relative text-dua-body font-medium text-sm sm:text-base group"
+          >
+            Contact
+            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-dua-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
+          </Link>
         </div>
       </div>
     </nav>
