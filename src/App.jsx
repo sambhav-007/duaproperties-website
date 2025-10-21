@@ -17,7 +17,7 @@ import NotFoundPage from './pages/NotFoundPage'; // For 404 errors
 function App() {
   return (
     <BrowserRouter> {/* Wrap your entire app with BrowserRouter */}
-      <div className="flex flex-col min-h-screen bg-dua-bg-light">
+      <div className="flex flex-col min-h-screen bg-gray-100">
         <Navbar />
         <main className="flex-grow">
           <Routes>

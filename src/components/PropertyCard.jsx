@@ -38,7 +38,7 @@ function PropertyCard({ property }) {
           </div>
 
           <div className="flex justify-between items-center mt-3">
-             <p className="text-dua-accent font-bold text-lg">{formatPrice(property.price)}</p>
+             <p className="text-dua-gold font-bold text-lg">{formatPrice(property.price)}</p>
              <span className={`text-xs font-semibold px-2 py-1 rounded ${property.status === 'Sale' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'}`}>
                For {property.status}
              </span>

@@ -6,7 +6,7 @@ import PropertyCard from '../components/PropertyCard'; // <-- IMPORT PropertyCar
 function PropertiesPage() {
   return (
     <div className="container mx-auto py-12 px-4"> {/* Added padding */}
-      <h1 className="text-3xl font-bold text-dua-primary mb-8 text-center">
+      <h1 className="text-3xl font-bold text-dua-dark-green mb-8 text-center">
         Our Properties
       </h1>
       {propertiesData && propertiesData.length > 0 ? (
