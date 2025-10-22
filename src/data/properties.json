@@ -209,7 +209,7 @@
     "type": "Residential",
     "configuration": "3 & 4 BHK Luxury Apartments",
     "price": "₹1.49 Cr - 2.10 Cr",
-    "status": "For Sale",
+    "status": "Sale",
     "rera_id": "PBRERA-SAS80-PR0737",
     "description": "Noble Aurellia offers premium 3 and 4 BHK luxury apartments located in the rapidly developing Sector 66A, Mohali, right on IT City Road. These meticulously designed residences blend contemporary architecture with unparalleled comfort and convenience. With robust infrastructure, modern amenities, and proximity to major IT hubs and educational institutions, Noble Aurellia presents an ideal lifestyle for discerning families and a solid investment opportunity.",
     "highlights": [
@@ -260,6 +260,8 @@
       "/images/properties/noble-aurellia-2.jpg",
       "/images/properties/noble-aurellia-playarea.png",
       "/images/properties/noble-aurellia-pool.png",
+      "/images/properties/noble-aurellia-interior.jpg",
+      "/images/properties/noble-aurellia-interior-1.jpg",
       "/images/properties/noble-aurellia-master-plan.png",
       "/images/properties/noble-aurellia-master-plan-2.jpg"
     ]
