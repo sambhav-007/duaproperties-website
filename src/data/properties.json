@@ -175,7 +175,7 @@
       "Fire Fighting Systems"
     ],
     "payment_plan": {
-      "basic_sale_price_sqft": "₹14,000 / Sq. Ft.",
+      "basic_price": "₹14,000 / Sq. Ft.",
       "stages": [
         { "name": "Booking Amount", "amount": "On Request" },
         { "name": "Construction Linked Plan", "details": "As per schedule" }
@@ -195,7 +195,7 @@
     "images_gallery": [
       "/images/properties/homeland-regalia-exterior-1.jpg",
       "/images/properties/homeland-regalia-exterior-2.jpg",
-      "properties/homeland-regalia-exterior-3.jpg",
+      "/images/properties/homeland-regalia-exterior-3.jpg",
       "/images/properties/homeland-regalia-exterior-4.jpg",
       "/images/properties/homeland-regalia-pool.jpg",
       "/images/properties/homeland-regalia-master-plan.png"
