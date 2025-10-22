@@ -1,7 +1,6 @@
-
 [
   {
-    "id": "1",
+    "id": 1,
     "name": "Amayra Vista - Premium Residential Plots",
     "type": "Residential Plot",
     "status": "Sale",
@@ -44,9 +43,8 @@
       "/images/properties/amayra-vista-aerialsiteplan.jpeg",
       "/images/properties/amayra-vista-site-plan.png",
       "/images/properties/amayra-vista-location.png"
-      
     ],
-    "video_url": null, 
+    "video_url": null,
     "payment_plan": {
       "basic_price": "₹54,900 / Per Square Yard",
       "plot_sizes": ["100 Sq.Yds.", "111.11 Sq.Yds.", "125 Sq.Yds.", "127.77 Sq.Yds.", "133.33 Sq.Yds.", "150 Sq.Yds."],
@@ -79,7 +77,7 @@
     ]
   },
   {
-    "id": "2",
+    "id": 2,
     "name": "Amayra Sky City - Premium Apartments",
     "type": "Apartment",
     "status": "Sale",
@@ -120,9 +118,8 @@
       "/images/properties/amayra-skycity-gym.jpeg",
       "/images/properties/amayra-skycity-court.jpeg",
       "/images/properties/amayra-skycity-plan.jpeg"
-
     ],
-    "video_url": "/videos/amayra-skycity-vid.mov", 
+    "video_url": "/videos/amayra-skycity-vid.mov",
     "payment_plan": {
       "basic_price": "Available Upon Request",
       "stages": [
@@ -137,7 +134,7 @@
     ]
   },
   {
-    "id": "3",
+    "id": 3,
     "name": "Homeland Regalia - Limited Edition Residences",
     "developer": "Homeland Group",
     "location": "Sector 77, Airport Road, Mohali",
@@ -201,7 +198,7 @@
       "properties/homeland-regalia-exterior-3.jpg",
       "properties/homeland-regalia-exterior-4.jpg",
       "properties/homeland-regalia-pool.jpg",
-      "properties/homeland-regalia-master-plan.jpg"
+      "properties/homeland-regalia-master-plan.png"
     ]
   }
 ]
