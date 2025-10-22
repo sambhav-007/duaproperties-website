@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Amayra Vista - Premium Residential Plots",
     "type": "Residential Plot",
     "status": "Sale",
@@ -77,7 +77,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Amayra Sky City - Premium Apartments",
     "type": "Apartment",
     "status": "Sale",
@@ -134,7 +134,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Homeland Regalia - Limited Edition Residences",
     "developer": "Homeland Group",
     "location": "Sector 77, Airport Road, Mohali",
