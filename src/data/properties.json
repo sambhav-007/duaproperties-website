@@ -140,8 +140,8 @@
     "location": "Sector 77, Airport Road, Mohali",
     "type": "Residential",
     "configuration": "3, 4, 5 BHK Luxury Apartments",
-    "price": "₹2.30 Cr - 4.50 Cr",
-    "status": "Sale",
+    "price": "₹14,000 / Sq. Ft.",
+    "status": "For Sale",
     "rera_id": "PBRERA-SAS81-PR0757",
     "description": "Homeland Regalia in Sector 77, Mohali, offers ultra-luxury 3, 4, and 5 BHK apartments designed for an exclusive lifestyle. Developed by the renowned Homeland Group, these limited edition residences boast exquisite design, premium amenities, and a prime location on Airport Road, providing unparalleled connectivity and convenience. With a strong focus on security, modern conveniences, and lavish recreational facilities, Homeland Regalia redefines sophisticated urban living.",
     "highlights": [
@@ -195,7 +195,7 @@
     "images_gallery": [
       "/images/properties/homeland-regalia-exterior-1.jpg",
       "/images/properties/homeland-regalia-exterior-2.jpg",
-      "/images/properties/homeland-regalia-exterior-3.jpg",
+      "properties/homeland-regalia-exterior-3.jpg",
       "/images/properties/homeland-regalia-exterior-4.jpg",
       "/images/properties/homeland-regalia-pool.jpg",
       "/images/properties/homeland-regalia-master-plan.png"
