@@ -137,7 +137,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Homeland Regalia - Limited Edition Residences",
     "developer": "Homeland Group",
     "location": "Sector 77, Airport Road, Mohali",
@@ -178,15 +178,21 @@
       "Fire Fighting Systems"
     ],
     "payment_plan": {
-      "booking_amount": "On Request",
-      "on_allotment": "On Request",
-      "construction_linked": "As per plan (Under Construction)",
-      "on_possession": "Remaining balance"
+      "basic_sale_price_sqft": "₹14,000 / Sq. Ft.",
+      "stages": [
+        { "name": "Booking Amount", "amount": "On Request" },
+        { "name": "Construction Linked Plan", "details": "As per schedule" }
+      ]
     },
     "other_charges": [
-      "GST as applicable",
-      "Registry charges extra",
-      "Maintenance charges extra"
+      { "name": "Club Membership", "amount": "₹25 Lakhs" },
+      { "name": "Car Parking", "amount": "₹15 Lakhs" },
+      { "name": "Power Backup (KVA)", "amount": "₹30,000 / KVA" },
+      { "name": "Interest Free Maintenance Security (IFMS)", "amount": "₹72 / Sq. Ft." },
+      { "name": "Annual Maintenance Contract (AMC)", "amount": "₹216 / Sq. Ft." },
+      { "name": "Monthly Maintenance", "amount": "₹6 / Sq. Ft." },
+      { "name": "GST", "details": "As applicable" },
+      { "name": "Registry Charges", "details": "Extra" }
     ],
     "image_main": "properties/homeland-regalia-main.jpg",
     "gallery": [

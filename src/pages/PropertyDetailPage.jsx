@@ -126,19 +126,20 @@ function PropertyDetailPage() {
         )}
 
         {/* Other Charges */}
-        {property.other_charges && property.other_charges.length > 0 && (
-          <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 className="text-2xl font-bold text-dua-text mb-4">Other Charges</h2>
-            <ul className="divide-y divide-gray-200">
-              {property.other_charges.map((charge, index) => (
-                <li key={index} className="flex justify-between py-3">
-                  <span className="text-dua-body">{charge.name} {charge.details ? `(${charge.details})` : ''}</span>
-                  <span className="font-semibold text-gray-900">{charge.amount}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold text-dua-text mb-4">Other Charges</h3>
+          <ul className="list-disc list-inside text-dua-body space-y-2">
+            {property.other_charges && property.other_charges.map((charge, index) => (
+              <li key={index} className="flex justify-between items-center pr-4">
+                <span>{charge.name}:</span>
+                <span className="font-medium text-dua-text">
+                  {charge.amount || charge.details} {/* Display amount if present, else details */}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
 
         {/* Gallery Section */}
         {property.images_gallery && property.images_gallery.length > 0 && (
@@ -177,8 +178,8 @@ function PropertyDetailPage() {
         close={() => setLightboxOpen(false)}
         index={lightboxIndex}
         slides={slides}
-        // Optional: Add plugins for Thumbnails, Zoom, etc. later if needed
-        // Example: plugins={[Thumbnails, Zoom]}
+      // Optional: Add plugins for Thumbnails, Zoom, etc. later if needed
+      // Example: plugins={[Thumbnails, Zoom]}
       />
       {/* --- END LIGHTBOX COMPONENT --- */}
 
