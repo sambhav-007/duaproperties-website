@@ -200,5 +200,68 @@
       "/images/properties/homeland-regalia-pool.jpg",
       "/images/properties/homeland-regalia-master-plan.png"
     ]
+  },
+  {
+    "id": "4",
+    "name": "Noble Aurellia - Luxury Apartments",
+    "developer": "Noble Ventures",
+    "location": "Sector 66A, IT City Road, Mohali",
+    "type": "Residential",
+    "configuration": "3 & 4 BHK Luxury Apartments",
+    "price": "₹1.49 Cr - 2.10 Cr",
+    "status": "For Sale",
+    "rera_id": "PBRERA-SAS80-PR0737",
+    "description": "Noble Aurellia offers premium 3 and 4 BHK luxury apartments located in the rapidly developing Sector 66A, Mohali, right on IT City Road. These meticulously designed residences blend contemporary architecture with unparalleled comfort and convenience. With robust infrastructure, modern amenities, and proximity to major IT hubs and educational institutions, Noble Aurellia presents an ideal lifestyle for discerning families and a solid investment opportunity.",
+    "highlights": [
+      "Strategic location on IT City Road",
+      "Expansive 3 & 4 BHK layouts",
+      "Modern architecture and premium finishes",
+      "Close proximity to IT hubs and educational institutions",
+      "Gated community with advanced security",
+      "Lush green spaces and recreational areas"
+    ],
+    "amenities": [
+      "Clubhouse & Community Hall",
+      "Gymnasium & Yoga Studio",
+      "Swimming Pool",
+      "Kids' Play Area",
+      "Landscaped Gardens",
+      "24x7 Security with CCTV Surveillance",
+      "100% Power Backup",
+      "High-Speed Lifts",
+      "Reserved & Visitor Parking",
+      "Rainwater Harvesting",
+      "Fire Fighting Systems",
+      "Intercom Facility",
+      "Indoor Games Room",
+      "Broadband Internet Provision"
+    ],
+    "payment_plan": {
+      "basic_price_type": "Apartment Cost",
+      "stages": [
+        { "name": "Booking Amount", "amount": "10% of BSP" },
+        { "name": "On Allotment", "amount": "15% of BSP" },
+        { "name": "Construction Linked Plan", "details": "As per construction progress" },
+        { "name": "On Possession", "amount": "Remaining Balance + Other Charges" }
+      ]
+    },
+    "other_charges": [
+      { "name": "Club Membership", "amount": "₹3.5 Lakhs" },
+      { "name": "Car Parking", "amount": "₹4.5 Lakhs" },
+      { "name": "Power Backup (Per KVA)", "amount": "₹30,000 / KVA" },
+      { "name": "Interest Free Maintenance Security (IFMS)", "amount": "₹75 / Sq. Ft." },
+      { "name": "Monthly Maintenance", "amount": "₹5 / Sq. Ft." },
+      { "name": "GST", "details": "As applicable" },
+      { "name": "Registry Charges", "details": "Extra" }
+    ],
+    "image_main": "/images/properties/noble-aurellia-main.jpg",
+    "images_gallery": [
+      "/images/properties/noble-aurellia-1.png",
+      "/images/properties/noble-aurellia-2.jpg",
+      "/images/properties/noble-aurellia-playarea.png",
+      "/images/properties/noble-aurellia-pool.png",
+      "/images/properties/noble-aurellia-master-plan.png",
+      "/images/properties/noble-aurellia-master-plan-2.jpg"
+    ]
   }
 ]
