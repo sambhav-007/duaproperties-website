@@ -1,7 +1,7 @@
 // src/pages/AboutPage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import aboutImage from '../assets/dua-logo'; 
+import duaLogo from '../assets/dua-logo.jpg';
 
 function AboutPage() {
   return (
@@ -19,7 +19,7 @@ function AboutPage() {
         {/* Optional Image Section */}
         { <div className="mb-12 text-center">
           <img
-            src={aboutImage}
+            src={duaLogo}
             alt="Dua Properties Team or Office"
             className="inline-block rounded-lg shadow-md max-w-full h-auto md:max-w-xl"
           />
