@@ -13,6 +13,7 @@ import PropertyDetailPage from './pages/PropertyDetailPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage'; // For 404 errors
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <WhatsAppButton />
       </div>
     </BrowserRouter>
   );
