@@ -191,14 +191,14 @@
       { "name": "GST", "details": "As applicable" },
       { "name": "Registry Charges", "details": "Extra" }
     ],
-    "image_main": "properties/homeland-regalia-main.jpg",
-    "gallery": [
-      "properties/homeland-regalia-exterior-1.jpg",
-      "properties/homeland-regalia-exterior-2.jpg",
-      "properties/homeland-regalia-exterior-3.jpg",
-      "properties/homeland-regalia-exterior-4.jpg",
-      "properties/homeland-regalia-pool.jpg",
-      "properties/homeland-regalia-master-plan.png"
+    "image_main": "/images/properties/homeland-regalia-main.jpg",
+    "images_gallery": [
+      "/images/properties/homeland-regalia-exterior-1.jpg",
+      "/images/properties/homeland-regalia-exterior-2.jpg",
+      "/images/properties/homeland-regalia-exterior-3.jpg",
+      "/images/properties/homeland-regalia-exterior-4.jpg",
+      "/images/properties/homeland-regalia-pool.jpg",
+      "/images/properties/homeland-regalia-master-plan.png"
     ]
   }
 ]
