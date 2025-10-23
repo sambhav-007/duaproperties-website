@@ -15,13 +15,13 @@ function HomePage() {
   return (
     <> {/* Use a React Fragment to wrap Helmet and the rest of the content */}
       <Helmet>
-        <title>Dua Properties | Find Your Dream Property in Mohali, Chandigarh & Kharar</title>
+        <title>Dua Property | Find Your Dream Property in Mohali, Chandigarh & Kharar</title>
         <meta
           name="description"
-          content="Discover premium residential and commercial properties with Dua Properties. Your trusted real estate partner for luxury apartments, residential plots, and investment opportunities across Mohali, Chandigarh, and Kharar (Tricity area)."
+          content="Discover premium residential and commercial properties with Dua Property. Your trusted real estate partner for luxury apartments, residential plots, and investment opportunities across Mohali, Chandigarh, and Kharar (Tricity area)."
         />
         {/* Optional: Add keywords meta tag, though less impactful now */}
-        {/* <meta name="keywords" content="real estate Mohali, properties Chandigarh, luxury apartments Kharar, residential plots Mohali, Dua Properties, Tricity properties, investment properties, commercial property Mohali" /> */}
+        {/* <meta name="keywords" content="real estate Mohali, properties Chandigarh, luxury apartments Kharar, residential plots Mohali, Dua Property, Tricity properties, investment properties, commercial property Mohali" /> */}
       </Helmet>
 
       {/* Hero Section */}
@@ -42,7 +42,7 @@ function HomePage() {
             />
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto">
-            Discover premium residential and commercial properties with Dua Properties. Your future starts here.
+            Discover premium residential and commercial properties with Dua Property. Your future starts here.
           </p>
           <Link
             to="/properties"
@@ -58,10 +58,10 @@ function HomePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-dua-primary mb-4">
-            Why Choose Dua Properties for Real Estate in Tricity?
+            Why Choose Dua Property for Real Estate in Tricity?
           </h2>
           <p className="text-lg text-dua-body mb-12 max-w-2xl mx-auto">
-            We are committed to providing exceptional service and finding the perfect property solutions for our clients in the **Mohali, Chandigarh, and Kharar (Tricity)** area. Trust Dua Properties for your next home or investment.
+            We are committed to providing exceptional service and finding the perfect property solutions for our clients in the **Mohali, Chandigarh, and Kharar (Tricity)** area. Trust Dua Property for your next home or investment.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Feature 1 */}
