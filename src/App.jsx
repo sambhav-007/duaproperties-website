@@ -10,6 +10,7 @@ import PropertyDetailPage from './pages/PropertyDetailPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import WhatsAppButton from './components/WhatsAppButton';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const helmetContext = {}; 
@@ -17,6 +18,7 @@ function App() {
   return (
     <HelmetProvider context={helmetContext}> {/* <-- WRAP YOUR APP WITH HelmetProvider */}
       <Router>
+        <ScrollToTop />
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">
