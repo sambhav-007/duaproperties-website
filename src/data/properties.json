@@ -315,5 +315,58 @@
       "/images/properties/homeland-global-park-retail-2.png",
       "/images/properties/homeland-global-park-model.jpg"
     ]
+  },
+  {
+    "id": "6",
+    "name": "Independent Floor, Sector 117, Mohali",
+    "developer": "Dua Property",
+    "location": "Sector 117, Mohali",
+    "type": "Residential",
+    "configuration": "3 BHK Independent Floor (Ground, First, Second Floor options)",
+    "price": "Price on Request",
+    "status": "For Sale",
+    "rera_id": "Not Applicable",
+    "description": "Discover spacious and independent living in Sector 117, Mohali, with this beautifully designed 3 BHK builder floor. Available across ground, first, and second floor options, each unit offers a well-planned layout featuring three comfortable bedrooms, a drawing room, dining area, a modern kitchen, and multiple attached toilets. The ground floor boasts an exclusive private rear courtyard, while the first and second floors come with wide balconies (3'-3\" wide), perfect for relaxation and enjoying the surroundings. Located in a prime residential area, this independent floor in Sector 117, Mohali, is an ideal choice for families seeking ample space, comfort, and excellent connectivity.",
+    "highlights": [
+      "3 BHK Spacious Independent Floor",
+      "Located in Prime Sector 117, Mohali",
+      "Ground Floor with Private Rear Courtyard",
+      "First & Second Floors with 3'-3\" Wide Balconies",
+      "Dedicated Drawing Room and Dining Area",
+      "Modern Kitchen Design",
+      "Multiple Toilets for convenience",
+      "Ideal for Families Seeking Independent Living",
+      "Excellent Connectivity & Amenities Nearby"
+    ],
+    "amenities": [
+      "Ample Natural Light & Ventilation",
+      "Quality Construction",
+      "Near Market & Essential Services",
+      "Good Connectivity to Major Roads",
+      "Car Parking Space",
+      "Peaceful Residential Locality"
+    ],
+    "payment_plan": {
+      "basic_price_type": "On Request",
+      "stages": [
+        { "name": "Contact for Details", "amount": "Personalized Consultation" }
+      ]
+    },
+    "other_charges": [
+      { "name": "GST", "details": "As applicable" },
+      { "name": "Registration Charges", "details": "Extra" },
+      { "name": "Other Statutory Charges", "details": "As applicable" }
+    ],
+    "image_main": "/images/properties/independent-floor-sec117-main.jpg",
+    "images_gallery": [
+      "/images/properties/independent-floor-sec117-ground-floor.jpg",
+      "/images/properties/independent-floor-sec117-first-floor.jpg",
+      "/images/properties/independent-floor-sec117-second-floor.jpg",
+      "/images/properties/independent-floor-sec117-exterior-1.jpg",
+      "/images/properties/independent-floor-sec117-exterior-2.jpg",
+      "/images/properties/independent-floor-sec117-interior-1.jpg",
+      "/images/properties/independent-floor-sec117-interior-2.jpg",
+      "/images/properties/independent-floor-sec117-interior-3.jpg"
+    ]
   }
 ]
