@@ -368,5 +368,71 @@
       "/images/properties/independent-floor-sec117-interior-2.jpg",
       "/images/properties/independent-floor-sec117-interior-3.jpg"
     ]
+  },
+  {
+    "id": "7",
+    "name": "Falcon Homes - 3 BHK Luxury Independent Floors",
+    "developer": "Falcon Homes (Self-financed or specific builder)",
+    "location": "Near Chandigarh-Ropar National Highway, Adjoining Sunny Urban, Kurali, Mohali",
+    "type": "Residential",
+    "configuration": "3 BHK Luxury Flats (1170 sq.ft Super Built-up Area)",
+    "price": "₹58.90 Lacs",
+    "status": "Sale", 
+    "rera_id": "PBRERA-SAS81-PC0335", 
+    "possession": "Ready to Move", 
+    "description": "Discover spacious and independent living at Falcon Homes, offering premium 3 BHK luxury flats in a prime location near Chandigarh-Ropar National Highway, adjoining Sunny Urban, Kurali, Mohali. These 'Both Side Open' floors (1170 sq.ft Super Built-up Area) ensure excellent ventilation and abundant natural light. The property is Ready to Move, featuring a North-East facing unit and comes unfurnished, providing a blank canvas for your dream home. Enjoy modern amenities within a secure, gated society. Falcon Homes is an ideal blend of comfort, connectivity, and value for families seeking a quality lifestyle in the Tricity area. (RERA ID: PBRERA-SAS81-PC0335)",
+    "highlights": [
+      "Both Side Open Independent Floors (Excellent Ventilation & Light)",
+      "3 BHK Luxury Flats (1170 sq.ft Super Built-up Area)",
+      "Ready to Move Property", 
+      "Prime Location: Near Chandigarh-Ropar National Highway, Adjoining Sunny Urban, Kurali, Mohali",
+      "North-East Facing Unit Available",
+      "Spacious Rooms and Living Area",
+      "Gated Society with 24*7 CCTV Camera Security",
+      "Modular Kitchen",
+      "Cupboards in all Rooms",
+      "Designer Down Ceiling with Ceiling Lights and LED Panels",
+      "Branded Sanitary & Bath Fittings",
+      "8ft High Flush Doors",
+      "Vitrified Tiles Flooring",
+      "Proper Parking spaces",
+      "24*7 Water Supply",
+      "Power Backup", 
+      "Lift Available"
+    ],
+    "amenities": [
+      "Gated Community",
+      "CCTV Surveillance",
+      "24/7 Water Supply",
+      "Ample Parking",
+      "Modern Interior Finishings",
+      "Power Backup",
+      "High-Speed Lift", 
+      "Green Park Area", 
+      "Rain Water Harvesting",
+      "Waste Disposal",
+      "Security Personnel",
+      "Good Connectivity to Chandigarh & Ropar"
+    ],
+    "payment_plan": {
+      "basic_price_type": "Lacs",
+      "stages": [
+        { "name": "Total Price", "amount": "₹58.90" }
+      ]
+    },
+    "other_charges": [
+      { "name": "GST", "details": "As applicable" },
+      { "name": "Registration Charges", "details": "Extra" },
+      { "name": "Other Statutory Charges", "details": "As applicable" }
+    ],
+    "image_main": "/images/properties/falcon-homes-main.png",
+    "images_gallery": [
+      "/images/properties/falcon-homes-interior-1.jpg",
+      "/images/properties/falcon-homes-interior-2.jpg",
+      "/images/properties/falcon-homes-interior-3.jpg",
+      "/images/properties/falcon-homes-interior-4.jpg",
+      "/images/properties/falcon-homes-map.png"
+      
+    ]
   }
 ]
