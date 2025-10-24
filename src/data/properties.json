@@ -265,5 +265,55 @@
       "/images/properties/noble-aurellia-master-plan.png",
       "/images/properties/noble-aurellia-master-plan-2.jpg"
     ]
+  },
+  {
+    "id": "5",
+    "name": "Homeland Global Park - Commercial Spaces",
+    "developer": "Homeland Group",
+    "location": "Sector-75, Mohali",
+    "type": "Commercial",
+    "configuration": "Retail Space, Office Spaces, Food Court, Restaurants",
+    "price": "Price on Request",
+    "status": "Sale",
+    "rera_id": "PBRERA-SAS81-PC032S",
+    "description": "Homeland Global Park is a landmark commercial development by Homeland Group, located in the prime Sector-75, Mohali. Spanning an impressive 5 Million sq. ft., it stands as the biggest commercial project in North India. This strategically located park offers premium retail spaces, modern office spaces, a vibrant food court, and dedicated restaurant areas, making it an unparalleled investment opportunity. With a 9-year lock-in period and a 20-year lease, it's designed for smart investors seeking high potential in a thriving commercial hub.",
+    "highlights": [
+      "Biggest Commercial Project in North India (5 Million sq. ft.)",
+      "Prime Location in Sector-75, Mohali",
+      "Retail Space with High Potential",
+      "Modern Office Spaces",
+      "Vibrant Food Court & Dedicated Restaurants",
+      "9 Years Lock-in Period, 20 Years Lease",
+      "Pre-leased Restaurants available",
+      "Smart Investment Opportunity",
+      "Developed by Reputable Homeland Group"
+    ],
+    "amenities": [
+      "24x7 Security & Surveillance",
+      "Ample Parking Space",
+      "100% Power Backup",
+      "High-Speed Elevators",
+      "Modern Infrastructure",
+      "Fire Safety Systems",
+      "Landscaped Areas",
+      "Advanced HVAC Systems"
+    ],
+    "payment_plan": {
+      "basic_price_type": "On Request",
+      "stages": [
+        { "name": "Contact for Details", "amount": "Personalized Consultation" }
+      ]
+    },
+    "other_charges": [
+      { "name": "GST", "details": "As applicable" },
+      { "name": "Registration Charges", "details": "Extra" },
+      { "name": "Other Statutory Charges", "details": "As applicable" }
+    ],
+    "image_main": "/images/properties/homeland-global-park-main.png",
+    "images_gallery": [
+      "/images/properties/homeland-global-park-retail.png",
+      "/images/properties/homeland-global-park-retail-2.png",
+      "/images/properties/homeland-global-park-model.jpg",
+    ]
   }
 ]
