@@ -26,7 +26,7 @@ function AboutPage() {
           </h1>
 
           <p className="text-lg text-dua-body mb-8 md:mb-12 text-center max-w-3xl mx-auto">
-            Welcome to **Dua Property**, your dedicated **real estate partner** specializing in premium **residential and commercial properties** across the vibrant **Tricity area – Mohali, Chandigarh, and Kharar**. Founded on the principles of trust, transparency, and client satisfaction, we are committed to helping you navigate the **property market** and find the perfect space to call home or the ideal investment opportunity.
+            Welcome to <strong>Dua Property</strong>, your dedicated <strong>real estate partner</strong> specializing in premium <strong>residential and commercial properties</strong> across the vibrant <strong>Tricity area – Mohali, Chandigarh, and Kharar</strong>. Founded on the principles of trust, transparency, and client satisfaction, we are committed to helping you navigate the <strong>property market</strong> and find the perfect space to call home or the ideal investment opportunity.
           </p>
 
           {/* Logo Image Section - ensure alt text is descriptive */}
@@ -44,7 +44,7 @@ function AboutPage() {
                 Our Story: Building Dreams in Mohali & Beyond
               </h2>
               <p className="text-dua-body leading-relaxed">
-                For over years, **Dua Property** has been deeply involved in the growth and development of the **Mohali real estate landscape**. Our founder, **Vishal Dua**, saw a need for a reliable and knowledgeable **property advisor** who truly understands the local **Tricity market dynamics**. Since then, we've helped countless families find their **dream homes** and investors secure valuable **real estate assets**, building a reputation for integrity and results in Mohali, Chandigarh, and Kharar.
+                For over years, <strong>Dua Property</strong> has been deeply involved in the growth and development of the <strong>Mohali real estate landscape</strong>. Our founder, <strong>Vishal Dua</strong>, saw a need for a reliable and knowledgeable <strong>property advisor</strong> who truly understands the local <strong>Tricity market dynamics</strong>. Since then, we've helped countless families find their <strong>dream homes</strong> and investors secure valuable <strong>real estate assets</strong>, building a reputation for integrity and results in Mohali, Chandigarh, and Kharar.
               </p>
             </section>
 
@@ -53,14 +53,14 @@ function AboutPage() {
                 What We Do: Expertise in Tricity Properties
               </h2>
               <p className="text-dua-body leading-relaxed mb-4">
-                At **Dua Property**, we offer a comprehensive range of **real estate services** focused on the most sought-after locations in **Mohali, Chandigarh, and Kharar**. Our expertise includes:
+                At <strong>Dua Property</strong>, we offer a comprehensive range of <strong>real estate services</strong> focused on the most sought-after locations in <strong>Mohali, Chandigarh, and Kharar</strong>. Our expertise includes:
               </p>
               <ul className="list-disc list-inside text-dua-body space-y-2 pl-4">
-                <li>**Residential Plots:** Guiding you to find the perfect **residential plot** in well-planned communities like Amayra Vista, ideal for building your **dream home in Mohali**.</li>
-                <li>**Luxury Apartments:** Showcasing premium residences in developments such as Amayra Sky City and Homeland Regalia, offering **luxury apartments in Mohali and Chandigarh**.</li>
-                <li>**Commercial Properties:** Assisting businesses in finding strategic **commercial property** locations for growth and investment across the Tricity.</li>
-                <li>**Investment Advisory:** Providing data-driven insights for maximizing your **real estate investments** in the competitive **Tricity market**.</li>
-                <li>**End-to-End Support:** Assisting you through every step, from **property selection** and site visits to documentation and final handover, ensuring a seamless experience with **Dua Property**.</li>
+                <li><strong>Residential Plots:</strong> Guiding you to find the perfect <strong>residential plot</strong> in well-planned communities like Amayra Vista, ideal for building your <strong>dream home in Mohali</strong>.</li>
+                <li><strong>Luxury Apartments:</strong> Showcasing premium residences in developments such as Amayra Sky City and Homeland Regalia, offering <strong>luxury apartments in Mohali and Chandigarh</strong>.</li>
+                <li><strong>Commercial Properties:</strong> Assisting businesses in finding strategic <strong>commercial property</strong> locations for growth and investment across the Tricity.</li>
+                <li><strong>Investment Advisory:</strong> Providing data-driven insights for maximizing your <strong>real estate investments</strong> in the competitive <strong>Tricity market</strong>.</li>
+                <li><strong>End-to-End Support:</strong> Assisting you through every step, from <strong>property selection</strong> and site visits to documentation and final handover, ensuring a seamless experience with <strong>Dua Property</strong>.</li>
               </ul>
             </section>
 
@@ -69,13 +69,13 @@ function AboutPage() {
                 Why Choose Dua Property as Your Real Estate Partner?
               </h2>
               <p className="text-dua-body leading-relaxed mb-4">
-                Choosing the right **property advisor** is crucial. Here’s why clients trust **Dua Property** for their **real estate needs in Mohali, Chandigarh, and Kharar**:
+                Choosing the right <strong>property advisor</strong> is crucial. Here’s why clients trust <strong>Dua Property</strong> for their <strong>real estate needs in Mohali, Chandigarh, and Kharar</strong>:
               </p>
               <ul className="list-disc list-inside text-dua-body space-y-2 pl-4">
-                <li>**Local Market Mastery:** We possess in-depth knowledge of **Mohali's Sector 77, Sector 127, Kurali Bypass, Airport Road**, and other key **Mohali & Kharar locales**, ensuring informed decisions.</li>
-                <li>**Transparency First:** We believe in honest communication and clear processes, ensuring you are informed at every stage of your **property purchase**.</li>
-                <li>**Client-Centric Approach:** Your goals are our priority. We listen, understand, and tailor our services to meet your specific needs for **property in Tricity**.</li>
-                <li>**Curated Listings:** We focus on quality projects from reputable developers, ensuring value and reliability in every **Dua Property listing**.</li>
+                <li><strong>Local Market Mastery:</strong> We possess in-depth knowledge of <strong>Mohali's Sector 77, Sector 127, Kurali Bypass, Airport Road</strong>, and other key <strong>Mohali & Kharar locales</strong>, ensuring informed decisions.</li>
+                <li><strong>Transparency First:</strong> We believe in honest communication and clear processes, ensuring you are informed at every stage of your <strong>property purchase</strong>.</li>
+                <li><strong>Client-Centric Approach:</strong> Your goals are our priority. We listen, understand, and tailor our services to meet your specific needs for <strong>property in Tricity</strong>.</li>
+                <li><strong>Curated Listings:</strong> We focus on quality projects from reputable developers, ensuring value and reliability in every <strong>Dua Property listing</strong>.</li>
               </ul>
             </section>
 
@@ -84,7 +84,7 @@ function AboutPage() {
                 Connect with Dua Property for Your Next Investment
               </h2>
               <p className="text-lg text-dua-body mb-6 max-w-2xl mx-auto">
-                Whether you're looking for a **luxury apartment in Mohali**, a **residential plot near the GMADA Expressway**, or expert advice on **real estate investment in Chandigarh**, **Dua Property** is here to help. Explore our current listings or contact us today for a personalized consultation. Let us help you unlock your future in the **Tricity real estate market**.
+                Whether you're looking for a <strong>luxury apartment in Mohali</strong>, a <strong>residential plot near the GMADA Expressway</strong>, or expert advice on <strong>real estate investment in Chandigarh</strong>, <strong>Dua Property</strong> is here to help. Explore our current listings or contact us today for a personalized consultation. Let us help you unlock your future in the <strong>Tricity real estate market</strong>.
               </p>
               <Link
                 to="/contact"
