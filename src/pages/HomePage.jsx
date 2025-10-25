@@ -7,6 +7,7 @@ import PropertyCard from '../components/PropertyCard';
 import BlurText from '../components/BlurText';
 import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
 
+const heroVideoUrl = '/videos/hero-background-video.mp4';
 const heroImageUrl = '/images/hero-background.jpg'; 
 
 function HomePage() {
