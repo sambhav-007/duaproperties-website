@@ -23,32 +23,32 @@ function HomePage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-dua-bg-dark text-white h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image/Video - Placeholder for now */}
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/images/hero-bg.jpg)' }}>
-          <div className="absolute inset-0 bg-black opacity-50"></div> {/* Dark overlay */}
-        </div>
-
+      <section
+        className="relative bg-cover bg-center h-[60vh] text-white flex items-center justify-center"
+        style={{ backgroundImage: `url(${heroImageUrl})` }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div> {/* Dark overlay */}
         <div className="relative z-10 text-center px-4">
-          {/* This is where we'll use GradientText */}
-          <GradientText
-            colors={["#FFD700", "#FF8C00", "#FFD700"]} // Gold/Orange Gradient for Luxury
-            animationSpeed={5} // Slightly slower for elegance
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4" // Tailwind classes for sizing/weight
-          >
-            Discover Your Next Legacy.
-          </GradientText>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-200">
-            Premium Real Estate in Tricity & Dubai. Elevated Living, Unmatched Investment.
+          {/* Changed BlurText to H1 for primary page heading, retaining blur effect */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-center">
+            <BlurText
+              text="Find Your Dream Property!"
+              delay={230}
+              animateBy="words"
+              direction="top"
+              className="inline-block" // Apply inline-block to BlurText wrapper if it's text within h1
+            />
+          </h1>
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto">
+            Discover premium residential and commercial properties with Dua Property. Your future starts here.
           </p>
-          <div className="flex justify-center space-x-4">
-            <Link to="/properties" className="bg-dua-accent text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all duration-300">
-              Explore Properties
-            </Link>
-            <Link to="/contact" className="bg-transparent border-2 border-white text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-white hover:text-dua-primary transition-all duration-300">
-              Get in Touch
-            </Link>
-          </div>
+          <Link
+            to="/properties"
+            className="bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300"
+            aria-label="Explore all property listings" // Added for accessibility
+          >
+            Explore Listings
+          </Link>
         </div>
       </section>
 
