@@ -63,4 +63,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  </urlset>
+  <url>
+    <loc>https://www.duaproperty.com/property/8</loc>
+    <lastmod>2023-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.duaproperty.com/property/9</loc>
+    <lastmod>2023-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
