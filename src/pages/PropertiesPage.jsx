@@ -8,22 +8,21 @@ function PropertiesPage() {
   return (
     <> {/* Use a React Fragment to wrap Helmet and the rest of the content */}
       <Helmet>
-        <title>All Properties for Sale in Mohali, Chandigarh & Kharar | Dua Property</title>
+        <title>All Properties for Sale in Tricity & Dubai | Dua Property</title> 
         <meta
           name="description"
-          content="Explore all residential and commercial properties for sale by Dua Property. Find luxury apartments, independent homes, and residential plots in prime locations across Mohali, Chandigarh, and Kharar (Tricity area)."
+          content="Explore all residential and commercial properties for sale by Dua Property. Find luxury apartments, independent homes, and residential plots in prime locations across Mohali, Chandigarh, Kharar (Tricity area) AND exclusive projects in Dubai, UAE." 
         />
-        {/* Optional: Add keywords meta tag if desired */}
-        {/* <meta name="keywords" content="properties Mohali, real estate Chandigarh, apartments for sale Kharar, residential plots, commercial properties, luxury homes Tricity, Dua Property listings" /> */}
+        <meta name="keywords" content="properties Mohali, real estate Chandigarh, apartments for sale Kharar, residential plots, commercial properties, luxury homes Tricity, Dubai properties, UAE real estate, Dua Property listings" />
       </Helmet>
 
       <div className="container mx-auto py-12 px-4">
         {/* Main heading for the page, descriptive and keyword-rich */}
         <h1 className="text-3xl md:text-4xl font-bold text-dua-primary mb-8 text-center">
-          Our Properties: Homes & Investments for Sale in Mohali, Chandigarh & Kharar
+          Our Properties: Homes & Investments for Sale in Tricity & Dubai 
         </h1>
         <p className="text-lg text-dua-body mb-10 text-center max-w-3xl mx-auto">
-          Browse Dua Property' curated selection of premium residential and commercial properties. Whether you're seeking a dream home, a strategic investment, or an ideal business location, discover unparalleled opportunities across the vibrant Tricity region.
+          Browse Dua Property's curated selection of premium residential and commercial properties. Whether you're seeking a dream home, a strategic investment, or an ideal business location, discover unparalleled opportunities across the vibrant Tricity region and the dynamic market of Dubai.
         </p>
 
         {propertiesData && propertiesData.length > 0 ? (

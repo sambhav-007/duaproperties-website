@@ -15,13 +15,11 @@ function HomePage() {
   return (
     <> {/* Use a React Fragment to wrap Helmet and the rest of the content */}
       <Helmet>
-        <title>Dua Property | Find Your Dream Property in Mohali, Chandigarh & Kharar</title>
+        <title>Dua Property | Find Dream Properties in Mohali, Chandigarh, Kharar & Dubai</title>
         <meta
           name="description"
-          content="Discover premium residential and commercial properties with Dua Property. Your trusted real estate partner for luxury apartments, residential plots, and investment opportunities across Mohali, Chandigarh, and Kharar (Tricity area)."
+          content="Discover premium residential and commercial properties with Dua Property. Your trusted real estate partner for luxury apartments, residential plots, and investment opportunities across Mohali, Chandigarh, Kharar, and Dubai."
         />
-        {/* Optional: Add keywords meta tag, though less impactful now */}
-        {/* <meta name="keywords" content="real estate Mohali, properties Chandigarh, luxury apartments Kharar, residential plots Mohali, Dua Property, Tricity properties, investment properties, commercial property Mohali" /> */}
       </Helmet>
 
       {/* Hero Section */}
@@ -61,32 +59,32 @@ function HomePage() {
             Why Choose Dua Property for Real Estate in Tricity?
           </h2>
           <p className="text-lg text-dua-body mb-12 max-w-2xl mx-auto">
-            We are committed to providing exceptional service and finding the perfect property solutions for our clients in the **Mohali, Chandigarh, and Kharar (Tricity)** area. Trust Dua Property for your next home or investment.
+            We are committed to providing exceptional service and finding the perfect property solutions for our clients in the <strong>Mohali, Chandigarh, and Kharar (Tricity)</strong> area. Trust Dua Property for your next home or investment.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Feature 1 */}
             <div className="flex flex-col items-center">
               <ShieldCheckIcon className="h-12 w-12 text-dua-accent mb-3" />
               <h3 className="text-xl font-semibold text-dua-text mb-2">Trusted Real Estate Expertise</h3>
-              <p className="text-dua-body text-sm">Years of experience and deep **Mohali property market** knowledge ensure you get the best advice.</p>
+              <p className="text-dua-body text-sm">Years of experience and deep <strong>Mohali property market</strong> knowledge ensure you get the best advice.</p>
             </div>
             {/* Feature 2 */}
             <div className="flex flex-col items-center">
               <MapPinIcon className="h-12 w-12 text-dua-accent mb-3" />
               <h3 className="text-xl font-semibold text-dua-text mb-2">Prime Property Locations</h3>
-              <p className="text-dua-body text-sm">Access to premium properties in **Mohali, Chandigarh, Kharar**, and surrounding areas.</p>
+              <p className="text-dua-body text-sm">Access to premium properties in <strong>Mohali, Chandigarh, Kharar, Dubai</strong>, and surrounding areas.</p>
             </div>
             {/* Feature 3 */}
             <div className="flex flex-col items-center">
               <UserGroupIcon className="h-12 w-12 text-dua-accent mb-3" />
               <h3 className="text-xl font-semibold text-dua-text mb-2">Client-Centric Property Advisors</h3>
-              <p className="text-dua-body text-sm">We prioritize your needs, offering personalized service from start to finish for your **dream home**.</p>
+              <p className="text-dua-body text-sm">We prioritize your needs, offering personalized service from start to finish for your <strong>dream home</strong>.</p>
             </div>
             {/* Feature 4 */}
             <div className="flex flex-col items-center">
               <CurrencyRupeeIcon className="h-12 w-12 text-dua-accent mb-3" />
               <h3 className="text-xl font-semibold text-dua-text mb-2">Value & Transparent Dealings</h3>
-              <p className="text-dua-body text-sm">Honest dealings and competitive pricing for maximum value on your **real estate investment**.</p>
+              <p className="text-dua-body text-sm">Honest dealings and competitive pricing for maximum value on your <strong>real estate investment</strong>.</p>
             </div>
           </div>
         </div>
@@ -96,7 +94,7 @@ function HomePage() {
       <section className="py-16 bg-dua-bg-light">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-dua-primary mb-10">
-            Explore Our Featured Properties in Mohali & Chandigarh
+            Explore Our Featured Properties in Mohali, Chandigarh & Dubai
           </h2>
           {featuredProperties && featuredProperties.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
