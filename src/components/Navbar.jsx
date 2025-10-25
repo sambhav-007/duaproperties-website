@@ -1,7 +1,6 @@
 // src/components/Navbar.jsx
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/dua-logo.png'; // <-- Ensure this path is correct
 
 function Navbar() {
   // Use fixed positioning and transparent background globally
@@ -29,7 +28,7 @@ function Navbar() {
         {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center space-x-2">
           {/* NOTE: You MUST ensure your logo is clearly visible against light backgrounds (e.g., using a dark version) */}
-          <img src={logo} alt="Dua Property Logo" className="h-10 w-auto" />
+          <img src="/dua-logo.png" alt="Dua Property Logo" className="h-10 w-auto" />
           <span className="text-2xl font-bold text-white"> 
             Dua Property
           </span>
