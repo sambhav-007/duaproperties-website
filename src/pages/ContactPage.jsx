@@ -53,9 +53,9 @@ function ContactPage() {
           </div>
           {/* Google Map embed */}
           <div className="mt-8">
-            <h3 className="text-xl font-semibold text-dua-text mb-4 text-center">Find Our Tricity Office on Map</h3> 
+            <h3 className="text-xl font-semibold text-dua-text mb-4 text-center">Find Our <Ambala></Ambala> Office on Map</h3> 
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.7836894080185!2d76.81593921503798!3d30.59744158170067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fac13c8e5e6b1%3A0x6a1f81d8b7b7e7a5!2sDua%20Property!5e0!3m2!1sen!2sin!4v1678886400000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.4930037542713!2d76.8582366!3d30.336935800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fb7002df47117%3A0xe4f95e62b5dd7a4!2sDua%20property!5e0!3m2!1sen!2sin!4v1761375388867!5m2!1sen!2sin"
               width="100%"
               height="300"
               style={{ border: 0 }}
