@@ -15,10 +15,10 @@ function PropertiesPage() {
         />
         <meta name="keywords" content="properties Mohali, real estate Chandigarh, apartments for sale Kharar, residential plots, commercial properties, luxury homes Tricity, Dubai properties, UAE real estate, Dua Property listings" />
       </Helmet>
-
+      <div className="bg-dua-primary pt-12">
       <div className="container mx-auto py-12 px-4">
         {/* Main heading for the page, descriptive and keyword-rich */}
-        <h1 className="text-3xl md:text-4xl font-bold text-dua-primary mb-8 text-center">
+        <h1 className="text-4xl font-bold text-white mb-8 text-center">
           Our Properties: Homes & Investments for Sale in Tricity & Dubai 
         </h1>
         <p className="text-lg text-dua-body mb-10 text-center max-w-3xl mx-auto">
@@ -38,6 +38,7 @@ function PropertiesPage() {
           </p>
         )}
       </div>
+    </div>
     </>
   );
 }

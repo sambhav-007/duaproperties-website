@@ -1,52 +1,51 @@
 // src/components/Navbar.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../assets/dua-logo.jpg';
+import { Link, NavLink } from 'react-router-dom';
+import logo from '../assets/dua-logo.png'; // <-- Ensure this path is correct
 
 function Navbar() {
+  // Use fixed positioning and transparent background globally
+  const navbarClasses = `
+    fixed w-full top-0 left-0 z-40 p-4 transition-all duration-300 ease-in-out
+    bg-transparent text-white
+  `;
+
+  // Define link classes using NavLink for active styling
+  const navLinkClasses = ({ isActive }) =>
+    `relative font-medium text-sm sm:text-base group py-1 px-2 transition-all duration-300 ${
+      isActive ? 'font-bold border-b-2 border-dua-accent text-dua-accent' : 'hover:text-dua-accent hover:border-b-2 hover:border-dua-accent border-b-2 border-transparent'
+    }`;
+  
+  // Styles for the brand text next to the logo
+  const brandTextClasses = `
+    text-xl font-bold transition-colors duration-300 
+    ${location.pathname === '/' ? 'text-white' : 'text-dua-primary'}
+  `;
+  
   return (
-    <nav className="bg-white p-3 shadow-md sticky top-0 z-50"> {/* Made background white, added sticky */}
+    <nav className={navbarClasses}>
       <div className="container mx-auto flex justify-between items-center">
+        
         {/* Logo and Brand Name */}
-        <Link to="/" className="flex items-center space-x-2"> {/* Use flex to align logo and text */}
-          <img src={logo} alt="Dua Properties Logo" className="h-10 w-auto" /> {/* Adjust height as needed */}
-          <span className="text-xl font-bold text-dua-primary"> {/* Text styling */}
+        <Link to="/" className="flex items-center space-x-2">
+          {/* NOTE: You MUST ensure your logo is clearly visible against light backgrounds (e.g., using a dark version) */}
+          <img src={logo} alt="Dua Property Logo" className="h-10 w-auto" />
+          <span className="text-2xl font-bold text-white"> 
             Dua Property
           </span>
         </Link>
 
-        {/* Navigation Links */}
-        <div className="flex flex-1 justify-end items-center space-x-3 sm:space-x-6">
-          <Link
-            to="/"
-            className="relative text-dua-body font-medium text-sm sm:text-base group"
-          >
-            Home
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-dua-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
-          </Link>
-          <Link
-            to="/properties"
-            className="relative text-dua-body font-medium text-sm sm:text-base group"
-          >
-            Properties
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-dua-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
-          </Link>
-          <Link
-            to="/about"
-            className="relative text-dua-body font-medium text-sm sm:text-base group"
-          >
-            About
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-dua-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
-          </Link>
-          <Link
-            to="/contact"
-            className="relative text-dua-body font-medium text-sm sm:text-base group"
-          >
-            Contact
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-dua-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
-          </Link>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-6">
+          <NavLink to="/" className={navLinkClasses}>Home</NavLink>
+          <NavLink to="/properties" className={navLinkClasses}>Properties</NavLink>
+          <NavLink to="/about" className={navLinkClasses}>About</NavLink>
+          <NavLink to="/contact" className={navLinkClasses}>Contact</NavLink>
         </div>
       </div>
+      
+      {/* (Mobile menu code here, if applicable) */}
+      
     </nav>
   );
 }

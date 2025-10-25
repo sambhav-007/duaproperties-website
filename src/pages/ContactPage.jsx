@@ -13,7 +13,7 @@ function ContactPage() {
           content="Get in touch with Dua Property for all your real estate needs in Mohali, Chandigarh, Kharar (Tricity), and Dubai, UAE. Contact us for property inquiries, sales, investments, or consultations. Your trusted global property advisor." 
         />
       </Helmet>
-
+      <div className="bg-dua-primary pt-12">
       <div className="container mx-auto py-12 px-4 md:px-6">
         {/* Main Heading */}
         <h1 className="text-3xl md:text-4xl font-bold text-dua-primary mb-6 text-center">
@@ -68,6 +68,7 @@ function ContactPage() {
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 }
