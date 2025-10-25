@@ -17,10 +17,11 @@ export default {
         // --- OLD COLORS (Keep for now) ---
         'dua-gold': '#D4AF37',       // Keeping old gold name (same value as new accent for now)
         'dua-dark-green': '#004d40', // Keeping old dark green name
-      },
+      }
+      ,
       fontFamily: {
         // Leave this empty for now, we'll do fonts later
-      }
+      },
       keyframes: {
         gradient: {
           '0%': { backgroundPosition: '0% 50%' },
