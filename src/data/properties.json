@@ -487,5 +487,62 @@
         "/images/properties/tdi-connaught-residency-gallery2.png",
         "/images/properties/tdi-connaught-residency-gallery3.png"
       ]
+    },
+    {
+      "id": "9",
+      "name": "Chapter 1 by Newbury",
+      "developer": "Newbury",
+      "location": "Dubai, UAE",
+      "type": "Apartment",
+      "configuration": "Luxury Apartments (various sizes)",
+      "price": "Price on Request",
+      "status": "Upcoming/Under Construction",
+      "rera_id": "DLD-XXXXX (Pending)",
+      "possession": "To be announced",
+      "description": "Discover exclusive living at Chapter 1 by Newbury, offering luxury apartments in a prime location in Dubai. This upcoming project promises sophisticated design, unparalleled amenities, and a lifestyle of comfort and elegance. An exceptional opportunity for investors and those seeking a premium residence in Dubai's dynamic real estate market.",
+      "highlights": [
+        "Prestigious Dubai Location",
+        "Exclusive Newbury Development",
+        "Modern Architectural Design",
+        "High-End Interior Finishings",
+        "World-Class Amenities",
+        "Excellent Investment Potential"
+      ],
+      "amenities": [
+        "Swimming Pool",
+        "State-of-the-Art Gymnasium",
+        "Dedicated Parking",
+        "24/7 Security & Concierge",
+        "Landscaped Gardens",
+        "Retail & Dining Options Nearby"
+      ],
+      "payment_plan": {
+        "basic_price_type": "Payment Plan Details",
+        "stages": [
+          {"name": "Booking Amount", "amount": "10%"},
+          {"name": "During Construction", "amount": "Flexible Installments"},
+          {"name": "On Completion", "amount": "Balance Payment"}
+        ]
+      },
+      "other_charges": [
+        {"name": "Dubai Land Department Fees", "details": "As applicable (approx. 4%)"},
+        {"name": "Service Charges", "details": "As per developer"},
+        {"name": "Agency Fee", "details": "If applicable"}
+      ],
+      "notes": [
+        "Prices and possession dates are subject to change as per developer announcements.",
+        "Contact Dua Property for the latest updates and detailed information.",
+        "Investment opportunity in a high-growth area."
+      ],
+      "image_main": "/images/properties/chapter1-newbury-main.png",
+      "images_gallery": [
+        "/images/properties/chapter1-newbury-gallery1.png",
+        "/images/properties/chapter1-newbury-gallery2.png",
+        "/images/properties/chapter1-newbury-gallery3.png",
+        "/images/properties/chapter1-newbury-gallery4.png",
+        "/images/properties/chapter1-newbury-gallery5.png",
+        "/images/properties/chapter1-newbury-gallery6.png",
+        "/images/properties/chapter1-newbury-gallery7.png"
+      ]
     }
 ]
