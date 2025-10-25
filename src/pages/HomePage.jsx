@@ -22,30 +22,46 @@ function HomePage() {
         />
       </Helmet>
 
-      {/* Hero Section */}
+    {/* Hero Section with Video Background */}
       <section
-        className="relative bg-cover bg-center h-[60vh] text-white flex items-center justify-center"
-        style={{ backgroundImage: `url(${heroImageUrl})` }}
+        className="relative h-[70vh] md:h-[80vh] text-white flex items-center justify-center overflow-hidden" // Adjusted height, removed bg-cover/bg-center
       >
-        <div className="absolute inset-0 bg-black opacity-50"></div> {/* Dark overlay */}
-        <div className="relative z-10 text-center px-4">
-          {/* Changed BlurText to H1 for primary page heading, retaining blur effect */}
+        {/* Video Background */}
+        <video
+          autoPlay // Start playing automatically
+          loop // Loop the video
+          muted // Mute the video (often required for autoplay)
+          playsInline // Important for mobile browsers (iOS especially)
+          className="absolute top-0 left-0 w-full h-full object-cover z-0" // Cover the area, position behind content
+          src={heroVideoUrl}
+          type="video/mp4" // Specify video type
+        >
+          {/* Fallback for browsers that don't support the video tag */}
+          Your browser does not support the video tag. Try updating it.
+          {/* You could optionally add a poster attribute: poster="/images/hero-fallback-image.jpg" */}
+        </video>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
+
+        {/* Content Overlay */}
+        <div className="relative z-20 text-center px-4"> {/* Increased z-index */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-center">
             <BlurText
               text="Find Your Dream Property!"
               delay={230}
               animateBy="words"
               direction="top"
-              className="inline-block" // Apply inline-block to BlurText wrapper if it's text within h1
+              className="inline-block"
             />
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto">
-            Discover premium residential and commercial properties with Dua Property. Your future starts here.
+            Discover premium residential and commercial properties with Dua Property across Tricity & Dubai. Your future starts here.
           </p>
           <Link
             to="/properties"
             className="bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300"
-            aria-label="Explore all property listings" // Added for accessibility
+            aria-label="Explore all property listings"
           >
             Explore Listings
           </Link>
