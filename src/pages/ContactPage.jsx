@@ -16,10 +16,10 @@ function ContactPage() {
       <div className="bg-dua-primary pt-12">
       <div className="container mx-auto py-12 px-4 md:px-6">
         {/* Main Heading */}
-        <h1 className="text-3xl md:text-4xl font-bold text-dua-primary mb-6 text-center">
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 text-center">
           Contact Dua Property: Your Real Estate Experts in Tricity & Dubai 
         </h1>
-        <p className="text-lg text-dua-body mb-10 max-w-2xl mx-auto text-center">
+        <p className="text-lg text-white mb-10 max-w-2xl mx-auto text-center">
           We'd love to hear from you. Whether you have questions about our listings in Mohali, need advice on property investments in Chandigarh, want to discuss a new project in Kharar, or are exploring opportunities in Dubai, reach out to **Dua Property** today. Our expert team is ready to assist you in both local and international markets. 
         </p>
 

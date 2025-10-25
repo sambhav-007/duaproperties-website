@@ -21,7 +21,7 @@ function PropertiesPage() {
         <h1 className="text-4xl font-bold text-white mb-8 text-center">
           Our Properties: Homes & Investments for Sale in Tricity & Dubai 
         </h1>
-        <p className="text-lg text-dua-body mb-10 text-center max-w-3xl mx-auto">
+        <p className="text-lg text-white mb-10 text-center max-w-3xl mx-auto">
           Browse Dua Property's curated selection of premium residential and commercial properties. Whether you're seeking a dream home, a strategic investment, or an ideal business location, discover unparalleled opportunities across the vibrant Tricity region and the dynamic market of Dubai.
         </p>
 
