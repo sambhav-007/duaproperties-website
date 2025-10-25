@@ -18,9 +18,25 @@ export default {
         'dua-gold': '#D4AF37',       // Keeping old gold name (same value as new accent for now)
         'dua-dark-green': '#004d40', // Keeping old dark green name
       },
-      fontFamily: {
-        // Leave this empty for now, we'll do fonts later
-      }
+      keyframes: {
+        gradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        // --- ADD NEW KEYFRAME ---
+        'pulse-slow': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.05)' }, // Scales up by 5%
+        },
+        // --- END NEW KEYFRAME ---
+      },
+      animation: {
+        gradient: 'gradient 8s linear infinite',
+        // --- ADD NEW ANIMATION UTILITY ---
+        'pulse-slow': 'pulse-slow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite', // 2.5s loop duration
+        // --- END NEW ANIMATION UTILITY ---
+      },
     },
   },
   plugins: [],
