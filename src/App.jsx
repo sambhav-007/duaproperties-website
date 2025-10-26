@@ -11,6 +11,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import WhatsAppButton from './components/WhatsAppButton';
 import ScrollToTop from './components/ScrollToTop';
+import CallToActionStrip from './components/CallToActionStrip';
 
 function App() {
   const helmetContext = {}; 
