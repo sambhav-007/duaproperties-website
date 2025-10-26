@@ -23,24 +23,7 @@ export default {
         serif: ['Playfair Display', 'serif'], // For headings
         sans: ['Lato', 'sans-serif'],         // For body text
       },
-
-      // --- ANIMATIONS ---
-      keyframes: {
-        gradient: {
-          '0%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-          '100%': { backgroundPosition: '0% 50%' },
-        },
-        breathe: {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.08)' }, // grows 8% for visible breathing effect
-        },
-      },
-      animation: {
-        gradient: 'gradient 8s linear infinite',
-        breathe: 'breathe 3.5s ease-in-out infinite', // smooth breathing
-      },
+  plugins: [],
     },
   },
-  plugins: [],
 }
