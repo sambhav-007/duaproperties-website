@@ -23,53 +23,61 @@ function PropertiesPage() {
 
   // Simulate loading delay for skeletons
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setAllProperties(propertiesData);
       setLoading(false);
-    }, 500); // 0.5s delay
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
 
   const filteredProperties = useMemo(() => {
     if (activeFilter === 'All Locations') return allProperties;
-    return allProperties.filter(property => getPropertyRegion(property.location) === activeFilter);
+    return allProperties.filter(
+      (property) => getPropertyRegion(property.location) === activeFilter
+    );
   }, [activeFilter, allProperties]);
 
   return (
     <>
       <Helmet>
-        <title>All Properties for Sale in Tricity & Dubai | Dua Property</title>
+        <title>Properties for Sale | Mohali, Chandigarh, Kharar & Dubai | Dua Property</title>
         <meta
           name="description"
-          content="Explore all residential and commercial properties for sale by Dua Property. Find luxury apartments, independent homes, and residential plots in prime locations across Mohali, Chandigarh, Kharar (Tricity area) AND exclusive projects in Dubai, UAE."
+          content="Find luxury apartments, villas, and plots for sale across Mohali, Chandigarh, Kharar, and Dubai. Browse verified listings from Dua Property for your next investment."
         />
         <meta
           name="keywords"
-          content="properties Mohali, real estate Chandigarh, apartments for sale Kharar, residential plots, commercial properties, luxury homes Tricity, Dubai properties, UAE real estate, Dua Property listings"
+          content="Dua Property listings, real estate Mohali, houses for sale Chandigarh, properties Kharar, Dubai real estate, buy apartment, commercial plots"
+        />
+        <meta property="og:title" content="Dua Property | Premium Listings in Tricity & Dubai" />
+        <meta
+          property="og:description"
+          content="Discover high-value investment and residential properties in Mohali, Chandigarh, Kharar, and Dubai with Dua Property."
         />
       </Helmet>
 
-      <div className="bg-dua-primary pt-12">
-        <div className="container mx-auto py-8 px-4">
-          <h1 className="text-4xl font-bold text-white mb-2 text-center animate-fade-in">
-            Our Properties: Homes & Investments for Sale in Tricity & Dubai
+      <div className="bg-dua-primary min-h-screen pt-32 pb-12 px-4">
+        <div className="container mx-auto">
+          <h1 className="text-4xl font-extrabold text-white mb-3 text-center animate-fade-slide">
+            Premium Properties for Sale in Tricity & Dubai
           </h1>
-          <p className="text-lg text-white mb-10 text-center max-w-3xl mx-auto animate-fade-in">
-            Browse Dua Property's full selection across Tricity and Dubai.
+          <p className="text-lg text-white/90 mb-12 text-center max-w-3xl mx-auto animate-fade-slide">
+            Explore handpicked listings from Dua Property — find your next dream home or investment
+            opportunity in Mohali, Chandigarh, Kharar, or Dubai.
           </p>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {locationFilters.map(filter => (
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {locationFilters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`
-                  px-5 py-2 text-sm font-semibold rounded-full transition-colors duration-200
-                  ${activeFilter === filter
-                    ? 'bg-dua-accent text-dua-primary shadow-md'
-                    : 'bg-white text-dua-text hover:bg-gray-300'
-                  } animate-fade-in
-                `}
+                className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-300
+                  ${
+                    activeFilter === filter
+                      ? 'bg-dua-accent text-dua-primary shadow-lg scale-105'
+                      : 'bg-white text-dua-text hover:bg-gray-200 hover:scale-105'
+                  } animate-fade-slide`}
               >
                 {filter}
               </button>
@@ -77,27 +85,33 @@ function PropertiesPage() {
           </div>
 
           {/* Properties Grid */}
-          <div className="bg-white p-6 rounded-lg shadow-xl">
+          <div className="bg-white p-6 rounded-2xl shadow-2xl animate-fade-in">
             {loading ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="animate-pulse bg-gray-200 rounded-lg h-96"></div>
+                  <div
+                    key={i}
+                    className="animate-pulse bg-gray-200 rounded-xl h-96 shadow-inner"
+                  ></div>
                 ))}
               </div>
             ) : filteredProperties.length > 0 ? (
               <>
                 <p className="text-lg text-dua-text mb-6 text-center">
-                  Showing <strong>{filteredProperties.length}</strong> of {allProperties.length} listings {activeFilter === 'All Locations' ? 'globally' : `in ${activeFilter}`}.
+                  Showing <strong>{filteredProperties.length}</strong> of{' '}
+                  {allProperties.length} listings{' '}
+                  {activeFilter === 'All Locations' ? 'globally' : `in ${activeFilter}`}.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredProperties.map(property => (
+                  {filteredProperties.map((property) => (
                     <PropertyCard key={property.id} property={property} />
                   ))}
                 </div>
               </>
             ) : (
               <p className="text-center text-gray-600 mt-10">
-                No properties listed currently. Please check back soon for new listings from Dua Property.
+                No properties currently listed. Please check back soon for new projects from Dua
+                Property.
               </p>
             )}
           </div>
@@ -107,11 +121,21 @@ function PropertiesPage() {
       <style>
         {`
           @keyframes fade-in {
-            0% { opacity: 0; transform: translateY(20px);}
-            100% { opacity: 1; transform: translateY(0);}
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
           }
+
+          @keyframes fade-slide {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+
           .animate-fade-in {
-            animation: fade-in 0.6s ease forwards;
+            animation: fade-in 0.6s ease-out forwards;
+          }
+
+          .animate-fade-slide {
+            animation: fade-slide 0.8s ease-out forwards;
           }
         `}
       </style>

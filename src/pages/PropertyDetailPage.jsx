@@ -57,11 +57,9 @@ function PropertyDetailPage() {
     );
   }
 
-  // Meta Tags & Schema
   const pageTitle = `${property.name} | ${property.type} in ${property.location} - Dua Property`;
   const pageDescription = `Explore details for ${property.name}, a ${property.configuration || property.type} located in ${property.location}. View amenities, payment plan, gallery, and contact Dua Property for inquiries about this property in the Tricity area.`;
   const canonicalUrl = `https://www.duaproperty.com/property/${property.id}`;
-  const mainImageUrl = property.image_main ? `https://www.duaproperty.com${property.image_main}` : 'https://www.duaproperty.com/default-share-image.png';
 
   return (
     <>
@@ -71,8 +69,8 @@ function PropertyDetailPage() {
         <link rel="canonical" href={canonicalUrl} />
       </Helmet>
 
-      {/* Main container with top padding to prevent navbar overlap */}
-      <main className="container mx-auto px-4 pt-28 md:pt-32 animate-fade-in">
+      {/* Main container with padding for navbar and background for contrast */}
+      <main className="container mx-auto px-4 pt-28 md:pt-32 bg-white min-h-screen animate-fade-in">
 
         {/* Back Button */}
         <Link 
@@ -87,12 +85,13 @@ function PropertyDetailPage() {
         <p className="text-2xl text-dua-accent font-semibold mb-4 animate-fade-scale">{property.price}</p>
         {property.rera_id && <p className="text-sm text-gray-500 mb-6">{`RERA ID: ${property.rera_id}`}</p>}
 
-        {/* Property Overview */}
+        {/* Overview Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
           <div className="animate-fade-scale">
             <img
               src={property.image_main}
               alt={`Main view of ${property.name} in ${property.location}`}
+              loading="lazy"
               className="w-full h-96 object-cover rounded-lg shadow-md transition-transform duration-500 hover:scale-105"
             />
           </div>
@@ -106,7 +105,9 @@ function PropertyDetailPage() {
               {property.type && <li><strong>Type:</strong> {property.type}</li>}
               {property.status && <li><strong>Status:</strong> {property.status}</li>}
               {property.possession && <li><strong>Possession:</strong> {property.possession}</li>}
-              {property.min_plot_size_sqyd && property.max_plot_size_sqyd && <li><strong>Plot Sizes:</strong> {property.min_plot_size_sqyd} - {property.max_plot_size_sqyd} Sq. Yds.</li>}
+              {property.min_plot_size_sqyd && property.max_plot_size_sqyd && (
+                <li><strong>Plot Sizes:</strong> {property.min_plot_size_sqyd} - {property.max_plot_size_sqyd} Sq. Yds.</li>
+              )}
               {property.configuration && <li><strong>Configuration:</strong> {property.configuration}</li>}
             </ul>
           </div>
@@ -130,7 +131,7 @@ function PropertyDetailPage() {
 
         {/* Payment Plan */}
         {property.payment_plan && (
-          <div className="bg-white p-6 rounded-lg shadow-lg mb-10 animate-fade-in">
+          <div className="bg-white p-6 rounded-lg shadow-lg mb-12 animate-fade-in">
             <h2 className="text-2xl font-bold text-dua-text mb-4">Payment Plan</h2>
             <p className="text-lg font-semibold mb-3">{property.payment_plan.basic_price_type || property.price}</p>
             <ul className="divide-y divide-gray-200">
@@ -146,13 +147,14 @@ function PropertyDetailPage() {
 
         {/* Gallery */}
         {property.images_gallery?.length > 0 && (
-          <div className="mt-8 animate-fade-in">
+          <div className="mt-10 mb-16 animate-fade-in">
             <h2 className="text-2xl font-bold text-dua-text mb-4">Gallery</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {property.images_gallery.map((img, i) => (
                 <img
                   key={i}
                   src={img}
+                  loading="lazy"
                   alt={`${property.name} gallery image ${i + 1} - ${property.location}`}
                   className="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-xl"
                   onClick={() => openLightbox(i)}
@@ -164,7 +166,7 @@ function PropertyDetailPage() {
 
       </main>
 
-      {/* Lightbox */}
+      {/* Lightbox Viewer */}
       <Lightbox
         open={lightboxOpen}
         close={() => setLightboxOpen(false)}

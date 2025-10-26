@@ -15,10 +15,15 @@ function AboutPage() {
           name="description"
           content="Dua Property is a leading real estate advisor specializing in premium residential and commercial properties across Mohali, Chandigarh, Kharar, and Dubai, UAE. Learn about our story, expertise, and commitment to client satisfaction."
         />
-        <meta name="keywords" content="Dua Property, Mohali real estate, Chandigarh property advisor, Kharar residential plots, Dubai apartments, UAE real estate, Tricity property investment, luxury homes, commercial property, investment guidance" />
-        {/* Open Graph / Social SEO */}
+        <meta
+          name="keywords"
+          content="Dua Property, Mohali real estate, Chandigarh property advisor, Kharar residential plots, Dubai apartments, UAE real estate, Tricity property investment, luxury homes, commercial property, investment guidance"
+        />
         <meta property="og:title" content="About Dua Property | Trusted Real Estate Advisor in Tricity & Dubai, UAE" />
-        <meta property="og:description" content="Dua Property specializes in premium residential and commercial properties across Mohali, Chandigarh, Kharar, and Dubai. Learn about our story, expertise, and services." />
+        <meta
+          property="og:description"
+          content="Dua Property specializes in premium residential and commercial properties across Mohali, Chandigarh, Kharar, and Dubai. Learn about our story, expertise, and services."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={duaLogo} />
         <script type="application/ld+json">
@@ -43,7 +48,7 @@ function AboutPage() {
         </script>
       </Helmet>
 
-      <main>
+      <main className="pt-16"> {/* Added padding to avoid navbar overlap */}
         {/* Hero Section */}
         <section className="relative bg-gradient-to-r from-dua-primary/90 via-dua-primary/80 to-dua-primary/90 py-16 flex flex-col items-center text-center">
           <motion.img
@@ -68,7 +73,8 @@ function AboutPage() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            Your trusted partner for premium <strong>residential and commercial properties</strong> in <strong>Mohali, Chandigarh, Kharar (Tricity)</strong> and <strong>Dubai, UAE</strong>.
+            Your trusted partner for premium <strong>residential and commercial properties</strong> in{' '}
+            <strong>Mohali, Chandigarh, Kharar (Tricity)</strong> and <strong>Dubai, UAE</strong>.
           </motion.p>
         </section>
 
@@ -84,7 +90,9 @@ function AboutPage() {
             >
               <h2 className="text-2xl md:text-3xl font-semibold text-dua-primary mb-4 text-center">Our Story</h2>
               <p className="text-dua-text leading-relaxed text-center">
-                Dua Property has been serving clients in the <strong>Tricity area (Mohali, Chandigarh, Kharar)</strong> and expanding internationally in <strong>Dubai, UAE</strong>. We specialize in helping families and investors find the perfect <strong>residential plots, luxury apartments, and commercial properties</strong>. Our founder, <strong>Vishal Dua</strong>, established the company on trust, transparency, and client satisfaction, ensuring every transaction is seamless and valuable.
+                Dua Property has been serving clients in the <strong>Tricity area (Mohali, Chandigarh, Kharar)</strong> and expanding internationally in{' '}
+                <strong>Dubai, UAE</strong>. We specialize in helping families and investors find the perfect{' '}
+                <strong>residential plots, luxury apartments, and commercial properties</strong>. Our founder, <strong>Vishal Dua</strong>, established the company on trust, transparency, and client satisfaction, ensuring every transaction is seamless and valuable.
               </p>
             </motion.article>
 
