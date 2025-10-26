@@ -1,3 +1,19 @@
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add this block to force Tailwind to emit the keyframes + utility */
+@layer utilities {
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50%     { transform: scale(1.08); } /* visible breathing */
+  }
+
+  .animate-breathe {
+    animation: breathe 3.5s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform;
+  }
+}

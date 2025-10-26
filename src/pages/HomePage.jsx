@@ -92,8 +92,7 @@ function HomePage() {
               <Link
                 to="/properties"
                 className="bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md text-lg
-             transition-transform duration-300 will-change-transform
-             hover:scale-105 active:scale-95
+             transition-transform duration-300 will-change-transform hover:scale-105 active:scale-95
              animate-breathe"
               >
                 Explore Listings
