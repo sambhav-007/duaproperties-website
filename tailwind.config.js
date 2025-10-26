@@ -19,17 +19,14 @@ export default {
         'dua-dark-green': '#004d40', // Keeping old dark green name
       },
       keyframes: {
-        gradient: {
-          '0%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-          '100%': { backgroundPosition: '0% 50%' },
-        },
-        'breathe': {
+        
+        breathe: {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.04)' },
         },
-        animation: {
-          'breathe': 'breathe 4s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+      },
+      animation: {
+        breathe: 'breathe 4s cubic-bezier(0.4, 0, 0.2, 1) infinite',
         },
         fontFamily: {
           serif: ['Playfair Display', 'serif'], // Custom utility class for headings
