@@ -1,19 +1,19 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Add this block to force Tailwind to emit the keyframes + utility */
+/* ✨ Floating button animation */
 @layer utilities {
-  @keyframes breathe {
-    0%, 100% { transform: scale(1); }
-    50%     { transform: scale(1.08); } /* visible breathing */
+  @keyframes floaty {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-6px) scale(1.04);
+    }
   }
 
-  .animate-breathe {
-    animation: breathe 3.5s ease-in-out infinite;
-    transform-origin: center;
-    will-change: transform;
+  .animate-floaty {
+    animation: floaty 3.5s ease-in-out infinite;
   }
 }
