@@ -7,6 +7,7 @@ import PropertyCard from '../components/PropertyCard';
 import BlurText from '../components/BlurText';
 import Loader from '../components/Loader';
 import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
 
 const heroVideoUrl = '/videos/hero-background-video.mp4';
 
@@ -14,19 +15,6 @@ function HomePage() {
   const featuredProperties = propertiesData.slice(0, 3);
   const [isVideoLoading, setIsVideoLoading] = useState(true);
   const videoRef = useRef(null);
-
-  // Inline floating button CSS
-  const floatyCSS = `
-    @keyframes floaty-inline {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-6px) scale(1.04); }
-    }
-    .animate-floaty-inline {
-      animation: floaty-inline 3.5s ease-in-out infinite;
-      transform-origin: center;
-      will-change: transform;
-    }
-  `;
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -49,9 +37,6 @@ function HomePage() {
 
   return (
     <>
-      {/* Inject inline CSS */}
-      <style>{floatyCSS}</style>
-
       <Helmet>
         <title>Dua Property | Find Dream Properties in Mohali, Chandigarh, Kharar & Dubai</title>
         <meta
@@ -60,111 +45,148 @@ function HomePage() {
         />
       </Helmet>
 
-      {/* Hero Section with Video Background */}
-      <section className="relative h-[70vh] md:h-[80vh] text-white flex items-center justify-center overflow-hidden bg-dua-bg-dark">
+      {/* Hero Section */}
+      <section className="relative h-[80vh] md:h-[90vh] text-white flex items-center justify-center overflow-hidden">
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-500 ease-in-out ${isVideoLoading ? 'opacity-0' : 'opacity-100'}`}
+          className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${isVideoLoading ? 'opacity-0' : 'opacity-100'}`}
           src={heroVideoUrl}
           type="video/mp4"
-        >
-          Your browser does not support the video tag.
-        </video>
+        />
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black opacity-65 z-10"></div>
+        {/* Gradient overlay for luxury feel */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-10"></div>
 
-        {/* Content Overlay */}
+        {/* Hero Content */}
         <div className="relative z-20 text-center px-4">
           {isVideoLoading ? (
             <Loader />
           ) : (
             <>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-center">
+              <motion.h1
+                initial={{ y: -40, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.2 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-center"
+              >
                 <BlurText
                   text="Find Your Dream Property!"
-                  delay={230}
+                  delay={200}
                   animateBy="words"
                   direction="top"
                   className="inline-block text-dua-accent"
                 />
-              </h1>
-              <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto">
-                Discover premium residential and commercial properties with Dua Property across Tricity & Dubai. Your future starts here.
-              </p>
+              </motion.h1>
 
-              {/* Floating Explore Listings Button */}
+              <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.2, delay: 0.3 }}
+                className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto"
+              >
+                Discover premium residential and commercial properties across Tricity & Dubai. Your future starts here.
+              </motion.p>
+
               <Link
                 to="/properties"
-                className="bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md text-lg
-                           transition-transform duration-300 hover:scale-105 active:scale-95
-                           animate-floaty-inline shadow-lg shadow-dua-accent/20"
+                className="inline-block bg-dua-accent text-dua-primary font-bold py-4 px-10 rounded-md text-lg shadow-lg shadow-dua-accent/30
+                           transition-transform duration-300 hover:scale-105 hover:shadow-xl active:scale-95"
               >
                 Explore Listings
               </Link>
+
+              {/* Scroll down hint */}
+              <motion.div
+                animate={{ y: [0, 15, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="mt-12 text-dua-accent text-2xl"
+              >
+                &#x2193;
+              </motion.div>
             </>
           )}
         </div>
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-dua-primary mb-4">
-            Why Choose Dua Property for Real Estate in Tricity & Dubai?
-          </h2>
-          <p className="text-lg text-dua-body mb-12 max-w-2xl mx-auto">
-            We are committed to providing exceptional service and finding the perfect property solutions for our clients in the <strong>Tricity area (Mohali, Chandigarh, Kharar)</strong> and <strong>Dubai</strong>. Trust Dua Property for your next home or investment.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="flex flex-col items-center">
-              <ShieldCheckIcon className="h-12 w-12 text-dua-accent mb-3" />
-              <h3 className="text-xl font-semibold text-dua-text mb-2">Trusted Real Estate Expertise</h3>
-              <p className="text-dua-body text-sm">Years of experience and deep market knowledge ensure you get the best advice in both Tricity and Dubai.</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <MapPinIcon className="h-12 w-12 text-dua-accent mb-3" />
-              <h3 className="text-xl font-semibold text-dua-text mb-2">Prime Property Locations</h3>
-              <p className="text-dua-body text-sm">Access to premium properties in <strong>Mohali, Chandigarh, Kharar, Dubai</strong>, and surrounding areas.</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <UserGroupIcon className="h-12 w-12 text-dua-accent mb-3" />
-              <h3 className="text-xl font-semibold text-dua-text mb-2">Client-Centric Property Advisors</h3>
-              <p className="text-dua-body text-sm">We prioritize your needs, offering personalized service for your <strong>dream home</strong> search.</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <CurrencyRupeeIcon className="h-12 w-12 text-dua-accent mb-3" />
-              <h3 className="text-xl font-semibold text-dua-text mb-2">Value & Transparent Dealings</h3>
-              <p className="text-dua-body text-sm">Honest dealings and competitive pricing for maximum value on your <strong>real estate investment</strong>.</p>
-            </div>
+          <motion.h2
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-3xl md:text-4xl font-bold text-dua-primary mb-6"
+          >
+            Why Choose Dua Property?
+          </motion.h2>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-lg text-dua-body mb-12 max-w-3xl mx-auto"
+          >
+            Exceptional service and perfect property solutions in the Tricity area (Mohali, Chandigarh, Kharar) and Dubai. Trust Dua Property for your next home or investment.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {[
+              { icon: ShieldCheckIcon, title: 'Trusted Expertise', desc: 'Years of experience and deep market knowledge.' },
+              { icon: MapPinIcon, title: 'Prime Locations', desc: 'Access to premium properties in Tricity & Dubai.' },
+              { icon: UserGroupIcon, title: 'Client-Centric', desc: 'Personalized service for your dream home.' },
+              { icon: CurrencyRupeeIcon, title: 'Transparent Deals', desc: 'Honest pricing for maximum value.' }
+            ].map((feature, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: idx * 0.2 }}
+                className="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              >
+                <feature.icon className="h-14 w-14 text-dua-accent mb-4" />
+                <h3 className="text-xl font-semibold text-dua-text mb-2">{feature.title}</h3>
+                <p className="text-dua-body text-sm">{feature.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Properties Section */}
-      <section className="py-16 bg-dua-bg-light">
+      {/* Featured Properties */}
+      <section className="py-20 bg-dua-bg-light">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-dua-primary mb-10">
-            Explore Our Featured Properties in Tricity & Dubai
-          </h2>
-          {featuredProperties && featuredProperties.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredProperties.map(property => (
-                <PropertyCard key={property.id} property={property} />
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-gray-600">No featured properties available at the moment. Please check back soon!</p>
-          )}
+          <motion.h2
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-3xl md:text-4xl font-bold text-center text-dua-primary mb-12"
+          >
+            Featured Properties
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {featuredProperties.map(property => (
+              <motion.div
+                key={property.id}
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+              >
+                <PropertyCard property={property} />
+              </motion.div>
+            ))}
+          </div>
+
           <div className="text-center mt-12">
             <Link
               to="/properties"
-              className="inline-block bg-dua-primary text-white py-3 px-6 rounded-md hover:bg-dua-accent transition-colors duration-300 text-lg"
-              aria-label="View all residential and commercial properties"
+              className="inline-block bg-dua-primary text-white py-3 px-8 rounded-md hover:bg-dua-accent transition-colors duration-300 text-lg shadow-lg"
             >
               View All Properties
             </Link>
