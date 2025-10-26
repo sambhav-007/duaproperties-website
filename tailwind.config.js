@@ -37,6 +37,10 @@ export default {
         'pulse-slow': 'pulse-slow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite', // 2.5s loop duration
         // --- END NEW ANIMATION UTILITY ---
       },
+      fontFamily: {
+        serif: ['Playfair Display', 'serif'], // Custom utility class for headings
+        sans: ['Lato', 'sans-serif'],        // Overrides default sans-serif for all body text
+      }
     },
   },
   plugins: [],

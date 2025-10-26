@@ -30,6 +30,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>
+          <CallToActionStrip />
           <Footer />
           <WhatsAppButton />
         </div>
