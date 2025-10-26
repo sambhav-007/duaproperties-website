@@ -16,7 +16,7 @@ function AboutPage() {
         {/* Optional: Add keywords meta tag, though less impactful now */}
         {/* <meta name="keywords" content="Dua Property, real estate Mohali, property advisor Chandigarh, Tricity real estate, luxury apartments Kharar, residential plots Mohali, commercial property, investment advice, Dubai real estate, Dubai apartments, UAE properties" /> */}
       </Helmet>
-      <div className="bg-dua-primary pt-16">
+      <div className="bg-dua-primary pt-20">
       <div className="bg-white py-12 md:py-16">
         <div className="container mx-auto px-4">
 

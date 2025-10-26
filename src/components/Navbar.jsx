@@ -32,7 +32,7 @@ function Navbar() {
 
       {/* Logo and Brand Name (Left Side) */}
       <Link to="/" className="flex items-center space-x-2">
-        <img src="/dua-logo.png" alt="Dua Property Logo" className="h-10 w-auto" />
+        <img src="/dua-logo.jpg" alt="Dua Property Logo" className="h-10 w-auto" />
         <span className="text-2xl font-bold text-white"> 
           Dua Property
         </span>
