@@ -8,31 +8,39 @@ export default {
     extend: {
       colors: {
         // --- NEW COLORS ---
-        'dua-primary': '#0F4C5C',   // Your new deep teal-green
-        'dua-accent': '#D4AF37',    // Your new elegant gold
+        'dua-primary': '#0F4C5C',   // Deep teal-green
+        'dua-accent': '#D4AF37',    // Elegant gold
         'dua-text': '#333333',      // Dark text for headings
         'dua-body': '#555555',      // Lighter text for paragraphs
         'dua-bg-light': '#F9F9F9',  // Light background
 
         // --- OLD COLORS (Keep for now) ---
-        'dua-gold': '#D4AF37',       // Keeping old gold name (same value as new accent for now)
-        'dua-dark-green': '#004d40', // Keeping old dark green name
+        'dua-gold': '#D4AF37',      
+        'dua-dark-green': '#004d40',
       },
+
+      fontFamily: {
+        serif: ['Playfair Display', 'serif'], // For headings
+        sans: ['Lato', 'sans-serif'],         // For body text
+      },
+
+      // --- ANIMATIONS ---
       keyframes: {
-        
+        gradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
         breathe: {
           '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.04)' },
+          '50%': { transform: 'scale(1.08)' }, // grows 8% for visible breathing effect
         },
       },
       animation: {
-        breathe: 'breathe 4s cubic-bezier(0.4, 0, 0.2, 1) infinite',
-        },
-        fontFamily: {
-          serif: ['Playfair Display', 'serif'], // Custom utility class for headings
-          sans: ['Lato', 'sans-serif'],        // Overrides default sans-serif for all body text
-        }
+        gradient: 'gradient 8s linear infinite',
+        breathe: 'breathe 3.5s ease-in-out infinite', // smooth breathing
       },
     },
-    plugins: [],
-  }
+  },
+  plugins: [],
+}
