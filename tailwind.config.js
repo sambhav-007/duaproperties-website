@@ -24,18 +24,15 @@ export default {
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
         },
-        // --- ADD NEW KEYFRAME ---
-        'pulse-slow': {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.05)' }, // Scales up by 5%
+        // smoother gold glow
+        'pulse-glow': {
+          '0%, 100%': { boxShadow: '0 0 0px #D4AF37' },
+          '50%': { boxShadow: '0 0 15px #D4AF37' },
         },
-        // --- END NEW KEYFRAME ---
       },
       animation: {
         gradient: 'gradient 8s linear infinite',
-        // --- ADD NEW ANIMATION UTILITY ---
-        'pulse-slow': 'pulse-slow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite', // 2.5s loop duration
-        // --- END NEW ANIMATION UTILITY ---
+        'pulse-glow': 'pulse-glow 2.5s ease-in-out infinite',
       },
       fontFamily: {
         serif: ['Playfair Display', 'serif'], // Custom utility class for headings
