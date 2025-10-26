@@ -91,8 +91,7 @@ function HomePage() {
               </p>
               <Link
                 to="/properties"
-                // Added transform explicitly to prime the element for the scale animation
-                className="bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md text-lg transition duration-300 transform hover:scale-105 active:scale-95 animate-pulse-slow"
+                className="bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md text-lg transition duration-300 transform will-change-transform hover:scale-105 active:scale-95 animate-pulse-slow"
                 aria-label="Explore all property listings"
               >
                 Explore Listings
