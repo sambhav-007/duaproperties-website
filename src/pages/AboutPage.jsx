@@ -1,103 +1,141 @@
 // src/pages/AboutPage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'; // <-- IMPORT HELMET
-import duaLogo from '../assets/dua-logo.jpg'; // Ensure this path and filename are correct
+import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
+import duaLogo from '../assets/dua-logo.jpg';
 
 function AboutPage() {
   return (
-    <> {/* Use a React Fragment to wrap Helmet and the rest of the content */}
+    <>
       <Helmet>
-        <title>About Dua Property | Your Trusted Real Estate Advisor in Tricity & Dubai</title> 
+        <title>About Dua Property | Trusted Real Estate Advisor in Tricity & Dubai, UAE</title>
         <meta
           name="description"
-          content="Learn about Dua Property, a leading real estate advisor specializing in premium residential and commercial properties across the Tricity area (Mohali, Chandigarh, Kharar) AND Dubai, UAE. Discover our story, expertise, and commitment to client satisfaction in both dynamic markets." // UPDATED DESCRIPTION
+          content="Dua Property is a leading real estate advisor specializing in premium residential and commercial properties across Mohali, Chandigarh, Kharar, and Dubai, UAE. Learn about our story, expertise, and commitment to client satisfaction."
         />
-        {/* Optional: Add keywords meta tag, though less impactful now */}
-        {/* <meta name="keywords" content="Dua Property, real estate Mohali, property advisor Chandigarh, Tricity real estate, luxury apartments Kharar, residential plots Mohali, commercial property, investment advice, Dubai real estate, Dubai apartments, UAE properties" /> */}
+        <meta name="keywords" content="Dua Property, Mohali real estate, Chandigarh property advisor, Kharar residential plots, Dubai apartments, UAE real estate, Tricity property investment, luxury homes, commercial property, investment guidance" />
+        {/* Open Graph / Social SEO */}
+        <meta property="og:title" content="About Dua Property | Trusted Real Estate Advisor in Tricity & Dubai, UAE" />
+        <meta property="og:description" content="Dua Property specializes in premium residential and commercial properties across Mohali, Chandigarh, Kharar, and Dubai. Learn about our story, expertise, and services." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={duaLogo} />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "RealEstateAgent",
+              "name": "Dua Property",
+              "image": "${duaLogo}",
+              "url": "https://duaproperty.com",
+              "logo": "${duaLogo}",
+              "description": "Trusted real estate advisor specializing in premium residential and commercial properties across Mohali, Chandigarh, Kharar, and Dubai, UAE.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Mohali",
+                "addressRegion": "Punjab",
+                "addressCountry": "IN"
+              },
+              "areaServed": ["Mohali", "Chandigarh", "Kharar", "Dubai, UAE"]
+            }
+          `}
+        </script>
       </Helmet>
-      <div className="bg-dua-primary pt-20">
-      <div className="bg-white py-12 md:py-16">
-        <div className="container mx-auto px-4">
 
-          {/* Corrected H1 heading, incorporating "Property" consistently */}
-          <h1 className="text-3xl md:text-4xl font-bold text-dua-primary text-center mb-8">
-            About Dua Property: Your Trusted Partner in Tricity & Dubai Real Estate 
-          </h1>
+      <main>
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-r from-dua-primary/90 via-dua-primary/80 to-dua-primary/90 py-16 flex flex-col items-center text-center">
+          <motion.img
+            src={duaLogo}
+            alt="Dua Property Logo – Trusted Real Estate in Tricity and Dubai, UAE"
+            className="rounded-lg shadow-xl max-w-xs md:max-w-md mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          />
+          <motion.h1
+            className="text-3xl md:text-5xl font-bold text-dua-accent mb-4"
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
+            About Dua Property
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-xl text-white max-w-3xl"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+          >
+            Your trusted partner for premium <strong>residential and commercial properties</strong> in <strong>Mohali, Chandigarh, Kharar (Tricity)</strong> and <strong>Dubai, UAE</strong>.
+          </motion.p>
+        </section>
 
-          <p className="text-lg text-dua-body mb-8 md:mb-12 text-center max-w-3xl mx-auto">
-            Welcome to <strong>Dua Property</strong>, your dedicated <strong>real estate partner</strong> specializing in premium <strong>residential and commercial properties</strong> across the vibrant <strong>Tricity area – Mohali, Chandigarh, and Kharar</strong>, and the dynamic, luxurious market of <strong>Dubai, UAE</strong>. Founded on the principles of trust, transparency, and client satisfaction, we are committed to helping you navigate both these diverse <strong>property markets</strong> and find the perfect space to call home or the ideal investment opportunity. {/* UPDATED TEXT */}
-          </p>
-
-          {/* Logo Image Section - ensure alt text is descriptive */}
-          <div className="mb-12 text-center">
-            <img
-              src={duaLogo}
-              alt="Dua Property Company Logo and Team Members"
-              className="inline-block rounded-lg shadow-md max-w-full h-auto md:max-w-xl"
-            />
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-8">
-            <section>
-              <h2 className="text-2xl font-semibold text-dua-text mb-3">
-                Our Story: Building Dreams in Tricity & Beyond, Including Dubai 
-              </h2>
-              <p className="text-dua-body leading-relaxed">
-                For over years, <strong>Dua Property</strong> has been deeply involved in the growth and development of the <strong>Mohali real estate landscape</strong> and has now expanded its expertise to the international market of <strong>Dubai</strong>. Our founder, <strong>Vishal Dua</strong>, saw a need for a reliable and knowledgeable <strong>property advisor</strong> who truly understands both local <strong>Tricity market dynamics</strong> and the global appeal of <strong>Dubai real estate</strong>. Since then, we've helped countless families find their <strong>dream homes</strong> and investors secure valuable <strong>real estate assets</strong>, building a reputation for integrity and results in Mohali, Chandigarh, Kharar, and Dubai. {/* UPDATED TEXT */}
+        {/* Story Section */}
+        <section className="py-16 bg-dua-bg-light">
+          <div className="container mx-auto px-4 space-y-12">
+            <motion.article
+              className="max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-2xl md:text-3xl font-semibold text-dua-primary mb-4 text-center">Our Story</h2>
+              <p className="text-dua-text leading-relaxed text-center">
+                Dua Property has been serving clients in the <strong>Tricity area (Mohali, Chandigarh, Kharar)</strong> and expanding internationally in <strong>Dubai, UAE</strong>. We specialize in helping families and investors find the perfect <strong>residential plots, luxury apartments, and commercial properties</strong>. Our founder, <strong>Vishal Dua</strong>, established the company on trust, transparency, and client satisfaction, ensuring every transaction is seamless and valuable.
               </p>
-            </section>
+            </motion.article>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-dua-text mb-3">
-                  What We Do: Expertise in Tricity & Dubai Properties 
-                </h2>
-              <p className="text-dua-body leading-relaxed mb-4">
-                At <strong>Dua Property</strong>, we offer a comprehensive range of <strong>real estate services</strong> focused on the most sought-after locations in <strong>Mohali, Chandigarh, Kharar, and Dubai</strong>. Our expertise includes: 
-              </p>
-              <ul className="list-disc list-inside text-dua-body space-y-2 pl-4">
-                <li><strong>Residential Plots:</strong> Guiding you to find the perfect <strong>residential plot</strong> in well-planned communities like Amayra Vista, ideal for building your <strong>dream home in Mohali</strong>.</li>
-                <li><strong>Luxury Apartments:</strong> Showcasing premium residences in developments such as Amayra Sky City and Homeland Regalia in Tricity, and exclusive projects like Chapter 1 by Newbury in <strong>Dubai</strong>, offering <strong>luxury apartments in both regions</strong>.</li>
-                <li><strong>Commercial Properties:</strong> Assisting businesses in finding strategic <strong>commercial property</strong> locations for growth and investment across Tricity and in key areas of <strong>Dubai</strong>.</li>
-                <li><strong>Investment Advisory:</strong> Providing data-driven insights for maximizing your <strong>real estate investments</strong> in the competitive <strong>Tricity market</strong> and the high-yield opportunities of <strong>Dubai</strong>.</li>
-                <li><strong>End-to-End Support:</strong> Assisting you through every step, from <strong>property selection</strong> and site visits to documentation and final handover, ensuring a seamless experience with <strong>Dua Property</strong> in both local and international markets.</li>
-              </ul>
-            </section>
+            {/* Expertise & Services */}
+            <motion.section
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.15 } } }}
+            >
+              {[
+                { icon: ShieldCheckIcon, title: 'Trusted Expertise', desc: 'Years of experience in Mohali, Chandigarh, Kharar, and Dubai real estate ensuring informed and secure decisions.' },
+                { icon: MapPinIcon, title: 'Prime Locations', desc: 'Access to premium residential and commercial properties in Tricity and Dubai.' },
+                { icon: UserGroupIcon, title: 'Client-Centric', desc: 'Personalized service tailored to your real estate needs.' },
+                { icon: CurrencyRupeeIcon, title: 'Investment Guidance', desc: 'Expert advice to maximize returns on local and international property investments.' },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300"
+                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                >
+                  <item.icon className="h-12 w-12 text-dua-accent mb-3" />
+                  <h3 className="text-xl font-semibold text-dua-primary mb-2">{item.title}</h3>
+                  <p className="text-dua-text">{item.desc}</p>
+                </motion.div>
+              ))}
+            </motion.section>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-dua-text mb-3">
-                Why Choose Dua Property as Your Real Estate Partner?
-              </h2>
-              <p className="text-dua-body leading-relaxed mb-4">
-                Choosing the right <strong>property advisor</strong> is crucial. Here’s why clients trust <strong>Dua Property</strong> for their <strong>real estate needs in Tricity and Dubai</strong>:
-              </p>
-              <ul className="list-disc list-inside text-dua-body space-y-2 pl-4">
-                <li><strong>Local & International Market Mastery:</strong> We possess in-depth knowledge of <strong>Mohali's Sector 77, Sector 127, Kurali Bypass, Airport Road</strong>, and other key <strong>Tricity locales</strong>, alongside a strong understanding of the diverse real estate opportunities in <strong>Dubai</strong>, ensuring informed decisions.</li>
-                <li><strong>Transparency First:</strong> We believe in honest communication and clear processes, ensuring you are informed at every stage of your <strong>property purchase</strong>, whether local or international.</li>
-                <li><strong>Client-Centric Approach:</strong> Your goals are our priority. We listen, understand, and tailor our services to meet your specific needs for <strong>property in Tricity or Dubai</strong>.</li>
-                <li><strong>Curated Listings:</strong> We focus on quality projects from reputable developers in both regions, ensuring value and reliability in every <strong>Dua Property listing</strong>.</li>
-              </ul>
-            </section>
-
-            <section className="text-center mt-12 pt-8 border-t border-gray-200">
-              <h2 className="text-2xl font-semibold text-dua-text mb-4">
-                Connect with Dua Property for Your Next Investment
-              </h2>
-              <p className="text-lg text-dua-body mb-6 max-w-2xl mx-auto">
-                Whether you're looking for a <strong>luxury apartment in Mohali</strong>, a <strong>residential plot near the GMADA Expressway</strong>, expert advice on <strong>real estate investment in Chandigarh</strong>, or exploring premium opportunities in <strong>Dubai</strong>, <strong>Dua Property</strong> is here to help. Explore our current listings or contact us today for a personalized consultation. Let us help you unlock your future in the global real estate market.
+            {/* CTA */}
+            <motion.section
+              className="text-center mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              <h2 className="text-2xl md:text-3xl font-semibold text-dua-primary mb-4">Connect with Dua Property</h2>
+              <p className="text-dua-text mb-6 max-w-2xl mx-auto">
+                Explore premium properties in <strong>Mohali</strong>, <strong>Chandigarh</strong>, <strong>Kharar</strong>, and <strong>Dubai</strong> with expert guidance. Our team ensures a smooth, professional experience for all clients.
               </p>
               <Link
                 to="/contact"
-                className="inline-block bg-dua-primary text-white py-3 px-8 rounded-md hover:bg-dua-accent transition-colors duration-300 text-lg font-medium"
-                aria-label="Contact Dua Property for real estate inquiries"
+                className="inline-block bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md hover:scale-105 transition-transform duration-300"
               >
                 Get In Touch
               </Link>
-            </section>
+            </motion.section>
           </div>
-        </div>
-      </div>
-    </div>
+        </section>
+      </main>
     </>
   );
 }
