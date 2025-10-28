@@ -194,7 +194,7 @@ function PropertyDetailPage() {
                 <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full rounded-lg"
-                    src={`https://www.youtube.com/embed/${getYouTubeVideoId(property.video_url)}`}
+                    src={`https://www.youtube.com/embed/${getYouTubeVideoId(property.video_url)}?autoplay=1&mute=1&loop=1&playlist=${getYouTubeVideoId(property.video_url)}`}
                     title={`${property.name} Video Tour`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -204,6 +204,9 @@ function PropertyDetailPage() {
               ) : (
                 <video
                   controls
+                  autoPlay
+                  muted
+                  loop
                   className="w-full rounded-lg shadow-md"
                   preload="metadata"
                   style={{ maxHeight: '500px' }}
