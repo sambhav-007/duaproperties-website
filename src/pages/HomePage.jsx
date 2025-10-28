@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import propertiesData from '../data/properties.json';
 import PropertyCard from '../components/PropertyCard';
+import HotPropertiesCarousel from '../components/HotPropertiesCarousel';
 import BlurText from '../components/BlurText';
 import Loader from '../components/Loader';
 import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
@@ -12,7 +13,7 @@ import { motion } from 'framer-motion';
 const heroVideoUrl = '/videos/hero-background-video.mp4';
 
 function HomePage() {
-  const featuredProperties = propertiesData.slice(0, 3);
+  const hotProperties = propertiesData.slice(0, 9); // Get 9 properties for carousel
   const [isVideoLoading, setIsVideoLoading] = useState(true);
   const videoRef = useRef(null);
 
@@ -158,37 +159,32 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Featured Properties */}
-      <section className="py-20 bg-dua-bg-light">
-        <div className="container mx-auto px-4">
-          <motion.h2
+      {/* Hot Properties - Netflix Style Carousel */}
+      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div className="container mx-auto">
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-3xl md:text-4xl font-bold text-center text-dua-primary mb-12"
+            className="mb-8 px-4 md:px-8"
           >
-            Featured Properties
-          </motion.h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+              🔥 Hot Properties
+            </h2>
+            <p className="text-gray-300 text-lg">
+              Explore our most sought-after properties
+            </p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {featuredProperties.map(property => (
-              <motion.div
-                key={property.id}
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.3 }}
-              >
-                <PropertyCard property={property} />
-              </motion.div>
-            ))}
-          </div>
+          <HotPropertiesCarousel properties={hotProperties} />
 
           <div className="text-center mt-12">
             <Link
               to="/properties"
-              className="inline-block bg-dua-primary text-white py-3 px-8 rounded-md hover:bg-dua-accent transition-colors duration-300 text-lg shadow-lg"
+              className="inline-block bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md hover:bg-white transition-colors duration-300 text-lg shadow-lg"
             >
-              View All Properties
+              View All Properties →
             </Link>
           </div>
         </div>
