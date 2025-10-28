@@ -31,6 +31,27 @@ function PropertyDetailPage() {
     setLightboxOpen(true);
   };
 
+  // Helper function to check if URL is a YouTube link
+  const isYouTubeUrl = (url) => {
+    return url && (url.includes('youtube.com') || url.includes('youtu.be'));
+  };
+
+  // Extract YouTube video ID from URL (supports regular videos and Shorts)
+  const getYouTubeVideoId = (url) => {
+    if (!url) return null;
+    
+    // Handle YouTube Shorts
+    if (url.includes('/shorts/')) {
+      const shortsMatch = url.match(/\/shorts\/([^?&#]+)/);
+      return shortsMatch ? shortsMatch[1] : null;
+    }
+    
+    // Handle regular YouTube URLs
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
   if (loading) {
     return (
       <div className="container mx-auto py-16 text-center">
@@ -160,6 +181,39 @@ function PropertyDetailPage() {
                   onClick={() => openLightbox(i)}
                 />
               ))}
+            </div>
+          </div>
+        )}
+
+        {/* Video Section */}
+        {property.video_url && (
+          <div className="mt-10 mb-16 animate-fade-in">
+            <h2 className="text-2xl font-bold text-dua-text mb-4">Video Tour</h2>
+            <div className="bg-white p-4 rounded-lg shadow-lg max-w-4xl mx-auto">
+              {isYouTubeUrl(property.video_url) ? (
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full rounded-lg"
+                    src={`https://www.youtube.com/embed/${getYouTubeVideoId(property.video_url)}`}
+                    title={`${property.name} Video Tour`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              ) : (
+                <video
+                  controls
+                  className="w-full rounded-lg shadow-md"
+                  preload="metadata"
+                  style={{ maxHeight: '500px' }}
+                >
+                  <source src={property.video_url} type="video/mp4" />
+                  <source src={property.video_url} type="video/mov" />
+                  <source src={property.video_url} type="video/webm" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
             </div>
           </div>
         )}
