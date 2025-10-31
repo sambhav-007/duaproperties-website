@@ -292,23 +292,22 @@ function PropertiesPage() {
           {/* Properties Grid */}
           <div className="mb-8">
             {loading ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {Array.from({ length: 8 }).map((_, i) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {Array.from({ length: 9 }).map((_, i) => (
                   <div
                     key={i}
-                    className="animate-pulse bg-gray-200 rounded-xl h-96 shadow-lg"
+                    className="animate-pulse bg-gray-200 rounded-2xl h-[500px] shadow-lg"
                   ></div>
                 ))}
               </div>
             ) : filteredProperties.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredProperties.map((property, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredProperties.slice(0, 9).map((property, index) => (
                   <motion.div
                     key={property.id}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
-                    whileHover={{ y: -8 }}
                   >
                     <PropertyCard property={property} />
                   </motion.div>
