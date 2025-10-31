@@ -1,40 +1,19 @@
 // src/pages/HomePage.jsx
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import propertiesData from '../data/properties.json';
 import PropertyCard from '../components/PropertyCard';
-import HotPropertiesCarousel from '../components/HotPropertiesCarousel';
-import BlurText from '../components/BlurText';
-import Loader from '../components/Loader';
+import HeroSlideshow from '../components/HeroSlideshow';
 import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 
-const heroVideoUrl = '/videos/hero-background-video.mp4';
-
 function HomePage() {
-  const hotProperties = propertiesData.slice(0, 9); // Get 9 properties for carousel
-  const [isVideoLoading, setIsVideoLoading] = useState(true);
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
-
-    const handleVideoLoad = () => setIsVideoLoading(false);
-
-    if (videoElement.readyState >= 3) {
-      handleVideoLoad();
-    } else {
-      videoElement.addEventListener('loadeddata', handleVideoLoad);
-      videoElement.addEventListener('canplaythrough', handleVideoLoad);
-    }
-
-    return () => {
-      videoElement.removeEventListener('loadeddata', handleVideoLoad);
-      videoElement.removeEventListener('canplaythrough', handleVideoLoad);
-    };
-  }, []);
+  // Hot properties for hero slideshow (IDs: 2, 3, 9)
+  const hotProperties = propertiesData.filter(p => ['2', '3', '9'].includes(p.id));
+  
+  // All properties for display
+  const allProperties = propertiesData;
 
   return (
     <>
@@ -46,72 +25,8 @@ function HomePage() {
         />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="relative h-[80vh] md:h-[90vh] text-white flex items-center justify-center overflow-hidden">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${isVideoLoading ? 'opacity-0' : 'opacity-100'}`}
-          src={heroVideoUrl}
-          type="video/mp4"
-        />
-
-        {/* Gradient overlay for luxury feel */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-10"></div>
-
-        {/* Hero Content */}
-        <div className="relative z-20 text-center px-4">
-          {isVideoLoading ? (
-            <Loader />
-          ) : (
-            <>
-              <motion.h1
-                initial={{ y: -40, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1.2 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-center"
-              >
-                <BlurText
-                  text="Find Your Dream Property!"
-                  delay={200}
-                  animateBy="words"
-                  direction="top"
-                  className="inline-block text-dua-accent"
-                />
-              </motion.h1>
-
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1.2, delay: 0.3 }}
-                className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto"
-              >
-                Discover premium residential and commercial properties across Tricity & Dubai. Your future starts here.
-              </motion.p>
-
-              <Link
-                to="/properties"
-                className="inline-block bg-dua-accent text-dua-primary font-bold py-4 px-10 rounded-md text-lg shadow-lg shadow-dua-accent/30
-                           transition-transform duration-300 hover:scale-105 hover:shadow-xl active:scale-95"
-              >
-                Explore Listings
-              </Link>
-
-              {/* Scroll down hint */}
-              <motion.div
-                animate={{ y: [0, 15, 0] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-                className="mt-12 text-dua-accent text-2xl"
-              >
-                &#x2193;
-              </motion.div>
-            </>
-          )}
-        </div>
-      </section>
+      {/* Hero Slideshow Section */}
+      <HeroSlideshow properties={hotProperties} />
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
@@ -159,34 +74,58 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Hot Properties - Netflix Style Carousel */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
-        <div className="container mx-auto">
+      {/* All Properties Section */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="mb-8 px-4 md:px-8"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-              🔥 Hot Properties
+            <h2 className="text-4xl md:text-5xl font-bold text-dua-primary mb-4">
+              Explore All Properties
             </h2>
-            <p className="text-gray-300 text-lg">
-              Explore our most sought-after properties
+            <p className="text-lg text-dua-body max-w-2xl mx-auto">
+              Browse through our complete collection of premium properties across Tricity & Dubai
             </p>
           </motion.div>
 
-          <HotPropertiesCarousel properties={hotProperties} />
+          {/* Properties Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {allProperties.map((property, index) => (
+              <motion.div
+                key={property.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+              >
+                <PropertyCard property={property} />
+              </motion.div>
+            ))}
+          </div>
 
-          <div className="text-center mt-12">
+          {/* View More Button */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="text-center mt-16"
+          >
             <Link
               to="/properties"
-              className="inline-block bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md hover:bg-white transition-colors duration-300 text-lg shadow-lg"
+              className="inline-flex items-center gap-2 bg-dua-primary text-white font-bold py-4 px-10 rounded-lg text-lg shadow-xl hover:bg-dua-accent hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
             >
-              View All Properties →
+              <span>View All Properties</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
