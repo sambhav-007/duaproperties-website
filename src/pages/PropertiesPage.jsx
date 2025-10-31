@@ -1,10 +1,14 @@
 // src/pages/PropertiesPage.jsx
 import React, { useState, useMemo, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MagnifyingGlassIcon, FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import propertiesData from '../data/properties.json';
 import PropertyCard from '../components/PropertyCard';
 
 const locationFilters = ['All Locations', 'Mohali', 'Chandigarh', 'Kharar', 'Dubai'];
+const typeFilters = ['All Types', 'Residential', 'Commercial', 'Apartment', 'Residential Plot'];
+const statusFilters = ['All Status', 'Sale', 'Rent'];
 
 const getPropertyRegion = (locationString) => {
   if (!locationString) return 'Other';
@@ -17,7 +21,12 @@ const getPropertyRegion = (locationString) => {
 };
 
 function PropertiesPage() {
-  const [activeFilter, setActiveFilter] = useState('All Locations');
+  const [activeLocationFilter, setActiveLocationFilter] = useState('All Locations');
+  const [activeTypeFilter, setActiveTypeFilter] = useState('All Types');
+  const [activeStatusFilter, setActiveStatusFilter] = useState('All Status');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState('default');
+  const [showFilters, setShowFilters] = useState(false);
   const [loading, setLoading] = useState(true);
   const [allProperties, setAllProperties] = useState([]);
 
@@ -31,11 +40,66 @@ function PropertiesPage() {
   }, []);
 
   const filteredProperties = useMemo(() => {
-    if (activeFilter === 'All Locations') return allProperties;
-    return allProperties.filter(
-      (property) => getPropertyRegion(property.location) === activeFilter
-    );
-  }, [activeFilter, allProperties]);
+    let filtered = allProperties;
+
+    // Location filter
+    if (activeLocationFilter !== 'All Locations') {
+      filtered = filtered.filter(
+        (property) => getPropertyRegion(property.location) === activeLocationFilter
+      );
+    }
+
+    // Type filter
+    if (activeTypeFilter !== 'All Types') {
+      filtered = filtered.filter((property) => {
+        if (activeTypeFilter === 'Residential') {
+          return property.type?.toLowerCase().includes('residential') || 
+                 property.type?.toLowerCase().includes('apartment') ||
+                 property.configuration?.toLowerCase().includes('bhk');
+        }
+        return property.type?.toLowerCase().includes(activeTypeFilter.toLowerCase());
+      });
+    }
+
+    // Status filter
+    if (activeStatusFilter !== 'All Status') {
+      filtered = filtered.filter(
+        (property) => property.status?.toLowerCase() === activeStatusFilter.toLowerCase()
+      );
+    }
+
+    // Search filter
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(
+        (property) =>
+          property.name?.toLowerCase().includes(query) ||
+          property.location?.toLowerCase().includes(query) ||
+          property.type?.toLowerCase().includes(query) ||
+          property.developer?.toLowerCase().includes(query) ||
+          property.description?.toLowerCase().includes(query)
+      );
+    }
+
+    // Sort
+    if (sortBy === 'name-asc') {
+      filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'name-desc') {
+      filtered = [...filtered].sort((a, b) => b.name.localeCompare(a.name));
+    } else if (sortBy === 'newest') {
+      filtered = [...filtered].reverse();
+    }
+
+    return filtered;
+  }, [activeLocationFilter, activeTypeFilter, activeStatusFilter, searchQuery, sortBy, allProperties]);
+
+  const clearAllFilters = () => {
+    setActiveLocationFilter('All Locations');
+    setActiveTypeFilter('All Types');
+    setActiveStatusFilter('All Status');
+    setSearchQuery('');
+    setSortBy('default');
+  };
 
   return (
     <>
@@ -56,89 +120,222 @@ function PropertiesPage() {
         />
       </Helmet>
 
-      <div className="bg-dua-primary min-h-screen pt-32 pb-12 px-4">
-        <div className="container mx-auto">
-          <h1 className="text-4xl font-extrabold text-white mb-3 text-center animate-fade-slide">
-            Premium Properties for Sale in Tricity & Dubai
-          </h1>
-          <p className="text-lg text-white/90 mb-12 text-center max-w-3xl mx-auto animate-fade-slide">
-            Explore handpicked listings from Dua Property — find your next dream home or investment
-            opportunity in Mohali, Chandigarh, Kharar, or Dubai.
-          </p>
+      <div className="min-h-screen pt-24 pb-12 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          {/* Hero Header */}
+          <motion.div
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dua-primary mb-4">
+              Discover Premium Properties
+            </h1>
+            <p className="text-lg md:text-xl text-dua-body max-w-3xl mx-auto">
+              Explore handpicked luxury apartments, plots, and commercial spaces in Tricity & Dubai
+            </p>
+          </motion.div>
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {locationFilters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-300
-                  ${
-                    activeFilter === filter
-                      ? 'bg-dua-accent text-dua-primary shadow-lg scale-105'
-                      : 'bg-white text-dua-text hover:bg-gray-200 hover:scale-105'
-                  } animate-fade-slide`}
+          {/* Search Bar */}
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-4xl mx-auto mb-8"
+          >
+            <div className="relative">
+              <MagnifyingGlassIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search by name, location, type, or developer..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-14 pr-4 py-4 text-lg border-2 border-gray-200 rounded-2xl focus:border-dua-accent focus:outline-none focus:ring-2 focus:ring-dua-accent/20 transition-all duration-300 shadow-lg"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  <XMarkIcon className="w-6 h-6" />
+                </button>
+              )}
+            </div>
+          </motion.div>
+
+          {/* Filter Toggle & Sort */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-wrap items-center justify-between gap-4 mb-8"
+          >
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className="flex items-center gap-2 px-6 py-3 bg-dua-primary text-white font-semibold rounded-xl hover:bg-dua-accent transition-colors duration-300 shadow-lg"
+            >
+              <FunnelIcon className="w-5 h-5" />
+              {showFilters ? 'Hide Filters' : 'Show Filters'}
+            </button>
+
+            <div className="flex items-center gap-4">
+              <label className="text-dua-text font-semibold">Sort by:</label>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-dua-accent focus:outline-none focus:ring-2 focus:ring-dua-accent/20 transition-all duration-300"
               >
-                {filter}
-              </button>
-            ))}
-          </div>
+                <option value="default">Default</option>
+                <option value="name-asc">Name (A-Z)</option>
+                <option value="name-desc">Name (Z-A)</option>
+                <option value="newest">Newest First</option>
+              </select>
+            </div>
+          </motion.div>
 
+          {/* Filters Panel */}
+          <AnimatePresence>
+            {showFilters && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden mb-8"
+              >
+                <div className="bg-white p-6 rounded-2xl shadow-xl border-2 border-gray-100">
+                  {/* Location Filter */}
+                  <div className="mb-6">
+                    <h3 className="text-lg font-bold text-dua-text mb-3">Location</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {locationFilters.map((filter) => (
+                        <button
+                          key={filter}
+                          onClick={() => setActiveLocationFilter(filter)}
+                          className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
+                            activeLocationFilter === filter
+                              ? 'bg-dua-accent text-white shadow-lg scale-105'
+                              : 'bg-gray-100 text-dua-text hover:bg-gray-200'
+                          }`}
+                        >
+                          {filter}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Type Filter */}
+                  <div className="mb-6">
+                    <h3 className="text-lg font-bold text-dua-text mb-3">Property Type</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {typeFilters.map((filter) => (
+                        <button
+                          key={filter}
+                          onClick={() => setActiveTypeFilter(filter)}
+                          className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
+                            activeTypeFilter === filter
+                              ? 'bg-dua-accent text-white shadow-lg scale-105'
+                              : 'bg-gray-100 text-dua-text hover:bg-gray-200'
+                          }`}
+                        >
+                          {filter}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Status Filter */}
+                  <div className="mb-4">
+                    <h3 className="text-lg font-bold text-dua-text mb-3">Status</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {statusFilters.map((filter) => (
+                        <button
+                          key={filter}
+                          onClick={() => setActiveStatusFilter(filter)}
+                          className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
+                            activeStatusFilter === filter
+                              ? 'bg-dua-accent text-white shadow-lg scale-105'
+                              : 'bg-gray-100 text-dua-text hover:bg-gray-200'
+                          }`}
+                        >
+                          {filter}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Clear Filters Button */}
+                  <button
+                    onClick={clearAllFilters}
+                    className="mt-4 px-6 py-2 bg-red-100 text-red-600 font-semibold rounded-lg hover:bg-red-200 transition-colors duration-300"
+                  >
+                    Clear All Filters
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Results Count */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
+          >
+            <p className="text-lg text-dua-text text-center">
+              Showing <strong className="text-dua-accent text-xl">{filteredProperties.length}</strong> of{' '}
+              <strong>{allProperties.length}</strong> properties
+            </p>
+          </motion.div>
           {/* Properties Grid */}
-          <div className="bg-white p-6 rounded-2xl shadow-2xl animate-fade-in">
+          <div className="mb-8">
             {loading ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {Array.from({ length: 6 }).map((_, i) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {Array.from({ length: 8 }).map((_, i) => (
                   <div
                     key={i}
-                    className="animate-pulse bg-gray-200 rounded-xl h-96 shadow-inner"
+                    className="animate-pulse bg-gray-200 rounded-xl h-96 shadow-lg"
                   ></div>
                 ))}
               </div>
             ) : filteredProperties.length > 0 ? (
-              <>
-                <p className="text-lg text-dua-text mb-6 text-center">
-                  Showing <strong>{filteredProperties.length}</strong> of{' '}
-                  {allProperties.length} listings{' '}
-                  {activeFilter === 'All Locations' ? 'globally' : `in ${activeFilter}`}.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredProperties.map((property) => (
-                    <PropertyCard key={property.id} property={property} />
-                  ))}
-                </div>
-              </>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {filteredProperties.map((property, index) => (
+                  <motion.div
+                    key={property.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    whileHover={{ y: -8 }}
+                  >
+                    <PropertyCard property={property} />
+                  </motion.div>
+                ))}
+              </div>
             ) : (
-              <p className="text-center text-gray-600 mt-10">
-                No properties currently listed. Please check back soon for new projects from Dua
-                Property.
-              </p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-20"
+              >
+                <div className="text-6xl mb-4">🔍</div>
+                <h3 className="text-2xl font-bold text-dua-text mb-2">No Properties Found</h3>
+                <p className="text-gray-600 mb-6">
+                  Try adjusting your filters or search criteria
+                </p>
+                <button
+                  onClick={clearAllFilters}
+                  className="px-6 py-3 bg-dua-primary text-white font-semibold rounded-lg hover:bg-dua-accent transition-colors duration-300"
+                >
+                  Clear All Filters
+                </button>
+              </motion.div>
             )}
           </div>
         </div>
       </div>
-
-      <style>
-        {`
-          @keyframes fade-in {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-
-          @keyframes fade-slide {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-
-          .animate-fade-in {
-            animation: fade-in 0.6s ease-out forwards;
-          }
-
-          .animate-fade-slide {
-            animation: fade-slide 0.8s ease-out forwards;
-          }
-        `}
-      </style>
     </>
   );
 }
