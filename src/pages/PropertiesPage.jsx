@@ -120,7 +120,7 @@ function PropertiesPage() {
         />
       </Helmet>
 
-      <div className="min-h-screen pt-24 pb-12 bg-gradient-to-b from-gray-50 to-white">
+      <div className="min-h-screen pt-24 pb-12 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
         <div className="container mx-auto px-4">
           {/* Hero Header */}
           <motion.div
@@ -129,10 +129,10 @@ function PropertiesPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dua-primary mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4">
               Discover Premium Properties
             </h1>
-            <p className="text-lg md:text-xl text-dua-body max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
               Explore handpicked luxury apartments, plots, and commercial spaces in Tricity & Dubai
             </p>
           </motion.div>
@@ -151,12 +151,12 @@ function PropertiesPage() {
                 placeholder="Search by name, location, type, or developer..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-14 pr-4 py-4 text-lg border-2 border-gray-200 rounded-2xl focus:border-dua-accent focus:outline-none focus:ring-2 focus:ring-dua-accent/20 transition-all duration-300 shadow-lg"
+                className="w-full pl-14 pr-4 py-4 text-lg bg-white/10 backdrop-blur-lg border-2 border-white/20 text-white placeholder-gray-400 rounded-2xl focus:border-dua-accent focus:outline-none focus:ring-2 focus:ring-dua-accent/20 transition-all duration-300 shadow-2xl"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
                 >
                   <XMarkIcon className="w-6 h-6" />
                 </button>
@@ -173,23 +173,23 @@ function PropertiesPage() {
           >
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-6 py-3 bg-dua-primary text-white font-semibold rounded-xl hover:bg-dua-accent transition-colors duration-300 shadow-lg"
+              className="flex items-center gap-2 px-6 py-3 bg-dua-accent/90 backdrop-blur-sm text-dua-primary font-semibold rounded-xl hover:bg-dua-accent hover:shadow-[0_0_30px_rgba(193,154,107,0.4)] transition-all duration-300 shadow-lg border border-dua-accent/30"
             >
               <FunnelIcon className="w-5 h-5" />
               {showFilters ? 'Hide Filters' : 'Show Filters'}
             </button>
 
             <div className="flex items-center gap-4">
-              <label className="text-dua-text font-semibold">Sort by:</label>
+              <label className="text-white font-semibold">Sort by:</label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-dua-accent focus:outline-none focus:ring-2 focus:ring-dua-accent/20 transition-all duration-300"
+                className="px-4 py-2 bg-white/10 backdrop-blur-lg border-2 border-white/20 text-white rounded-lg focus:border-dua-accent focus:outline-none focus:ring-2 focus:ring-dua-accent/20 transition-all duration-300"
               >
-                <option value="default">Default</option>
-                <option value="name-asc">Name (A-Z)</option>
-                <option value="name-desc">Name (Z-A)</option>
-                <option value="newest">Newest First</option>
+                <option value="default" className="bg-gray-900">Default</option>
+                <option value="name-asc" className="bg-gray-900">Name (A-Z)</option>
+                <option value="name-desc" className="bg-gray-900">Name (Z-A)</option>
+                <option value="newest" className="bg-gray-900">Newest First</option>
               </select>
             </div>
           </motion.div>
@@ -204,10 +204,10 @@ function PropertiesPage() {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden mb-8"
               >
-                <div className="bg-white p-6 rounded-2xl shadow-xl border-2 border-gray-100">
+                <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-2xl shadow-2xl">
                   {/* Location Filter */}
                   <div className="mb-6">
-                    <h3 className="text-lg font-bold text-dua-text mb-3">Location</h3>
+                    <h3 className="text-lg font-bold text-white mb-3">Location</h3>
                     <div className="flex flex-wrap gap-2">
                       {locationFilters.map((filter) => (
                         <button
@@ -215,8 +215,8 @@ function PropertiesPage() {
                           onClick={() => setActiveLocationFilter(filter)}
                           className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
                             activeLocationFilter === filter
-                              ? 'bg-dua-accent text-white shadow-lg scale-105'
-                              : 'bg-gray-100 text-dua-text hover:bg-gray-200'
+                              ? 'bg-dua-accent text-dua-primary shadow-lg scale-105'
+                              : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
                           }`}
                         >
                           {filter}
@@ -227,7 +227,7 @@ function PropertiesPage() {
 
                   {/* Type Filter */}
                   <div className="mb-6">
-                    <h3 className="text-lg font-bold text-dua-text mb-3">Property Type</h3>
+                    <h3 className="text-lg font-bold text-white mb-3">Property Type</h3>
                     <div className="flex flex-wrap gap-2">
                       {typeFilters.map((filter) => (
                         <button
@@ -235,8 +235,8 @@ function PropertiesPage() {
                           onClick={() => setActiveTypeFilter(filter)}
                           className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
                             activeTypeFilter === filter
-                              ? 'bg-dua-accent text-white shadow-lg scale-105'
-                              : 'bg-gray-100 text-dua-text hover:bg-gray-200'
+                              ? 'bg-dua-accent text-dua-primary shadow-lg scale-105'
+                              : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
                           }`}
                         >
                           {filter}
@@ -247,7 +247,7 @@ function PropertiesPage() {
 
                   {/* Status Filter */}
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-dua-text mb-3">Status</h3>
+                    <h3 className="text-lg font-bold text-white mb-3">Status</h3>
                     <div className="flex flex-wrap gap-2">
                       {statusFilters.map((filter) => (
                         <button
@@ -255,8 +255,8 @@ function PropertiesPage() {
                           onClick={() => setActiveStatusFilter(filter)}
                           className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
                             activeStatusFilter === filter
-                              ? 'bg-dua-accent text-white shadow-lg scale-105'
-                              : 'bg-gray-100 text-dua-text hover:bg-gray-200'
+                              ? 'bg-dua-accent text-dua-primary shadow-lg scale-105'
+                              : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
                           }`}
                         >
                           {filter}
@@ -268,7 +268,7 @@ function PropertiesPage() {
                   {/* Clear Filters Button */}
                   <button
                     onClick={clearAllFilters}
-                    className="mt-4 px-6 py-2 bg-red-100 text-red-600 font-semibold rounded-lg hover:bg-red-200 transition-colors duration-300"
+                    className="mt-4 px-6 py-2 bg-red-500/20 text-red-400 font-semibold rounded-lg hover:bg-red-500/30 transition-colors duration-300 border border-red-500/30"
                   >
                     Clear All Filters
                   </button>
@@ -284,7 +284,7 @@ function PropertiesPage() {
             transition={{ duration: 0.5 }}
             className="mb-6"
           >
-            <p className="text-lg text-dua-text text-center">
+            <p className="text-lg text-gray-300 text-center">
               Showing <strong className="text-dua-accent text-xl">{filteredProperties.length}</strong> of{' '}
               <strong>{allProperties.length}</strong> properties
             </p>
@@ -296,7 +296,7 @@ function PropertiesPage() {
                 {Array.from({ length: 9 }).map((_, i) => (
                   <div
                     key={i}
-                    className="animate-pulse bg-gray-200 rounded-2xl h-[500px] shadow-lg"
+                    className="animate-pulse bg-white/10 backdrop-blur-lg rounded-2xl h-[500px] shadow-2xl border border-white/20"
                   ></div>
                 ))}
               </div>
@@ -320,13 +320,13 @@ function PropertiesPage() {
                 className="text-center py-20"
               >
                 <div className="text-6xl mb-4">🔍</div>
-                <h3 className="text-2xl font-bold text-dua-text mb-2">No Properties Found</h3>
-                <p className="text-gray-600 mb-6">
+                <h3 className="text-2xl font-bold text-white mb-2">No Properties Found</h3>
+                <p className="text-gray-300 mb-6">
                   Try adjusting your filters or search criteria
                 </p>
                 <button
                   onClick={clearAllFilters}
-                  className="px-6 py-3 bg-dua-primary text-white font-semibold rounded-lg hover:bg-dua-accent transition-colors duration-300"
+                  className="px-6 py-3 bg-dua-accent/90 backdrop-blur-sm text-dua-primary font-semibold rounded-lg hover:bg-dua-accent hover:shadow-[0_0_30px_rgba(193,154,107,0.4)] transition-all duration-300 border border-dua-accent/30"
                 >
                   Clear All Filters
                 </button>

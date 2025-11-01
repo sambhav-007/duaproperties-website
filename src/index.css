@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark theme base styles */
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white;
+    min-height: 100vh;
+  }
+  
+  #root {
+    @apply min-h-screen;
+  }
+}
+
 /* ✨ Floating button animation */
 @layer utilities {
   @keyframes floaty {

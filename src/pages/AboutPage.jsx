@@ -48,38 +48,38 @@ function AboutPage() {
         </script>
       </Helmet>
 
-      <main className="pt-16"> {/* Added padding to avoid navbar overlap */}
+      <main className="pt-16 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-dua-primary/90 via-dua-primary/80 to-dua-primary/90 py-16 flex flex-col items-center text-center">
+        <section className="relative bg-gradient-to-r from-gray-900/90 via-gray-800/80 to-gray-900/90 py-16 flex flex-col items-center text-center border-b border-white/10">
           <motion.img
             src={duaLogo}
             alt="Dua Property Logo – Trusted Real Estate in Tricity and Dubai, UAE"
-            className="rounded-lg shadow-xl max-w-xs md:max-w-md mb-6"
+            className="rounded-lg shadow-2xl max-w-xs md:max-w-md mb-6 border-2 border-dua-accent/30"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           />
           <motion.h1
-            className="text-3xl md:text-5xl font-bold text-dua-accent mb-4"
+            className="text-3xl md:text-5xl font-bold text-white mb-4"
             initial={{ y: -30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            About Dua Property
+            About <span className="text-dua-accent">Dua Property</span>
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl text-white max-w-3xl"
+            className="text-lg md:text-xl text-gray-300 max-w-3xl"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            Your trusted partner for premium <strong>residential and commercial properties</strong> in{' '}
-            <strong>Mohali, Chandigarh, Kharar (Tricity)</strong> and <strong>Dubai, UAE</strong>.
+            Your trusted partner for premium <strong className="text-white">residential and commercial properties</strong> in{' '}
+            <strong className="text-white">Mohali, Chandigarh, Kharar (Tricity)</strong> and <strong className="text-white">Dubai, UAE</strong>.
           </motion.p>
         </section>
 
         {/* Story Section */}
-        <section className="py-16 bg-dua-bg-light">
+        <section className="py-16 bg-gray-900/50">
           <div className="container mx-auto px-4 space-y-12">
             <motion.article
               className="max-w-3xl mx-auto"
@@ -88,11 +88,11 @@ function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-2xl md:text-3xl font-semibold text-dua-primary mb-4 text-center">Our Story</h2>
-              <p className="text-dua-text leading-relaxed text-center">
-                Dua Property has been serving clients in the <strong>Tricity area (Mohali, Chandigarh, Kharar)</strong> and expanding internationally in{' '}
-                <strong>Dubai, UAE</strong>. We specialize in helping families and investors find the perfect{' '}
-                <strong>residential plots, luxury apartments, and commercial properties</strong>. Our founder, <strong>Vishal Dua</strong>, established the company on trust, transparency, and client satisfaction, ensuring every transaction is seamless and valuable.
+              <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4 text-center">Our Story</h2>
+              <p className="text-gray-300 leading-relaxed text-center">
+                Dua Property has been serving clients in the <strong className="text-white">Tricity area (Mohali, Chandigarh, Kharar)</strong> and expanding internationally in{' '}
+                <strong className="text-white">Dubai, UAE</strong>. We specialize in helping families and investors find the perfect{' '}
+                <strong className="text-white">residential plots, luxury apartments, and commercial properties</strong>. Our founder, <strong className="text-dua-accent">Vishal Dua</strong>, established the company on trust, transparency, and client satisfaction, ensuring every transaction is seamless and valuable.
               </p>
             </motion.article>
 
@@ -112,12 +112,12 @@ function AboutPage() {
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
-                  className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300"
+                  className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl p-6 flex flex-col items-center text-center hover:scale-105 hover:bg-white/20 hover:shadow-[0_0_30px_rgba(193,154,107,0.2)] transition-all duration-300"
                   variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 >
                   <item.icon className="h-12 w-12 text-dua-accent mb-3" />
-                  <h3 className="text-xl font-semibold text-dua-primary mb-2">{item.title}</h3>
-                  <p className="text-dua-text">{item.desc}</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+                  <p className="text-gray-300">{item.desc}</p>
                 </motion.div>
               ))}
             </motion.section>
@@ -130,13 +130,13 @@ function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 1 }}
             >
-              <h2 className="text-2xl md:text-3xl font-semibold text-dua-primary mb-4">Connect with Dua Property</h2>
-              <p className="text-dua-text mb-6 max-w-2xl mx-auto">
-                Explore premium properties in <strong>Mohali</strong>, <strong>Chandigarh</strong>, <strong>Kharar</strong>, and <strong>Dubai</strong> with expert guidance. Our team ensures a smooth, professional experience for all clients.
+              <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">Connect with Dua Property</h2>
+              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                Explore premium properties in <strong className="text-white">Mohali</strong>, <strong className="text-white">Chandigarh</strong>, <strong className="text-white">Kharar</strong>, and <strong className="text-white">Dubai</strong> with expert guidance. Our team ensures a smooth, professional experience for all clients.
               </p>
               <Link
                 to="/contact"
-                className="inline-block bg-dua-accent text-dua-primary font-bold py-3 px-8 rounded-md hover:scale-105 transition-transform duration-300"
+                className="inline-block bg-dua-accent/90 backdrop-blur-sm border border-dua-accent/30 text-dua-primary font-bold py-3 px-8 rounded-md hover:bg-dua-accent hover:scale-105 hover:shadow-[0_0_30px_rgba(193,154,107,0.4)] transition-all duration-300"
               >
                 Get In Touch
               </Link>

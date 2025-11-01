@@ -54,26 +54,28 @@ function PropertyDetailPage() {
 
   if (loading) {
     return (
-      <div className="container mx-auto py-16 text-center">
-        <p className="text-xl text-dua-body animate-pulse">Loading property details...</p>
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center">
+        <p className="text-xl text-gray-300 animate-pulse">Loading property details...</p>
       </div>
     );
   }
 
   if (!property) {
     return (
-      <div className="container mx-auto py-16 text-center">
-        <Helmet>
-          <title>Property Not Found | Dua Property</title>
-        </Helmet>
-        <h1 className="text-3xl font-bold text-red-600">Property Not Found</h1>
-        <p className="text-dua-body mt-4">The property you are looking for does not exist.</p>
-        <Link 
-          to="/properties" 
-          className="mt-6 inline-block bg-dua-primary text-white py-2 px-4 rounded hover:bg-dua-accent transition-transform transform hover:scale-105"
-        >
-          Back to All Properties
-        </Link>
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <Helmet>
+            <title>Property Not Found | Dua Property</title>
+          </Helmet>
+          <h1 className="text-3xl font-bold text-red-400">Property Not Found</h1>
+          <p className="text-gray-300 mt-4">The property you are looking for does not exist.</p>
+          <Link 
+            to="/properties" 
+            className="mt-6 inline-block bg-dua-accent/90 backdrop-blur-sm border border-dua-accent/30 text-dua-primary py-3 px-6 rounded-lg hover:bg-dua-accent hover:shadow-[0_0_30px_rgba(193,154,107,0.4)] transition-all duration-300"
+          >
+            Back to All Properties
+          </Link>
+        </div>
       </div>
     );
   }
@@ -91,60 +93,61 @@ function PropertyDetailPage() {
       </Helmet>
 
       {/* Main container with padding for navbar and background for contrast */}
-      <main className="container mx-auto px-4 pt-28 md:pt-32 bg-white min-h-screen animate-fade-in">
+      <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 px-4 pt-28 md:pt-32 pb-12 animate-fade-in">
+        <div className="container mx-auto">
+          {/* Back Button */}
+          <Link 
+            to="/properties" 
+            className="text-dua-accent hover:text-white mb-6 inline-flex items-center gap-2 transition-all duration-300 group"
+          >
+            <span className="transform group-hover:-translate-x-1 transition-transform">&larr;</span>
+            <span>Back to Properties</span>
+          </Link>
 
-        {/* Back Button */}
-        <Link 
-          to="/properties" 
-          className="text-dua-primary hover:underline mb-6 inline-block transition-transform transform hover:scale-110"
-        >
-          &larr; Back to Properties
-        </Link>
+          {/* Property Title & Price */}
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 animate-fade-scale">{property.name}</h1>
+          <p className="text-2xl text-dua-accent font-semibold mb-4 animate-fade-scale">{property.price}</p>
+          {property.rera_id && <p className="text-sm text-gray-400 mb-6">{`RERA ID: ${property.rera_id}`}</p>}
 
-        {/* Property Title & Price */}
-        <h1 className="text-4xl md:text-5xl font-bold text-dua-primary mb-2 animate-fade-scale">{property.name}</h1>
-        <p className="text-2xl text-dua-accent font-semibold mb-4 animate-fade-scale">{property.price}</p>
-        {property.rera_id && <p className="text-sm text-gray-500 mb-6">{`RERA ID: ${property.rera_id}`}</p>}
+          {/* Overview Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <div className="animate-fade-scale">
+              <img
+                src={property.image_main}
+                alt={`Main view of ${property.name} in ${property.location}`}
+                loading="lazy"
+                className="w-full h-96 object-cover rounded-lg shadow-2xl border border-white/20 transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+            <div className="animate-fade-scale bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-6 shadow-2xl">
+              <h2 className="text-2xl font-bold text-white mb-3">Overview</h2>
+              <p className="text-lg text-gray-300 mb-4">{property.description || 'No description available.'}</p>
 
-        {/* Overview Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-          <div className="animate-fade-scale">
-            <img
-              src={property.image_main}
-              alt={`Main view of ${property.name} in ${property.location}`}
-              loading="lazy"
-              className="w-full h-96 object-cover rounded-lg shadow-md transition-transform duration-500 hover:scale-105"
-            />
-          </div>
-          <div className="animate-fade-scale">
-            <h2 className="text-2xl font-bold text-dua-text mb-3">Overview</h2>
-            <p className="text-lg text-dua-body mb-4">{property.description || 'No description available.'}</p>
-
-            <h3 className="text-xl font-bold text-dua-text mt-6 mb-2">Property Details</h3>
-            <ul className="list-disc list-inside text-dua-body space-y-1">
-              {property.location && <li><strong>Location:</strong> {property.location}</li>}
-              {property.type && <li><strong>Type:</strong> {property.type}</li>}
-              {property.status && <li><strong>Status:</strong> {property.status}</li>}
-              {property.possession && <li><strong>Possession:</strong> {property.possession}</li>}
+            <h3 className="text-xl font-bold text-white mt-6 mb-2">Property Details</h3>
+            <ul className="list-disc list-inside text-gray-300 space-y-1">
+              {property.location && <li><strong className="text-gray-200">Location:</strong> {property.location}</li>}
+              {property.type && <li><strong className="text-gray-200">Type:</strong> {property.type}</li>}
+              {property.status && <li><strong className="text-gray-200">Status:</strong> {property.status}</li>}
+              {property.possession && <li><strong className="text-gray-200">Possession:</strong> {property.possession}</li>}
               {property.min_plot_size_sqyd && property.max_plot_size_sqyd && (
-                <li><strong>Plot Sizes:</strong> {property.min_plot_size_sqyd} - {property.max_plot_size_sqyd} Sq. Yds.</li>
+                <li><strong className="text-gray-200">Plot Sizes:</strong> {property.min_plot_size_sqyd} - {property.max_plot_size_sqyd} Sq. Yds.</li>
               )}
-              {property.configuration && <li><strong>Configuration:</strong> {property.configuration}</li>}
+              {property.configuration && <li><strong className="text-gray-200">Configuration:</strong> {property.configuration}</li>}
             </ul>
+            </div>
           </div>
-        </div>
 
         {/* Highlights & Amenities */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 bg-white p-6 rounded-lg shadow-lg animate-fade-in">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-lg shadow-2xl animate-fade-in">
           <div>
-            <h3 className="text-2xl font-bold text-dua-text mb-4">Highlights</h3>
-            <ul className="list-disc list-inside text-dua-body space-y-2">
+            <h3 className="text-2xl font-bold text-white mb-4">Highlights</h3>
+            <ul className="list-disc list-inside text-gray-300 space-y-2">
               {property.highlights?.length ? property.highlights.map((item, i) => <li key={i}>{item}</li>) : <li>Details not available.</li>}
             </ul>
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-dua-text mb-4">Amenities</h3>
-            <ul className="list-disc list-inside text-dua-body space-y-2">
+            <h3 className="text-2xl font-bold text-white mb-4">Amenities</h3>
+            <ul className="list-disc list-inside text-gray-300 space-y-2">
               {property.amenities?.length ? property.amenities.map((item, i) => <li key={i}>{item}</li>) : <li>Details not available.</li>}
             </ul>
           </div>
@@ -152,14 +155,14 @@ function PropertyDetailPage() {
 
         {/* Payment Plan */}
         {property.payment_plan && (
-          <div className="bg-white p-6 rounded-lg shadow-lg mb-12 animate-fade-in">
-            <h2 className="text-2xl font-bold text-dua-text mb-4">Payment Plan</h2>
-            <p className="text-lg font-semibold mb-3">{property.payment_plan.basic_price_type || property.price}</p>
-            <ul className="divide-y divide-gray-200">
+          <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-lg shadow-2xl mb-12 animate-fade-in">
+            <h2 className="text-2xl font-bold text-white mb-4">Payment Plan</h2>
+            <p className="text-lg font-semibold mb-3 text-dua-accent">{property.payment_plan.basic_price_type || property.price}</p>
+            <ul className="divide-y divide-white/10">
               {property.payment_plan.stages?.map((stage, i) => (
                 <li key={i} className="flex justify-between py-3">
-                  <span className="text-dua-body">{stage.name}</span>
-                  <span className="font-semibold text-gray-900">{stage.amount}</span>
+                  <span className="text-gray-300">{stage.name}</span>
+                  <span className="font-semibold text-white">{stage.amount}</span>
                 </li>
               ))}
             </ul>
@@ -169,7 +172,7 @@ function PropertyDetailPage() {
         {/* Gallery */}
         {property.images_gallery?.length > 0 && (
           <div className="mt-10 mb-16 animate-fade-in">
-            <h2 className="text-2xl font-bold text-dua-text mb-4">Gallery</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Gallery</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {property.images_gallery.map((img, i) => (
                 <img
@@ -177,7 +180,7 @@ function PropertyDetailPage() {
                   src={img}
                   loading="lazy"
                   alt={`${property.name} gallery image ${i + 1} - ${property.location}`}
-                  className="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-xl"
+                  className="w-full h-48 object-cover rounded-lg shadow-2xl border border-white/20 cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(193,154,107,0.3)]"
                   onClick={() => openLightbox(i)}
                 />
               ))}
@@ -188,8 +191,8 @@ function PropertyDetailPage() {
         {/* Video Section */}
         {property.video_url && (
           <div className="mt-10 mb-16 animate-fade-in">
-            <h2 className="text-2xl font-bold text-dua-text mb-4">Video Tour</h2>
-            <div className="bg-white p-4 rounded-lg shadow-lg max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-white mb-4">Video Tour</h2>
+            <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-4 rounded-lg shadow-2xl max-w-4xl mx-auto">
               {isYouTubeUrl(property.video_url) ? (
                 <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                   <iframe
@@ -207,7 +210,7 @@ function PropertyDetailPage() {
                   autoPlay
                   muted
                   loop
-                  className="w-full rounded-lg shadow-md"
+                  className="w-full rounded-lg shadow-2xl"
                   preload="metadata"
                   style={{ maxHeight: '500px' }}
                 >
@@ -221,6 +224,18 @@ function PropertyDetailPage() {
           </div>
         )}
 
+        {/* Contact Section */}
+        <div className="mt-12 bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-lg shadow-2xl text-center animate-fade-in">
+          <h2 className="text-2xl font-bold text-white mb-4">Interested in this property?</h2>
+          <p className="text-gray-300 mb-6">Contact us today for more information or to schedule a visit.</p>
+          <Link 
+            to="/contact" 
+            className="inline-block bg-dua-accent/90 backdrop-blur-sm border border-dua-accent/30 text-dua-primary font-bold py-3 px-8 rounded-lg hover:bg-dua-accent hover:scale-105 hover:shadow-[0_0_30px_rgba(193,154,107,0.4)] transition-all duration-300"
+          >
+            Contact Us
+          </Link>
+        </div>
+        </div>
       </main>
 
       {/* Lightbox Viewer */}

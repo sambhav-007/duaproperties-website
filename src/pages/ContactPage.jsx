@@ -39,41 +39,41 @@ function ContactPage() {
         </script>
       </Helmet>
 
-      <main className="bg-dua-primary pt-12">
+      <main className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-12 min-h-screen">
         <section className="container mx-auto py-12 px-4 md:px-6 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Contact Dua Property: Your Real Estate Experts in Tricity & Dubai
+            Contact <span className="text-dua-accent">Dua Property</span>: Your Real Estate Experts in Tricity & Dubai
           </h1>
-          <p className="text-lg md:text-xl text-white mb-10 max-w-3xl mx-auto">
-            Have questions about properties in <strong>Mohali, Chandigarh, Kharar (Tricity)</strong> or <strong>Dubai, UAE</strong>? Contact Dua Property today for expert advice, sales inquiries, or property consultations. Our team is ready to guide you through local and international real estate markets.
+          <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+            Have questions about properties in <strong className="text-white">Mohali, Chandigarh, Kharar (Tricity)</strong> or <strong className="text-white">Dubai, UAE</strong>? Contact Dua Property today for expert advice, sales inquiries, or property consultations. Our team is ready to guide you through local and international real estate markets.
           </p>
 
-          <div className="max-w-xl mx-auto bg-dua-bg-light p-8 rounded-lg shadow-lg space-y-6">
-            <h2 className="text-2xl font-semibold text-dua-primary mb-4">Reach Us Directly</h2>
+          <div className="max-w-xl mx-auto bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-lg shadow-2xl space-y-6">
+            <h2 className="text-2xl font-semibold text-white mb-4">Reach Us Directly</h2>
 
             <div className="flex items-center justify-center">
               <MapPinIcon className="h-6 w-6 text-dua-accent mr-3" />
-              <p className="text-dua-body">8VP5+Q7H, Gobind Nagar, Ambala Cantt, Haryana 133001</p>
+              <p className="text-gray-300">8VP5+Q7H, Gobind Nagar, Ambala Cantt, Haryana 133001</p>
             </div>
 
             <div className="flex items-center justify-center">
               <PhoneIcon className="h-6 w-6 text-dua-accent mr-3" />
-              <a href="tel:+919996009729" className="text-dua-body hover:text-dua-primary transition-colors duration-200" aria-label="Call Dua Property at +91 99960 09729">
+              <a href="tel:+919996009729" className="text-gray-300 hover:text-dua-accent transition-colors duration-200" aria-label="Call Dua Property at +91 99960 09729">
                 +91-99960 09729
               </a>
             </div>
 
             <div className="flex items-center justify-center">
               <EnvelopeIcon className="h-6 w-6 text-dua-accent mr-3" />
-              <a href="mailto:duaproperty123@gmail.com" className="text-dua-body hover:text-dua-primary transition-colors duration-200" aria-label="Email Dua Property at duaproperty253@gmail.com">
+              <a href="mailto:duaproperty123@gmail.com" className="text-gray-300 hover:text-dua-accent transition-colors duration-200" aria-label="Email Dua Property at duaproperty253@gmail.com">
                 duaproperty123@gmail.com
               </a>
             </div>
 
-            <p className="text-dua-body font-semibold mt-4">Serving clients across Tricity and Dubai with trusted real estate solutions.</p>
+            <p className="text-white font-semibold mt-4">Serving clients across Tricity and Dubai with trusted real estate solutions.</p>
 
             <div className="mt-8">
-              <h3 className="text-xl font-semibold text-dua-primary mb-4">Find Our Ambala Office</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Find Our Ambala Office</h3>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.4930037542713!2d76.8582366!3d30.336935800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fb7002df47117%3A0xe4f95e62b5dd7a4!2sDua%20property!5e0!3m2!1sen!2sin!4v1761375388867!5m2!1sen!2sin"
                 width="100%"
@@ -82,7 +82,7 @@ function ContactPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-lg shadow-md"
+                className="rounded-lg shadow-2xl border border-white/20"
                 title="Dua Property Office Location Map"
               ></iframe>
             </div>

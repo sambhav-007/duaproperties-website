@@ -29,14 +29,14 @@ function HomePage() {
       <HeroSlideshow properties={hotProperties} />
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-900/50 backdrop-blur-sm">
         <div className="container mx-auto px-4 text-center">
           <motion.h2
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-3xl md:text-4xl font-bold text-dua-primary mb-6"
+            className="text-3xl md:text-4xl font-bold text-white mb-6"
           >
             Why Choose Dua Property?
           </motion.h2>
@@ -45,7 +45,7 @@ function HomePage() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-lg text-dua-body mb-12 max-w-3xl mx-auto"
+            className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto"
           >
             Exceptional service and perfect property solutions in the Tricity area (Mohali, Chandigarh, Kharar) and Dubai. Trust Dua Property for your next home or investment.
           </motion.p>
@@ -63,11 +63,11 @@ function HomePage() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
-                className="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                className="flex flex-col items-center bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-xl shadow-2xl hover:shadow-[0_0_30px_rgba(193,154,107,0.2)] hover:bg-white/20 transition-all duration-300"
               >
                 <feature.icon className="h-14 w-14 text-dua-accent mb-4" />
-                <h3 className="text-xl font-semibold text-dua-text mb-2">{feature.title}</h3>
-                <p className="text-dua-body text-sm">{feature.desc}</p>
+                <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
+                <p className="text-gray-300 text-sm">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -75,7 +75,7 @@ function HomePage() {
       </section>
 
       {/* All Properties Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-20 bg-gradient-to-b from-gray-900/30 to-gray-900/60">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -84,10 +84,10 @@ function HomePage() {
             transition={{ duration: 1 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-dua-primary mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Explore All Properties
             </h2>
-            <p className="text-lg text-dua-body max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               Browse through our complete collection of premium properties across Tricity & Dubai
             </p>
           </motion.div>
@@ -117,7 +117,7 @@ function HomePage() {
           >
             <Link
               to="/properties"
-              className="inline-flex items-center gap-2 bg-dua-primary text-white font-bold py-4 px-10 rounded-lg text-lg shadow-xl hover:bg-dua-accent hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center gap-2 bg-dua-accent/90 backdrop-blur-sm text-dua-primary font-bold py-4 px-10 rounded-lg text-lg shadow-xl hover:bg-dua-accent hover:shadow-[0_0_30px_rgba(193,154,107,0.4)] transition-all duration-300 transform hover:scale-105 border border-dua-accent/30"
             >
               <span>View All Properties</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
