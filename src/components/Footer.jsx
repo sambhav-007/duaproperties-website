@@ -8,7 +8,7 @@ function Footer() {
   const instagramUrl = "https://www.instagram.com/_duaproperties?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="; 
   const youtubeUrl = "https://youtube.com/your-channel"; // Replace
   const contactNumber = "+91 99960 09729"; 
-  const contactEmail = "duaproperty253@gmail.com";
+  const contactEmail = "duaproperty123@gmail.com";
 
   return (
     <footer className="bg-dua-primary text-dua-bg-light p-8 shadow-inner mt-auto"> {/* Adjusted padding */}

@@ -24,7 +24,7 @@ function ContactPage() {
               "name": "Dua Property",
               "url": "https://duaproperty.com/contact",
               "telephone": "+919996009729",
-              "email": "duaproperty253@gmail.com",
+              "email": "duaproperty123@gmail.com",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "8VP5+Q7H, Gobind Nagar, Ambala Cantt",
@@ -65,8 +65,8 @@ function ContactPage() {
 
             <div className="flex items-center justify-center">
               <EnvelopeIcon className="h-6 w-6 text-dua-accent mr-3" />
-              <a href="mailto:duaproperty253@gmail.com" className="text-dua-body hover:text-dua-primary transition-colors duration-200" aria-label="Email Dua Property at duaproperty253@gmail.com">
-                duaproperty253@gmail.com
+              <a href="mailto:duaproperty123@gmail.com" className="text-dua-body hover:text-dua-primary transition-colors duration-200" aria-label="Email Dua Property at duaproperty253@gmail.com">
+                duaproperty123@gmail.com
               </a>
             </div>
 
