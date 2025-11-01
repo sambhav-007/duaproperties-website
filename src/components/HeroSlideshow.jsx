@@ -182,18 +182,18 @@ function HeroSlideshow({ properties }) {
       {/* Navigation Arrows */}
       <button
         onClick={() => paginate(-1)}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 group"
+        className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-10 bg-black/40 backdrop-blur-sm hover:bg-black/60 text-white p-2 md:p-3 rounded-full transition-all duration-300 group"
         aria-label="Previous slide"
       >
-        <ChevronLeftIcon className="w-8 h-8 group-hover:scale-110 transition-transform" />
+        <ChevronLeftIcon className="w-5 h-5 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
       </button>
 
       <button
         onClick={() => paginate(1)}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 group"
+        className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-10 bg-black/40 backdrop-blur-sm hover:bg-black/60 text-white p-2 md:p-3 rounded-full transition-all duration-300 group"
         aria-label="Next slide"
       >
-        <ChevronRightIcon className="w-8 h-8 group-hover:scale-110 transition-transform" />
+        <ChevronRightIcon className="w-5 h-5 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
       </button>
 
       {/* Slide Indicators */}
