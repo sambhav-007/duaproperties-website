@@ -18,10 +18,10 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Dua Property | Find Dream Properties in Mohali, Chandigarh, Kharar & Dubai</title>
+        <title>Premium Real Estate in Mohali, Chandigarh, Kharar & Dubai | Dua Property</title>
         <meta
           name="description"
-          content="Discover premium residential and commercial properties with Dua Property. Your trusted real estate partner for luxury apartments, residential plots, and investment opportunities across Mohali, Chandigarh, Kharar, and Dubai."
+          content="Find your dream property with Dua Property - trusted real estate experts offering luxury apartments, RERA-approved residential plots & commercial properties in Mohali, Chandigarh, Kharar & Dubai. Browse 500+ verified listings."
         />
         <link rel="canonical" href="https://www.duaproperty.com/" />
         
@@ -46,6 +46,50 @@ function HomePage() {
       <header>
         <HeroSlideshow properties={hotProperties} />
       </header>
+
+      {/* Main H1 Heading Section - SEO Critical */}
+      <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div className="container mx-auto px-4 text-center">
+          <motion.h1
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+          >
+            Premium Real Estate in Mohali, Chandigarh, Kharar & Dubai
+          </motion.h1>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-base md:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto mb-8"
+          >
+            Discover RERA-approved luxury apartments, residential plots & commercial properties with India's trusted real estate partner
+          </motion.p>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="flex flex-col sm:flex-row justify-center gap-4"
+          >
+            <Link
+              to="/properties"
+              className="bg-dua-accent hover:bg-dua-accent/90 text-dua-primary font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Browse All Properties
+            </Link>
+            <Link
+              to="/contact"
+              className="bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg"
+            >
+              Contact Us
+            </Link>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-gray-900/50 backdrop-blur-sm" aria-labelledby="why-choose-us">
@@ -146,6 +190,57 @@ function HomePage() {
               </svg>
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Featured Locations Section */}
+      <section className="py-20 bg-gray-900/70" aria-labelledby="featured-locations">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-center mb-12"
+          >
+            <h2 id="featured-locations" className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Explore Properties by Location
+            </h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Find your perfect property in prime locations across Tricity and Dubai
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: 'Mohali Properties', link: '/properties?location=mohali' },
+              { name: 'Chandigarh Real Estate', link: '/properties?location=chandigarh' },
+              { name: 'Kharar Plots & Homes', link: '/properties?location=kharar' },
+              { name: 'Dubai Apartments', link: '/properties?location=dubai' }
+            ].map((location, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: idx * 0.1 }}
+              >
+                <Link
+                  to={location.link}
+                  className="block bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-xl shadow-lg hover:shadow-[0_0_30px_rgba(193,154,107,0.2)] hover:bg-white/20 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <h3 className="text-xl font-bold text-white mb-2">{location.name}</h3>
+                  <p className="text-gray-300 text-sm mt-2">Browse properties →</p>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-300 mb-6">
+              Looking for expert guidance? <Link to="/about" className="text-dua-accent hover:underline font-semibold">Learn more about Dua Property</Link> or <Link to="/contact" className="text-dua-accent hover:underline font-semibold">contact our team</Link> for personalized assistance.
+            </p>
+          </div>
         </div>
       </section>
     </>
