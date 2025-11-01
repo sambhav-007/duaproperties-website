@@ -84,12 +84,80 @@ function PropertyDetailPage() {
   const pageDescription = `Explore details for ${property.name}, a ${property.configuration || property.type} located in ${property.location}. View amenities, payment plan, gallery, and contact Dua Property for inquiries about this property in the Tricity area.`;
   const canonicalUrl = `https://www.duaproperty.com/property/${property.id}`;
 
+  // Structured Data for Property
+  const propertyStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": property.name,
+    "description": property.description || pageDescription,
+    "url": canonicalUrl,
+    "image": `https://www.duaproperty.com${property.image_main}`,
+    "offers": {
+      "@type": "Offer",
+      "price": property.price,
+      "priceCurrency": "INR",
+      "availability": "https://schema.org/InStock"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": property.location,
+      "addressCountry": "IN"
+    }
+  };
+
+  // Breadcrumb Structured Data
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.duaproperty.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Properties",
+        "item": "https://www.duaproperty.com/properties"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": property.name,
+        "item": canonicalUrl
+      }
+    ]
+  };
+
   return (
     <>
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
         <link rel="canonical" href={canonicalUrl} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`https://www.duaproperty.com${property.image_main}`} />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={`https://www.duaproperty.com${property.image_main}`} />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(propertyStructuredData)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbStructuredData)}
+        </script>
       </Helmet>
 
       {/* Main container with padding for navbar and background for contrast */}

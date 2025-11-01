@@ -19,13 +19,19 @@ function AboutPage() {
           name="keywords"
           content="Dua Property, Mohali real estate, Chandigarh property advisor, Kharar residential plots, Dubai apartments, UAE real estate, Tricity property investment, luxury homes, commercial property, investment guidance"
         />
+        <link rel="canonical" href="https://www.duaproperty.com/about" />
         <meta property="og:title" content="About Dua Property | Trusted Real Estate Advisor in Tricity & Dubai, UAE" />
         <meta
           property="og:description"
           content="Dua Property specializes in premium residential and commercial properties across Mohali, Chandigarh, Kharar, and Dubai. Learn about our story, expertise, and services."
         />
+        <meta property="og:url" content="https://www.duaproperty.com/about" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={duaLogo} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Dua Property | Trusted Real Estate Advisor in Tricity & Dubai, UAE" />
+        <meta name="twitter:description" content="Dua Property specializes in premium residential and commercial properties across Mohali, Chandigarh, Kharar, and Dubai. Learn about our story, expertise, and services." />
+        <meta name="twitter:image" content={duaLogo} />
         <script type="application/ld+json">
           {`
             {
@@ -50,7 +56,7 @@ function AboutPage() {
 
       <main className="pt-16 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-gray-900/90 via-gray-800/80 to-gray-900/90 py-16 flex flex-col items-center text-center border-b border-white/10">
+        <header className="relative bg-gradient-to-r from-gray-900/90 via-gray-800/80 to-gray-900/90 py-16 flex flex-col items-center text-center border-b border-white/10">
           <motion.img
             src={duaLogo}
             alt="Dua Property Logo – Trusted Real Estate in Tricity and Dubai, UAE"
@@ -76,7 +82,7 @@ function AboutPage() {
             Your trusted partner for premium <strong className="text-white">residential and commercial properties</strong> in{' '}
             <strong className="text-white">Mohali, Chandigarh, Kharar (Tricity)</strong> and <strong className="text-white">Dubai, UAE</strong>.
           </motion.p>
-        </section>
+        </header>
 
         {/* Story Section */}
         <section className="py-16 bg-gray-900/50">
@@ -98,7 +104,7 @@ function AboutPage() {
 
             {/* Expertise & Services */}
             <motion.section
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}

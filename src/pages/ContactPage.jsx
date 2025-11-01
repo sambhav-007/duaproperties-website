@@ -13,9 +13,14 @@ function ContactPage() {
           content="Contact Dua Property for premium real estate services in Mohali, Chandigarh, Kharar, and Dubai. Reach out for property inquiries, sales, investments, or expert consultations." 
         />
         <meta name="keywords" content="Dua Property, Mohali real estate, Chandigarh properties, Kharar residential plots, Dubai apartments, UAE real estate, property inquiries, investment advice, real estate consultation" />
+        <link rel="canonical" href="https://www.duaproperty.com/contact" />
         <meta property="og:title" content="Contact Dua Property | Real Estate Experts in Tricity & Dubai, UAE" />
         <meta property="og:description" content="Reach out to Dua Property for premium real estate services and consultations in Mohali, Chandigarh, Kharar, and Dubai, UAE." />
+        <meta property="og:url" content="https://www.duaproperty.com/contact" />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Dua Property | Real Estate Experts in Tricity & Dubai, UAE" />
+        <meta name="twitter:description" content="Reach out to Dua Property for premium real estate services and consultations in Mohali, Chandigarh, Kharar, and Dubai, UAE." />
         <script type="application/ld+json">
           {`
             {
@@ -40,7 +45,7 @@ function ContactPage() {
       </Helmet>
 
       <main className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 pt-12 min-h-screen">
-        <section className="container mx-auto py-12 px-4 md:px-6 text-center">
+        <header className="container mx-auto py-12 px-4 md:px-6 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Contact <span className="text-dua-accent">Dua Property</span>: Your Real Estate Experts in Tricity & Dubai
           </h1>
@@ -72,7 +77,7 @@ function ContactPage() {
 
             <p className="text-white font-semibold mt-4">Serving clients across Tricity and Dubai with trusted real estate solutions.</p>
 
-            <div className="mt-8">
+            <nav className="mt-8" aria-label="Office location">
               <h3 className="text-xl font-semibold text-white mb-4">Find Our Ambala Office</h3>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.4930037542713!2d76.8582366!3d30.336935800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fb7002df47117%3A0xe4f95e62b5dd7a4!2sDua%20property!5e0!3m2!1sen!2sin!4v1761375388867!5m2!1sen!2sin"
@@ -85,9 +90,9 @@ function ContactPage() {
                 className="rounded-lg shadow-2xl border border-white/20"
                 title="Dua Property Office Location Map"
               ></iframe>
-            </div>
+            </nav>
           </div>
-        </section>
+        </header>
       </main>
     </>
   );

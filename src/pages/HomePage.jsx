@@ -23,15 +23,35 @@ function HomePage() {
           name="description"
           content="Discover premium residential and commercial properties with Dua Property. Your trusted real estate partner for luxury apartments, residential plots, and investment opportunities across Mohali, Chandigarh, Kharar, and Dubai."
         />
+        <link rel="canonical" href="https://www.duaproperty.com/" />
+        
+        {/* Keywords */}
+        <meta name="keywords" content="Dua Property, Mohali real estate, Chandigarh properties, Kharar plots, Dubai apartments, luxury apartments Punjab, RERA approved projects, residential plots Tricity, commercial property Mohali, property investment India" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Dua Property | Premium Real Estate in Tricity & Dubai" />
+        <meta property="og:description" content="Discover premium residential & commercial properties in Mohali, Chandigarh, Kharar & Dubai. RERA approved projects, luxury apartments, and investment opportunities." />
+        <meta property="og:url" content="https://www.duaproperty.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.duaproperty.com/default-share-image.png" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Dua Property | Premium Real Estate in Tricity & Dubai" />
+        <meta name="twitter:description" content="Discover premium residential & commercial properties in Mohali, Chandigarh, Kharar & Dubai." />
+        <meta name="twitter:image" content="https://www.duaproperty.com/default-share-image.png" />
       </Helmet>
 
       {/* Hero Slideshow Section */}
-      <HeroSlideshow properties={hotProperties} />
+      <header>
+        <HeroSlideshow properties={hotProperties} />
+      </header>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-gray-900/50 backdrop-blur-sm">
+      <section className="py-20 bg-gray-900/50 backdrop-blur-sm" aria-labelledby="why-choose-us">
         <div className="container mx-auto px-4 text-center">
           <motion.h2
+            id="why-choose-us"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
@@ -75,7 +95,7 @@ function HomePage() {
       </section>
 
       {/* All Properties Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900/30 to-gray-900/60">
+      <section className="py-20 bg-gradient-to-b from-gray-900/30 to-gray-900/60" aria-labelledby="all-properties">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -84,7 +104,7 @@ function HomePage() {
             transition={{ duration: 1 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 id="all-properties" className="text-4xl md:text-5xl font-bold text-white mb-4">
               Explore All Properties
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -93,10 +113,11 @@ function HomePage() {
           </motion.div>
 
           {/* Properties Grid - 3 rows × 3 columns = 9 properties */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" role="list">
             {allProperties.slice(0, 9).map((property, index) => (
               <motion.div
                 key={property.id}
+                role="listitem"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}

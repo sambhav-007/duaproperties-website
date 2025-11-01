@@ -113,11 +113,23 @@ function PropertiesPage() {
           name="keywords"
           content="Dua Property listings, real estate Mohali, houses for sale Chandigarh, properties Kharar, Dubai real estate, buy apartment, commercial plots"
         />
+        <link rel="canonical" href="https://www.duaproperty.com/properties" />
+        
+        {/* Open Graph */}
         <meta property="og:title" content="Dua Property | Premium Listings in Tricity & Dubai" />
         <meta
           property="og:description"
           content="Discover high-value investment and residential properties in Mohali, Chandigarh, Kharar, and Dubai with Dua Property."
         />
+        <meta property="og:url" content="https://www.duaproperty.com/properties" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.duaproperty.com/default-share-image.png" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Properties for Sale | Dua Property" />
+        <meta name="twitter:description" content="Browse verified property listings in Mohali, Chandigarh, Kharar & Dubai." />
+        <meta name="twitter:image" content="https://www.duaproperty.com/default-share-image.png" />
       </Helmet>
 
       <div className="min-h-screen pt-24 pb-12 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
