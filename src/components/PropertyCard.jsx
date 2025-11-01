@@ -19,11 +19,11 @@ function PropertyCard({ property }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="group bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:bg-white/20 hover:shadow-[0_0_30px_rgba(193,154,107,0.3)] hover:-translate-y-2 h-full flex flex-col"
+      className="group bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:bg-white/20 hover:shadow-[0_0_30px_rgba(193,154,107,0.3)] hover:-translate-y-2 h-full flex flex-col"
     >
       <Link to={`/property/${property.id}`} className="flex flex-col h-full">
         {/* Image Container with Overlay */}
-        <div className="relative h-64 overflow-hidden bg-gray-900/50 flex-shrink-0">
+        <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-900/50 flex-shrink-0">
           {!imageLoaded && (
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="animate-pulse bg-gray-800/50 w-full h-full"></div>
@@ -47,8 +47,8 @@ function PropertyCard({ property }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
           
           {/* Status Badge */}
-          <div className="absolute top-4 right-4">
-            <span className={`px-3 py-1.5 rounded-full text-xs font-bold shadow-lg backdrop-blur-md border ${
+          <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+            <span className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs font-bold shadow-lg backdrop-blur-md border ${
               property.status === 'Sale' 
                 ? 'bg-green-500/90 text-white border-green-400/30' 
                 : 'bg-blue-500/90 text-white border-blue-400/30'
@@ -59,8 +59,8 @@ function PropertyCard({ property }) {
 
           {/* RERA Badge if available */}
           {property.rera_id && (
-            <div className="absolute top-4 left-4">
-              <span className="px-3 py-1.5 rounded-full text-xs font-bold bg-dua-accent/90 text-dua-primary shadow-lg backdrop-blur-md border border-dua-accent/30">
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+              <span className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs font-bold bg-dua-accent/90 text-dua-primary shadow-lg backdrop-blur-md border border-dua-accent/30">
                 RERA Approved
               </span>
             </div>
@@ -68,9 +68,9 @@ function PropertyCard({ property }) {
         </div>
 
         {/* Content - Takes remaining space */}
-        <div className="p-5 flex flex-col flex-grow">
+        <div className="p-4 sm:p-5 flex flex-col flex-grow">
           {/* Property Name */}
-          <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 min-h-[3.5rem] group-hover:text-dua-accent transition-colors duration-300">
+          <h3 className="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 min-h-[3rem] sm:min-h-[3.5rem] group-hover:text-dua-accent transition-colors duration-300">
             {property.name}
           </h3>
 
@@ -96,26 +96,26 @@ function PropertyCard({ property }) {
           <div className="flex-grow"></div>
 
           {/* Price & CTA */}
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
             <div>
               <p className="text-xs text-gray-400 mb-1">Starting from</p>
-              <p className="text-2xl font-bold text-dua-accent">
+              <p className="text-xl sm:text-2xl font-bold text-dua-accent">
                 {formatPrice(property.price)}
               </p>
             </div>
             
             <motion.div
               whileHover={{ x: 5 }}
-              className="flex items-center gap-1 text-white font-semibold text-sm group-hover:text-dua-accent transition-colors duration-300"
+              className="flex items-center gap-1 text-white font-semibold text-xs sm:text-sm group-hover:text-dua-accent transition-colors duration-300"
             >
               <span>Details</span>
-              <ArrowRightIcon className="w-4 h-4" />
+              <ArrowRightIcon className="w-3 h-3 sm:w-4 sm:h-4" />
             </motion.div>
           </div>
 
           {/* Developer Info if available */}
           {property.developer && (
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-3 sm:pt-4 border-t border-white/10">
               <p className="text-xs text-gray-400">
                 By <span className="font-semibold text-gray-200">{property.developer}</span>
               </p>
@@ -123,10 +123,10 @@ function PropertyCard({ property }) {
           )}
 
           {/* View Details Button - Always visible */}
-          <div className="mt-4">
-            <button className="w-full bg-dua-accent/90 backdrop-blur-sm text-dua-primary py-3 rounded-lg font-semibold hover:bg-dua-accent transition-all duration-300 flex items-center justify-center gap-2 border border-dua-accent/30">
+          <div className="mt-3 sm:mt-4">
+            <button className="w-full bg-dua-accent/90 backdrop-blur-sm text-dua-primary py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-dua-accent transition-all duration-300 flex items-center justify-center gap-2 border border-dua-accent/30">
               <span>View Full Details</span>
-              <ArrowRightIcon className="w-4 h-4" />
+              <ArrowRightIcon className="w-3 h-3 sm:w-4 sm:h-4" />
             </button>
           </div>
         </div>

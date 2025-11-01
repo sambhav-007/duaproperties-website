@@ -38,8 +38,8 @@ function Navbar() {
 
         {/* Logo and Brand */}
         <Link to="/" className="flex items-center space-x-2">
-          <img src="/dua-logo.jpg" alt="Dua Property Logo" className="h-10 w-auto rounded-md" />
-          <span className="text-2xl font-bold text-white transition-colors duration-300">
+          <img src="/dua-logo.jpg" alt="Dua Property Logo" className="h-8 sm:h-10 w-auto rounded-md" />
+          <span className="text-lg sm:text-2xl font-bold text-white transition-colors duration-300">
             Dua Property
           </span>
         </Link>
@@ -56,7 +56,8 @@ function Navbar() {
         <div className="md:hidden z-50">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-2xl text-white transition-colors duration-300"
+            className="text-2xl text-white transition-colors duration-300 p-2 hover:bg-white/10 rounded-lg"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -65,7 +66,7 @@ function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full shadow-2xl transition-transform duration-300 transform bg-gray-900/95 backdrop-blur-md border-t border-white/10 ${
+        className={`md:hidden fixed top-[72px] left-0 w-full shadow-2xl transition-all duration-300 bg-gray-900/98 backdrop-blur-lg border-t border-white/10 ${
           isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
@@ -79,7 +80,13 @@ function Navbar() {
             key={link.path}
             to={link.path}
             onClick={() => setIsOpen(false)}
-            className="block py-3 px-6 text-white transition-colors duration-200 hover:bg-dua-accent/20 hover:text-dua-accent border-b border-white/10"
+            className={({ isActive }) =>
+              `block py-4 px-6 text-base font-medium transition-all duration-200 border-b border-white/10 ${
+                isActive
+                  ? 'bg-dua-accent/20 text-dua-accent border-l-4 border-l-dua-accent'
+                  : 'text-white hover:bg-white/10 hover:text-dua-accent hover:border-l-4 hover:border-l-dua-accent'
+              }`
+            }
           >
             {link.name}
           </NavLink>

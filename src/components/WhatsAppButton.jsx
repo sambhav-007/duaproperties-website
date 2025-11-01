@@ -13,11 +13,11 @@ function WhatsAppButton() {
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 z-50 flex items-center justify-center"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-green-500 text-white p-3 sm:p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center animate-pulse hover:animate-none"
       aria-label="WhatsApp Us"
-      style={{ width: '60px', height: '60px' }} // Explicit size for roundness
+      style={{ width: '56px', height: '56px' }} // Slightly smaller for mobile
     >
-      <FaWhatsapp className="text-3xl" />
+      <FaWhatsapp className="text-2xl sm:text-3xl" />
     </a>
   );
 }
