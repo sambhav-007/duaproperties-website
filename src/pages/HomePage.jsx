@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import propertiesData from '../data/properties.json';
 import PropertyCard from '../components/PropertyCard';
 import HeroSlideshow from '../components/HeroSlideshow';
-import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
+import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon, HomeIcon, BuildingOfficeIcon, BuildingStorefrontIcon, HomeModernIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 
 function HomePage() {
@@ -139,7 +139,7 @@ function HomePage() {
       </section>
 
       {/* All Properties Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-900/30 to-gray-900/60" aria-labelledby="all-properties">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-900/30 to-gray-900/60" aria-labelledby="property-categories">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -148,31 +148,106 @@ function HomePage() {
             transition={{ duration: 1 }}
             className="text-center mb-10 sm:mb-12 md:mb-16"
           >
-            <h2 id="all-properties" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
-              Explore All Properties
+            <h2 id="property-categories" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
+              Browse by Property Type
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto px-2">
-              Browse through our complete collection of premium properties across Tricity & Dubai
+              Find your perfect property from our diverse collection of residential and commercial options
             </p>
           </motion.div>
 
-          {/* Properties Grid - 3 rows × 3 columns = 9 properties */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12" role="list">
-            {allProperties.slice(0, 9).map((property, index) => (
-              <motion.div
-                key={property.id}
-                role="listitem"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <PropertyCard property={property} />
-              </motion.div>
-            ))}
+          {/* Property Categories Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8" role="list">
+            {[
+              { 
+                icon: HomeIcon, 
+                title: 'Residential Plots', 
+                desc: 'Premium plots for your dream home',
+                types: ['Residential Plot'],
+                gradient: 'from-blue-500/20 to-blue-700/20',
+                borderColor: 'border-blue-500/30',
+                iconColor: 'text-blue-400'
+              },
+              { 
+                icon: BuildingOfficeIcon, 
+                title: 'Apartments & Floors', 
+                desc: 'Luxury apartments and independent floors',
+                types: ['Apartment', 'Independent Floor'],
+                gradient: 'from-purple-500/20 to-purple-700/20',
+                borderColor: 'border-purple-500/30',
+                iconColor: 'text-purple-400'
+              },
+              { 
+                icon: BuildingStorefrontIcon, 
+                title: 'Commercial', 
+                desc: 'Prime commercial spaces for business',
+                types: ['Commercial'],
+                gradient: 'from-green-500/20 to-green-700/20',
+                borderColor: 'border-green-500/30',
+                iconColor: 'text-green-400'
+              },
+              { 
+                icon: HomeModernIcon, 
+                title: 'Villas', 
+                desc: 'Exclusive villas with premium lifestyle',
+                types: ['Villa'],
+                gradient: 'from-orange-500/20 to-orange-700/20',
+                borderColor: 'border-orange-500/30',
+                iconColor: 'text-orange-400'
+              }
+            ].map((category, idx) => {
+              const categoryProperties = allProperties.filter(p => 
+                category.types.some(type => p.type?.toLowerCase() === type.toLowerCase())
+              );
+              const propertyCount = categoryProperties.length;
+              const typeParam = category.types.join(',');
+              
+              return (
+                <motion.div
+                  key={idx}
+                  role="listitem"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                >
+                  <Link
+                    to={`/properties?types=${encodeURIComponent(typeParam)}`}
+                    className={`block group bg-gradient-to-br ${category.gradient} backdrop-blur-lg border ${category.borderColor} p-6 sm:p-8 rounded-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(193,154,107,0.3)] transition-all duration-500 hover:-translate-y-2 h-full`}
+                  >
+                    <div className="flex flex-col items-center text-center h-full">
+                      <div className={`${category.iconColor} mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
+                        <category.icon className="h-16 w-16 sm:h-20 sm:w-20" />
+                      </div>
+                      
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-dua-accent transition-colors duration-300">
+                        {category.title}
+                      </h3>
+                      
+                      <p className="text-sm sm:text-base text-gray-300 mb-4 flex-grow">
+                        {category.desc}
+                      </p>
+                      
+                      <div className="mt-auto">
+                        <span className="inline-block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-white border border-white/20">
+                          {propertyCount} {propertyCount === 1 ? 'Property' : 'Properties'}
+                        </span>
+                        
+                        <div className="flex items-center justify-center gap-2 text-dua-accent font-semibold mt-4 group-hover:gap-4 transition-all duration-300">
+                          <span>Explore</span>
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
 
-          {/* View More Button */}
+          {/* View All Properties Button */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

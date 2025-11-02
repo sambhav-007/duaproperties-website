@@ -1,5 +1,6 @@
 // src/pages/PropertiesPage.jsx
 import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MagnifyingGlassIcon, FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -7,7 +8,7 @@ import propertiesData from '../data/properties.json';
 import PropertyCard from '../components/PropertyCard';
 
 const locationFilters = ['All Locations', 'Mohali', 'Chandigarh', 'Kharar', 'Dubai'];
-const typeFilters = ['All Types', 'Residential', 'Commercial', 'Apartment', 'Residential Plot'];
+const typeFilters = ['All Types', 'Residential', 'Commercial', 'Apartment', 'Independent Floor', 'Residential Plot', 'Villa'];
 const statusFilters = ['All Status', 'Sale', 'Rent'];
 
 const getPropertyRegion = (locationString) => {
@@ -21,6 +22,8 @@ const getPropertyRegion = (locationString) => {
 };
 
 function PropertiesPage() {
+  const [searchParams] = useSearchParams();
+  
   const [activeLocationFilter, setActiveLocationFilter] = useState('All Locations');
   const [activeTypeFilter, setActiveTypeFilter] = useState('All Types');
   const [activeStatusFilter, setActiveStatusFilter] = useState('All Status');
@@ -29,6 +32,29 @@ function PropertiesPage() {
   const [showFilters, setShowFilters] = useState(false);
   const [loading, setLoading] = useState(true);
   const [allProperties, setAllProperties] = useState([]);
+
+  // Handle URL parameters on mount
+  useEffect(() => {
+    const typeParam = searchParams.get('type');
+    const typesParam = searchParams.get('types'); // Multiple types separated by comma
+    const locationParam = searchParams.get('location');
+    const searchParam = searchParams.get('search');
+    
+    if (typeParam) {
+      setActiveTypeFilter(typeParam);
+    } else if (typesParam) {
+      // Store multiple types for filtering
+      setActiveTypeFilter(typesParam);
+    }
+    if (locationParam) {
+      // Capitalize first letter for filter match
+      const formattedLocation = locationParam.charAt(0).toUpperCase() + locationParam.slice(1).toLowerCase();
+      setActiveLocationFilter(formattedLocation);
+    }
+    if (searchParam) {
+      setSearchQuery(searchParam);
+    }
+  }, [searchParams]);
 
   // Simulate loading delay for skeletons
   useEffect(() => {
@@ -52,9 +78,16 @@ function PropertiesPage() {
     // Type filter
     if (activeTypeFilter !== 'All Types') {
       filtered = filtered.filter((property) => {
+        // Handle multiple types (comma-separated)
+        if (activeTypeFilter.includes(',')) {
+          const types = activeTypeFilter.split(',').map(t => t.trim().toLowerCase());
+          return types.some(type => property.type?.toLowerCase() === type);
+        }
+        
         if (activeTypeFilter === 'Residential') {
           return property.type?.toLowerCase().includes('residential') || 
                  property.type?.toLowerCase().includes('apartment') ||
+                 property.type?.toLowerCase().includes('independent floor') ||
                  property.configuration?.toLowerCase().includes('bhk');
         }
         return property.type?.toLowerCase().includes(activeTypeFilter.toLowerCase());
