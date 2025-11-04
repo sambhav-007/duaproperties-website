@@ -605,5 +605,91 @@
         "/images/properties/chapter1-newbury-gallery6.png",
         "/images/properties/chapter1-newbury-gallery7.png"
       ]
+    },
+    {
+      "id": "10",
+      "name": "Corner Double Story House - Sunny Enclave",
+      "developer": "Dua Property",
+      "location": "Sunny Enclave, District Mohali, Punjab",
+      "type": "Villa",
+      "subType": "Independent House",
+      "configuration": "4 BHK Corner Double Story House",
+      "price": "₹1.75 Cr",
+      "priceDisplay": "₹1.75 Cr",
+      "priceValue": 17500000,
+      "priceUnit": "total",
+      "currency": "INR",
+      "status": "Sale",
+      "propertyFor": "Sale",
+      "possessionStatus": "Ready to Move",
+      "bhkType": "4BHK",
+      "furnishingStatus": "Semi-Furnished",
+      "tags": ["Corner Plot", "Double Story", "Ready to Move", "Rooftop Party Area", "2 Modular Kitchens"],
+      "bedrooms": "4",
+      "bathrooms": "4",
+      "area_sqft": null,
+      "plot_size": "131 Gaj",
+      "rera_id": "Not Applicable",
+      "possession_date": "Ready to Move",
+      "description": "Premium 4 BHK corner double story independent house in the prestigious Sunny Enclave, Mohali. This spacious property features 2 modular kitchens, 4 bedrooms with attached washrooms, and a stunning rooftop area perfect for parties and gatherings. Built on a 131 Gaj plot, this ready-to-move corner property offers excellent ventilation, natural light, and privacy. Ideal for large families seeking luxury living in one of Mohali's most sought-after residential areas.",
+      "highlights": [
+        "4 BHK Corner Double Story House",
+        "Plot Size: 131 Gaj",
+        "Ready to Move Property",
+        "2 Modular Kitchens (One on Each Floor)",
+        "4 Bedrooms with Attached Washrooms",
+        "Spacious Rooftop Party Area",
+        "Corner Plot - Better Ventilation & Privacy",
+        "Premium Location in Sunny Enclave",
+        "Well-Planned Layout",
+        "Excellent Connectivity to Chandigarh & Mohali"
+      ],
+      "amenities": [
+        "2 Modern Modular Kitchens",
+        "4 Attached Bathrooms with Premium Fittings",
+        "Rooftop Terrace/Party Area",
+        "Corner Plot Advantage",
+        "Ample Natural Light & Ventilation",
+        "Car Parking Space",
+        "24/7 Water Supply",
+        "Power Backup",
+        "Gated Society",
+        "Security Personnel",
+        "Well-Connected Roads",
+        "Near Schools, Markets & Hospitals"
+      ],
+      "payment_plan": {
+        "basic_price_type": "Total Price",
+        "stages": [
+          { "name": "Total Price", "amount": "₹1.75 Crore (Negotiable)" }
+        ]
+      },
+      "other_charges": [
+        { "name": "Registration Charges", "details": "As per Government Rates" },
+        { "name": "Stamp Duty", "details": "As applicable" },
+        { "name": "Transfer Charges", "details": "As applicable" }
+      ],
+      "notes": [
+        "Property is ready for immediate possession.",
+        "Price is negotiable for genuine buyers.",
+        "Contact Dua Property for site visit and detailed discussion.",
+        "All Government charges to be borne by the buyer as per actuals."
+      ],
+      "image_main": "/images/properties/sunny-enclave-house-main.jpg",
+      "images_gallery": [
+        "/images/properties/sunny-enclave-house-1.jpg",
+        "/images/properties/sunny-enclave-house-2.jpg",
+        "/images/properties/sunny-enclave-house-3.jpg",
+        "/images/properties/sunny-enclave-house-4.jpg",
+        "/images/properties/sunny-enclave-house-5.jpg",
+        "/images/properties/sunny-enclave-house-6.jpg",
+        "/images/properties/sunny-enclave-house-7.jpg",
+        "/images/properties/sunny-enclave-house-8.jpg",
+        "/images/properties/sunny-enclave-house-9.jpg",
+        "/images/properties/sunny-enclave-house-10.jpg",
+        "/images/properties/sunny-enclave-house-11.jpg",
+        "/images/properties/sunny-enclave-house-12.jpg"
+      ],
+      "video_url": null
     }
 ]
