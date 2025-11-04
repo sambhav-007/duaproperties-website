@@ -347,7 +347,7 @@ function PropertiesPage() {
               </div>
             ) : filteredProperties.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredProperties.slice(0, 9).map((property, index) => (
+                {filteredProperties.map((property, index) => (
                   <motion.div
                     key={property.id}
                     initial={{ opacity: 0, y: 30 }}
