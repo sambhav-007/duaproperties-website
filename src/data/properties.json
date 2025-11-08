@@ -691,5 +691,97 @@
         "/images/properties/sunny-enclave-house-12.jpg"
       ],
       "video_url": null
+    },
+    {
+      "id": "11",
+      "name": "Bollywood Green City - 3BHK Ultra Premium Floors",
+      "developer": "Bollywood Green City",
+      "location": "Sector 113, Mohali, Punjab",
+      "type": "Independent Floor",
+      "subType": "Ultra Premium Builder Floor",
+      "configuration": "3 BHK Ultra Premium Floors",
+      "price": "₹1.21 Cr onwards",
+      "priceDisplay": "₹1.21 Cr onwards",
+      "priceValue": 12100000,
+      "priceUnit": "total",
+      "currency": "INR",
+      "status": "Sale",
+      "propertyFor": "Sale",
+      "possessionStatus": "Ready to Move",
+      "bhkType": "3BHK",
+      "furnishingStatus": "Unfurnished",
+      "tags": ["GMADA Approved", "Ready to Move", "Ultra Premium", "Sector 113", "Gated Community"],
+      "bedrooms": "3",
+      "bathrooms": "3",
+      "area_sqft": null,
+      "rera_id": "GMADA Approved",
+      "possession_date": "Ready to Move",
+      "description": "Experience ultra-luxury living at Bollywood Green City in Sector 113, Mohali. These premium 3 BHK independent floors are ready to move and GMADA approved, offering modern amenities and sophisticated design. Located in the prime Sector 113, this gated community provides an ideal blend of comfort, security, and connectivity. With prices starting from ₹1.21 Crore, these ultra-premium floors are perfect for families seeking a luxurious lifestyle in Mohali's developing IT corridor.",
+      "highlights": [
+        "3 BHK Ultra Premium Independent Floors",
+        "Ready to Move Property",
+        "GMADA Approved Project",
+        "Prime Location in Sector 113, Mohali",
+        "Starting Price: ₹1.21 Crore",
+        "Gated Community with Modern Infrastructure",
+        "Close to IT Park & Commercial Hub",
+        "Excellent Connectivity to Airport Road",
+        "Spacious Floor Plans",
+        "High-Quality Construction Standards"
+      ],
+      "amenities": [
+        "Gated Community",
+        "24/7 Security & CCTV Surveillance",
+        "Modern Architecture",
+        "Ample Parking Space",
+        "Power Backup",
+        "24/7 Water Supply",
+        "Wide Internal Roads",
+        "Green Landscaping",
+        "Children's Play Area",
+        "Community Hall",
+        "Good Connectivity to Chandigarh & Airport",
+        "Near Educational Institutions",
+        "Close to Healthcare Facilities",
+        "Shopping Complex Nearby"
+      ],
+      "payment_plan": {
+        "basic_price_type": "Starting Price",
+        "stages": [
+          { "name": "Starting Price", "amount": "₹1.21 Crore onwards" },
+          { "name": "For Details", "amount": "Call 1800-8899-113" }
+        ]
+      },
+      "other_charges": [
+        { "name": "Registration Charges", "details": "As per Government Rates" },
+        { "name": "Stamp Duty", "details": "As applicable" },
+        { "name": "GST", "details": "As applicable" },
+        { "name": "Other Charges", "details": "As applicable" }
+      ],
+      "notes": [
+        "Ready to Move property - Immediate possession available.",
+        "GMADA approved project ensuring quality standards.",
+        "Price starting from ₹1.21 Crore - subject to floor selection and other factors.",
+        "Contact: 1800-8899-113 for site visit and detailed information.",
+        "All Government charges to be borne by the buyer as per actuals."
+      ],
+      "image_main": "/images/properties/bollywood-green-city-main.jpg",
+      "images_gallery": [
+        "/images/properties/bollywood-green-city-1.jpg",
+        "/images/properties/bollywood-green-city-2.jpg",
+        "/images/properties/bollywood-green-city-3.jpg",
+        "/images/properties/bollywood-green-city-4.jpg",
+        "/images/properties/bollywood-green-city-5.jpg",
+        "/images/properties/bollywood-green-city-6.jpg",
+        "/images/properties/bollywood-green-city-7.jpg",
+        "/images/properties/bollywood-green-city-8.jpg",
+        "/images/properties/bollywood-green-city-9.jpg",
+        "/images/properties/bollywood-green-city-10.jpg",
+        "/images/properties/bollywood-green-city-11.jpg",
+        "/images/properties/bollywood-green-city-12.jpg",
+        "/images/properties/bollywood-green-city-13.jpg",
+        "/images/properties/bollywood-green-city-14.jpg"
+      ],
+      "video_url": null
     }
 ]
