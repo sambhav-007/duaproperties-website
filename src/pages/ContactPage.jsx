@@ -1,5 +1,6 @@
 // src/pages/ContactPage.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MapPinIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
@@ -91,6 +92,34 @@ function ContactPage() {
                 title="Dua Property Office Location Map"
               ></iframe>
             </nav>
+          </div>
+
+          {/* Quick Links Section */}
+          <div className="mt-12 max-w-4xl mx-auto">
+            <h2 className="text-2xl font-semibold text-white mb-6 text-center">Explore Our Services</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Link
+                to="/properties"
+                className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-6 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 group"
+              >
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-dua-accent transition-colors">All Properties</h3>
+                <p className="text-sm text-gray-400">Browse our complete listing</p>
+              </Link>
+              <Link
+                to="/properties?types=Residential%20Plot"
+                className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-6 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 group"
+              >
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-dua-accent transition-colors">Residential Plots</h3>
+                <p className="text-sm text-gray-400">Find your dream plot</p>
+              </Link>
+              <Link
+                to="/properties?types=Apartment,Independent%20Floor"
+                className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-6 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 group"
+              >
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-dua-accent transition-colors">Apartments</h3>
+                <p className="text-sm text-gray-400">Luxury living spaces</p>
+              </Link>
+            </div>
           </div>
         </header>
       </main>

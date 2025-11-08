@@ -140,12 +140,61 @@ function AboutPage() {
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
                 Explore premium properties in <strong className="text-white">Mohali</strong>, <strong className="text-white">Chandigarh</strong>, <strong className="text-white">Kharar</strong>, and <strong className="text-white">Dubai</strong> with expert guidance. Our team ensures a smooth, professional experience for all clients.
               </p>
-              <Link
-                to="/contact"
-                className="inline-block bg-dua-accent/90 backdrop-blur-sm border border-dua-accent/30 text-dua-primary font-bold py-3 px-8 rounded-md hover:bg-dua-accent hover:scale-105 hover:shadow-[0_0_30px_rgba(193,154,107,0.4)] transition-all duration-300"
-              >
-                Get In Touch
-              </Link>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link
+                  to="/contact"
+                  className="inline-block bg-dua-accent/90 backdrop-blur-sm border border-dua-accent/30 text-dua-primary font-bold py-3 px-8 rounded-md hover:bg-dua-accent hover:scale-105 hover:shadow-[0_0_30px_rgba(193,154,107,0.4)] transition-all duration-300"
+                >
+                  Get In Touch
+                </Link>
+                <Link
+                  to="/properties"
+                  className="inline-block bg-white/10 backdrop-blur-lg border border-white/20 text-white font-bold py-3 px-8 rounded-md hover:bg-white/20 hover:scale-105 transition-all duration-300"
+                >
+                  Browse Properties
+                </Link>
+              </div>
+            </motion.section>
+
+            {/* Quick Links to Property Categories */}
+            <motion.section
+              className="mt-16 bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              <h3 className="text-2xl font-semibold text-white mb-6 text-center">Explore Our Property Categories</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <Link
+                  to="/properties?types=Residential%20Plot"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 group"
+                >
+                  <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-dua-accent transition-colors">Residential Plots</h4>
+                  <p className="text-sm text-gray-400">Premium plots in Tricity</p>
+                </Link>
+                <Link
+                  to="/properties?types=Apartment,Independent%20Floor"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 group"
+                >
+                  <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-dua-accent transition-colors">Apartments & Floors</h4>
+                  <p className="text-sm text-gray-400">Luxury living spaces</p>
+                </Link>
+                <Link
+                  to="/properties?types=Commercial"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 group"
+                >
+                  <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-dua-accent transition-colors">Commercial Spaces</h4>
+                  <p className="text-sm text-gray-400">Prime business locations</p>
+                </Link>
+                <Link
+                  to="/properties?types=Villa"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 group"
+                >
+                  <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-dua-accent transition-colors">Luxury Villas</h4>
+                  <p className="text-sm text-gray-400">Exclusive residences</p>
+                </Link>
+              </div>
             </motion.section>
           </div>
         </section>

@@ -2,7 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
 import propertiesData from '../data/properties.json';
+import PropertyCard from '../components/PropertyCard';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
@@ -23,7 +25,38 @@ function PropertyDetailPage() {
       navigate('/properties', { replace: true });
     }
     setLoading(false);
+    
+    // Scroll to top when property changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [id, navigate]);
+
+  // Get related properties based on type or location
+  const getRelatedProperties = () => {
+    if (!property) return [];
+    
+    // Filter properties that match type or location, but exclude current property
+    const related = propertiesData.filter(p => {
+      if (String(p.id) === String(property.id)) return false;
+      
+      // Check if same type or similar type
+      const sameType = p.type === property.type;
+      
+      // Check if same location (basic string matching)
+      const sameLocation = p.location && property.location && 
+        (p.location.toLowerCase().includes(property.location.toLowerCase().split(',')[0].toLowerCase()) ||
+         property.location.toLowerCase().includes(p.location.toLowerCase().split(',')[0].toLowerCase()));
+      
+      return sameType || sameLocation;
+    });
+    
+    // Limit to 3 properties, prioritize same type first
+    const sameTypeProperties = related.filter(p => p.type === property.type);
+    const differentTypeProperties = related.filter(p => p.type !== property.type);
+    
+    return [...sameTypeProperties, ...differentTypeProperties].slice(0, 3);
+  };
+
+  const relatedProperties = property ? getRelatedProperties() : [];
 
   const slides = property?.images_gallery?.map(img => ({ src: img })) || [];
   const openLightbox = (index) => {
@@ -288,6 +321,49 @@ function PropertyDetailPage() {
                   Your browser does not support the video tag.
                 </video>
               )}
+            </div>
+          </div>
+        )}
+
+        {/* Related Properties Section */}
+        {relatedProperties.length > 0 && (
+          <div className="mt-16 mb-12 animate-fade-in">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">You May Also Like</h2>
+                <p className="text-gray-400">Explore similar properties that might interest you</p>
+              </div>
+              <Link 
+                to="/properties" 
+                className="hidden md:inline-flex items-center gap-2 text-dua-accent hover:text-white transition-colors duration-300 font-semibold group"
+              >
+                View All Properties
+                <span className="transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+              </Link>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedProperties.map((relatedProp, index) => (
+                <motion.div
+                  key={relatedProp.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                >
+                  <PropertyCard property={relatedProp} />
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Mobile View All Button */}
+            <div className="mt-8 text-center md:hidden">
+              <Link 
+                to="/properties" 
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/20 text-dua-accent hover:bg-white/20 hover:text-white rounded-lg transition-all duration-300 font-semibold"
+              >
+                View All Properties
+                <span>&rarr;</span>
+              </Link>
             </div>
           </div>
         )}

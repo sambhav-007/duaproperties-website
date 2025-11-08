@@ -77,7 +77,19 @@
   </url>
   <url>
     <loc>https://www.duaproperty.com/property/9</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.duaproperty.com/property/10</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.duaproperty.com/property/11</loc>
+    <lastmod>2025-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
