@@ -748,8 +748,7 @@
       "payment_plan": {
         "basic_price_type": "Starting Price",
         "stages": [
-          { "name": "Starting Price", "amount": "₹1.21 Crore onwards" },
-          { "name": "For Details", "amount": "Call 1800-8899-113" }
+          { "name": "Starting Price", "amount": "₹1.21 Crore onwards" }
         ]
       },
       "other_charges": [
