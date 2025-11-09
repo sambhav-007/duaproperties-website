@@ -781,5 +781,94 @@
         "/images/properties/bollywood-green-city-14.jpg"
       ],
       "video_url": null
+    },
+    {
+      "id": "12",
+      "name": "Park East by Navdesh Group - Nature Inspired Homes",
+      "developer": "Navdesh Group",
+      "location": "Chandigarh-Ludhiana Highway, 140301, Kharar, Mohali",
+      "type": "Apartment",
+      "subType": "Premium Apartment",
+      "configuration": "2 BHK & 3 BHK Flats",
+      "price": "Price on Request",
+      "priceDisplay": "Price on Request",
+      "priceValue": 0,
+      "priceUnit": "total",
+      "currency": "INR",
+      "status": "Sale",
+      "propertyFor": "Sale",
+      "possessionStatus": "Ready to Deliver",
+      "bhkType": "2BHK,3BHK",
+      "furnishingStatus": "Unfurnished",
+      "tags": ["Nature Inspired", "Bank Approved", "Premium Amenities", "Chandigarh-Ludhiana Highway", "Ready to Deliver"],
+      "bedrooms": "2, 3",
+      "bathrooms": "2-3",
+      "area_sqft": null,
+      "rera_id": "Available on Request",
+      "possession_date": "Ready to Deliver",
+      "description": "Park East by Navdesh Group presents 'Nature Inspired Homes' - a premium residential project featuring 2 BHK & 3 BHK flats on Chandigarh-Ludhiana Highway, Kharar. This reliable real estate development combines innovative project planning with timely delivery. Navdesh Group, a joint venture of prominent real estate firms, has established Park East Kharar with higher standards and modern amenities. The project features bank approvals from HDFC Bank, SBI, PNB, and J&K Bank, ensuring hassle-free home loans for buyers.",
+      "highlights": [
+        "2 BHK & 3 BHK Premium Flats",
+        "Nature Inspired Living",
+        "Prime Location: Chandigarh-Ludhiana Highway",
+        "Ready to Deliver - Immediate Possession",
+        "Bank Approved: HDFC, SBI, PNB, J&K Bank",
+        "Developed by Navdesh Group",
+        "Modern Amenities & Higher Standards",
+        "Safe & Enjoyable Living Environment",
+        "Excellent Connectivity to Chandigarh & Mohali",
+        "Home is where we mark NEW BEGINNINGS"
+      ],
+      "amenities": [
+        "Retail Shops",
+        "High-Speed Lifts",
+        "Kids Play Area",
+        "Private Garden",
+        "24/7 Water Supply",
+        "Dedicated Car Parking",
+        "2 Tier Security System",
+        "Gymnasium & Fitness Center",
+        "Gated Community",
+        "Power Backup",
+        "Landscaped Green Spaces",
+        "Modern Infrastructure",
+        "CCTV Surveillance",
+        "Fire Safety Systems"
+      ],
+      "payment_plan": {
+        "basic_price_type": "On Request",
+        "stages": [
+          { "name": "Contact for Details", "amount": "Personalized Consultation" },
+          { "name": "Bank Loan Assistance", "amount": "HDFC, SBI, PNB, J&K Bank Approved" }
+        ]
+      },
+      "other_charges": [
+        { "name": "Registration Charges", "details": "As per Government Rates" },
+        { "name": "Stamp Duty", "details": "As applicable" },
+        { "name": "GST", "details": "As applicable" },
+        { "name": "Other Charges", "details": "As applicable" }
+      ],
+      "notes": [
+        "Ready to Deliver - Immediate possession available.",
+        "Bank approvals from HDFC Bank, SBI, PNB, and J&K Bank for easy home loans.",
+        "Developed by Navdesh Group - a reliable real estate group with innovative project planning.",
+        "Live safely and enjoyably with higher standards and modern amenities.",
+        "Contact Dua Property for site visit and detailed information.",
+        "All Government charges to be borne by the buyer as per actuals."
+      ],
+      "image_main": "/images/properties/park-east-navdesh-main.jpg",
+      "images_gallery": [
+        "/images/properties/park-east-navdesh-1.jpg",
+        "/images/properties/park-east-navdesh-2.jpg",
+        "/images/properties/park-east-navdesh-3.jpg",
+        "/images/properties/park-east-navdesh-4.jpg",
+        "/images/properties/park-east-navdesh-5.jpg",
+        "/images/properties/park-east-navdesh-6.jpg",
+        "/images/properties/park-east-navdesh-7.jpg",
+        "/images/properties/park-east-navdesh-8.jpg",
+        "/images/properties/park-east-navdesh-9.jpg",
+        "/images/properties/park-east-navdesh-10.jpg"
+      ],
+      "video_url": "https://www.youtube.com/watch?v=KombdauGoOg"
     }
 ]
