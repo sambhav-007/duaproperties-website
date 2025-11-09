@@ -9,8 +9,8 @@ import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon, HomeIcon
 import { motion } from 'framer-motion';
 
 function HomePage() {
-  // Hot properties for hero slideshow (IDs: 2, 3, 5, 9)
-  const hotProperties = propertiesData.filter(p => ['2', '3', '5', '9'].includes(p.id));
+  // Hot properties for hero slideshow (IDs: 2, 3, 5, 9, 11)
+  const hotProperties = propertiesData.filter(p => ['2', '3', '5', '9', '11'].includes(p.id));
   
   // All properties for display
   const allProperties = propertiesData;
