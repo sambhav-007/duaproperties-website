@@ -870,5 +870,94 @@
         "/images/properties/park-east-navdesh-10.jpg"
       ],
       "video_url": "https://www.youtube.com/watch?v=KombdauGoOg"
+    },
+    {
+      "id": "13",
+      "name": "Guru Residences by HG Group - Premium Township",
+      "developer": "Gurmehar Developers (HG Group)",
+      "location": "NH-5, Chandigarh Ludhiana Highway, Mohali, Punjab",
+      "type": "Residential Plot",
+      "subType": "Premium Township",
+      "configuration": "100, 110, 125, 133, 142, 150 Sq. Yds. Plots",
+      "price": "₹36,900 / Sq. Yd.",
+      "priceDisplay": "₹36,900 / Sq. Yd.",
+      "priceValue": 36900,
+      "priceUnit": "per_sqyd",
+      "currency": "INR",
+      "status": "Sale",
+      "propertyFor": "Sale",
+      "possessionStatus": "1.5 Years",
+      "bhkType": "Plot",
+      "furnishingStatus": "NA",
+      "tags": ["Coming Soon", "21 Acre Township", "NH-5 Highway", "Commercial Hub", "Pre-Launch Prices"],
+      "min_plot_size_sqyd": 100,
+      "max_plot_size_sqyd": 150,
+      "bedrooms": null,
+      "bathrooms": null,
+      "area_sqft": null,
+      "rera_id": "RERA Application in Progress",
+      "possession_date": "1.5 Years from Booking",
+      "description": "Your Gateway to a Planned, Premium Life! Introducing Guru Residences & HG Group by Gurmehar Developer – A premium 21-acre township strategically located right on NH-05 (Chandigarh-Ludhiana Highway). This meticulously planned residential project offers premium plots ranging from 100 to 150 Sq. Yds. with a massive 1700 ft frontage on the highway. The township features commercial spaces with major brands already signed including McDonald's Drive-Thru, Domino's, and Gopal, along with a 3-acre green park and modern amenities. Located just minutes from Chandigarh University and major industrial hubs, this is your opportunity to invest in a premium lifestyle at pre-launch prices.",
+      "highlights": [
+        "Premium 21-Acre Township on NH-05",
+        "1700 ft Frontage on Chandigarh-Ludhiana Highway",
+        "Residential Plots: 100–150 Sq. Yds.",
+        "Pre-Launch Prices: ₹36,900 / Sq. Yd.",
+        "Commercial Space with McDonald's Drive-Thru, Domino's, Gopal",
+        "3-Acre Green Park & Modern Amenities",
+        "Minutes from Chandigarh University",
+        "Close to Major Industrial Hubs",
+        "Flexible Payment Plans Available",
+        "Possession in 1.5 Years",
+        "Developed by HG Group & Gurmehar Developers"
+      ],
+      "amenities": [
+        "3-Acre Green Park",
+        "Commercial Hub with Premium Brands",
+        "McDonald's Drive-Thru",
+        "Domino's Pizza Outlet",
+        "Gopal Restaurant",
+        "Wide Internal Roads",
+        "24/7 Security",
+        "Street Lighting",
+        "Underground Electrification",
+        "Water Supply & Drainage",
+        "Gated Community",
+        "Modern Infrastructure",
+        "Strategic NH-05 Location",
+        "Near Chandigarh University"
+      ],
+      "payment_plan": {
+        "basic_price": "₹36,900 / Per Square Yard",
+        "plot_sizes": ["100 Sq. Yds.", "110 Sq. Yds.", "125 Sq. Yds.", "133 Sq. Yds.", "142 Sq. Yds.", "150 Sq. Yds."],
+        "stages": [
+          { "name": "Booking Amount", "amount": "25% of Total" },
+          { "name": "On CLU (Change of Land Use)", "amount": "15% of Total" },
+          { "name": "On RERA Approval", "amount": "10% of Total" },
+          { "name": "Development Linked Plan", "amount": "50% as per Development Progress" }
+        ]
+      },
+      "other_charges": [
+        { "name": "PLC Charges", "details": "As Applicable (Corner, Highway Facing, Park Facing)" },
+        { "name": "Development Charges", "details": "Included in Price" },
+        { "name": "Registration & Stamp Duty", "details": "As per Government Rates" },
+        { "name": "GST", "details": "As Applicable" }
+      ],
+      "notes": [
+        "Pre-launch prices available - Limited slots only!",
+        "Prices will change any time without prior notice by company.",
+        "Possession in 1.5 years from booking.",
+        "Flexible payment plans available.",
+        "Commercial space with McDonald's Drive-Thru, Domino's, and Gopal already signed.",
+        "Prime location on NH-05 with 1700 ft highway frontage.",
+        "21-acre premium township with modern amenities.",
+        "All Government charges to be borne by the buyer as per actuals.",
+        "Contact Dua Property for site visit and detailed payment plan."
+      ],
+      "image_main": "/images/properties/guru-residences-main.jpg",
+      "images_gallery": [
+        "/images/properties/guru-residences-1.jpg"
+      ],
+      "video_url": "https://www.youtube.com/watch?v=uMb9l2-Cd48"
     }
 ]
