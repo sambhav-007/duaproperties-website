@@ -959,5 +959,125 @@
         "/images/properties/guru-residences-1.jpg"
       ],
       "video_url": "https://www.youtube.com/watch?v=uMb9l2-Cd48"
+    },
+    {
+      "id": "14",
+      "name": "KBP Group - Ready to Move Independent Villas",
+      "type": "Villa",
+      "subType": "Independent House",
+      "status": "Sale",
+      "propertyFor": "Sale",
+      "price": "₹55 Lac - ₹1.15 Cr",
+      "priceDisplay": "₹55 Lac - ₹1.15 Cr",
+      "priceValue": 5500000,
+      "priceUnit": "total",
+      "currency": "INR",
+      "possessionStatus": "Ready to Move",
+      "bhkType": "3 BHK, 4 BHK",
+      "furnishingStatus": "Semi-Furnished",
+      "tags": ["Ready to Move", "Freehold", "Independent Villa", "Modular Kitchen", "Gated Community"],
+      "min_plot_size_sqyd": 125,
+      "max_plot_size_sqyd": 250,
+      "bedrooms": "3-4",
+      "bathrooms": "3-4",
+      "area_sqft": 1350,
+      "location": "Sector 127, Mohali (Near Airport Road)",
+      "rera_id": "Contact for RERA Details",
+      "possession_date": "Immediate",
+      "description": "KBP Group presents luxurious ready-to-move independent villas in Sector 127, Mohali. These beautifully constructed homes feature modern architecture with 3 BHK and 4 BHK configurations on plots ranging from 125 to 250 Sq. Yards. Each villa comes with a modular kitchen, premium fittings, car parking, and is strategically located near Airport Road for excellent connectivity. Perfect for families seeking immediate possession of a dream home with all modern amenities.",
+      "highlights": [
+        "Ready to Move - Immediate Possession",
+        "3 BHK & 4 BHK Independent Villas",
+        "Plot Sizes: 125 to 250 Sq. Yards",
+        "Built-up Area: 1350-2700 Sq. Ft.",
+        "Freehold Property with Clear Title",
+        "Modular Kitchen Included",
+        "Car Parking (Covered & Open)",
+        "Prime Location Near Airport Road",
+        "Modern Architecture & Design",
+        "Gated Community with Security"
+      ],
+      "amenities": [
+        "Modular Kitchen with Chimney",
+        "Premium Vitrified Tiles Flooring",
+        "Branded Electrical Fittings",
+        "Covered Car Parking",
+        "Open Car Parking Space",
+        "Separate Store Room",
+        "Pooja Room",
+        "Balconies in All Bedrooms",
+        "Attached Bathrooms",
+        "24x7 Security & CCTV",
+        "Wide Internal Roads",
+        "LED Street Lighting",
+        "Water Supply Connection",
+        "Electricity with Backup Provision",
+        "Boundary Wall & Main Gate"
+      ],
+      "image_main": "/images/properties/kbp-group-main.png",
+      "images_gallery": [
+        "/images/properties/kbp-group-1.jpg",
+        "/images/properties/kbp-group-2.jpg",
+        "/images/properties/kbp-group-3.jpg",
+        "/images/properties/kbp-group-4.jpg",
+        "/images/properties/kbp-group-5.jpg",
+        "/images/properties/kbp-group-6.jpg",
+        "/images/properties/kbp-group-7.jpg",
+        "/images/properties/kbp-group-8.jpg"
+      ],
+      "video_url": "",
+      "nearby": [
+        {
+          "name": "Chandigarh Airport",
+          "distance": "5 km"
+        },
+        {
+          "name": "Chandigarh City Center",
+          "distance": "12 km"
+        },
+        {
+          "name": "Mohali Cricket Stadium",
+          "distance": "8 km"
+        },
+        {
+          "name": "PGIMER Hospital",
+          "distance": "10 km"
+        },
+        {
+          "name": "Elante Mall",
+          "distance": "13 km"
+        }
+      ],
+      "floorPlans": [
+        {
+          "type": "3 BHK Villa",
+          "plot_size": "125 Sq. Yards",
+          "built_area": "1350 Sq. Ft.",
+          "price": "₹55-65 Lac",
+          "rooms": "3 Bedrooms + Drawing Room + Kitchen + Store + Parking"
+        },
+        {
+          "type": "4 BHK Villa",
+          "plot_size": "200-250 Sq. Yards",
+          "built_area": "2250-2700 Sq. Ft.",
+          "price": "₹95 Lac - ₹1.15 Cr",
+          "rooms": "4 Bedrooms + Drawing Room + Kitchen + Store + 2 Parking"
+        }
+      ],
+      "notes": [
+        "Ready to move independent villas - immediate possession available.",
+        "Freehold property with clear title and all legal documentation.",
+        "3 BHK villas starting from ₹55 Lac on 125 Sq. Yard plots.",
+        "4 BHK villas from ₹95 Lac to ₹1.15 Cr on 200-250 Sq. Yard plots.",
+        "Each villa includes modular kitchen with chimney and premium fittings.",
+        "Covered car parking + additional open parking space.",
+        "Separate store room and pooja room in each unit.",
+        "Prime location near Chandigarh Airport (5 km) with excellent connectivity.",
+        "Gated community with 24x7 security and CCTV surveillance.",
+        "Flexible payment plans and home loan assistance available.",
+        "All rooms with attached bathrooms and balconies.",
+        "Premium quality construction with branded materials.",
+        "Contact Dua Property for site visit and complete floor plans."
+      ]
     }
 ]
