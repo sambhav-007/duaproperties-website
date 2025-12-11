@@ -1079,5 +1079,126 @@
         "Premium quality construction with branded materials.",
         "Contact Dua Property for site visit and complete floor plans."
       ]
+    },
+    {
+      "id": "15",
+      "name": "Greenwoods - Premium 3 BHK Floors",
+      "type": "Independent Floor",
+      "subType": "Builder Floor",
+      "status": "Sale",
+      "propertyFor": "Sale",
+      "price": "Contact for Price",
+      "priceDisplay": "Best Price with Easy Payment Plan",
+      "priceValue": 0,
+      "priceUnit": "total",
+      "currency": "INR",
+      "possessionStatus": "Under Construction",
+      "bhkType": "3 BHK",
+      "furnishingStatus": "Semi-Furnished",
+      "tags": ["RERA Approved", "Gated Community", "25 Acre Township", "Easy Payment Plan", "Premium Fittings"],
+      "min_plot_size_sqyd": null,
+      "max_plot_size_sqyd": null,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "area_sqft": null,
+      "location": "Sector 115, Kharar-Landran, NH-205, Mohali",
+      "rera_id": "RERA Approved",
+      "possession_date": "Contact for Details",
+      "description": "Greenwoods is an impeccably planned residential township nestled along the picturesque Kharar-Landran stretch of NH-205. Offering premium 3 BHK independent floors with a wide range of plot dimensions thoughtfully laid across 25 acres of meticulously planned land. Located on a 30-feet wide sector road, Greenwoods ensures smooth traffic flow and easy navigation. Enveloped within a tranquil expanse of well-maintained green landscapes, Greenwoods provides its residents with an enchanting blend of natural beauty and contemporary living. Strategically positioned with exceptional connectivity to Delhi Public School, CGC Landran, Chandigarh University, Swaraj Mazda manufacturing plant, and the iconic Fateh Burj (Baba Banda Singh Bahadur War Memorial, Chappar Chiri).",
+      "highlights": [
+        "25 Acre Premium Township",
+        "RERA Approved Project",
+        "3 BHK Independent Floors",
+        "Gated & Secured Society",
+        "Easy Payment Plan Available",
+        "Premium Brand Fittings",
+        "80 Ft Wide Sector Internal Road",
+        "Directly Connected to 200 Ft Wide Road PR-6",
+        "Near IT HUB & Swaraj Factory",
+        "Close to Educational Institutions",
+        "High Street Market Nearby",
+        "KFC & McDonald's in Proximity"
+      ],
+      "amenities": [
+        "24x7 CCTV Surveillance",
+        "UPVC Doors & Windows",
+        "Roca Sanitary Fittings",
+        "KEI Wirings",
+        "Legrand Switches",
+        "Underground Wiring",
+        "Open Air Gym",
+        "Lush Green Parks (49,770 Sq. Ft.)",
+        "Club House (28,620 Sq. Ft.)",
+        "Jogging Tracks",
+        "Gazebo (Sitting Area)",
+        "Kids Play Area",
+        "Badminton Court",
+        "Basketball Court",
+        "Gated Community with Security",
+        "Wide Internal Roads",
+        "Street Lighting",
+        "Power Backup",
+        "Water Supply",
+        "Sewerage System"
+      ],
+      "image_main": "/images/properties/greenwoods-main.png",
+      "images_gallery": [
+        "/images/properties/greenwoods-1.jpg",
+        "/images/properties/greenwoods-2.jpg",
+        "/images/properties/greenwoods-3.jpg",
+        "/images/properties/greenwoods-4.jpg",
+        "/images/properties/greenwoods-5.jpg"
+      ],
+      "video_url": "",
+      "nearby": [
+        {
+          "name": "Delhi Public School",
+          "distance": "2 km"
+        },
+        {
+          "name": "CGC Landran",
+          "distance": "3 km"
+        },
+        {
+          "name": "Chandigarh University",
+          "distance": "5 km"
+        },
+        {
+          "name": "Swaraj Mazda Factory",
+          "distance": "4 km"
+        },
+        {
+          "name": "Fateh Burj (Chappar Chiri)",
+          "distance": "3 km"
+        },
+        {
+          "name": "High Street Market",
+          "distance": "Walking Distance"
+        },
+        {
+          "name": "KFC & McDonald's",
+          "distance": "500 m"
+        },
+        {
+          "name": "IT HUB",
+          "distance": "3 km"
+        }
+      ],
+      "notes": [
+        "Premium 3 BHK independent floors in 25-acre gated township.",
+        "RERA approved project with all legal clearances.",
+        "Easy payment plan available - flexible options for buyers.",
+        "Premium fittings: UPVC doors/windows, Roca sanitary, KEI wiring, Legrand switches.",
+        "World-class amenities: Club house (28,620 sq.ft), parks (49,770 sq.ft), sports facilities.",
+        "Strategic location on NH-205 with excellent connectivity.",
+        "80 ft wide sector internal road, directly connected to 200 ft wide PR-6 road.",
+        "Near educational institutions: Delhi Public School, CGC Landran, Chandigarh University.",
+        "Close to commercial hubs: IT Hub, Swaraj Factory, high street market.",
+        "24x7 CCTV surveillance and gated security for complete peace of mind.",
+        "Modern township with jogging tracks, open air gym, badminton & basketball courts.",
+        "KFC & McDonald's nearby for dining convenience.",
+        "Well-planned infrastructure with underground wiring and wide roads.",
+        "Contact Dua Property for floor plans, payment schedule, and site visit."
+      ]
     }
 ]
