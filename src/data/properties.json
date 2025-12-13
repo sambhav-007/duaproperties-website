@@ -1200,5 +1200,215 @@
         "Well-planned infrastructure with underground wiring and wide roads.",
         "Contact Dua Property for floor plans, payment schedule, and site visit."
       ]
+    },
+    {
+      "id": "16",
+      "name": "Solitairian City 111 - Luxury Apartments & Villas",
+      "type": "Apartment",
+      "subType": "High-Rise Apartments & Villas",
+      "status": "Sale",
+      "propertyFor": "Sale",
+      "price": "₹50 Lac - ₹3 Cr",
+      "priceDisplay": "₹50 Lac - ₹3 Cr",
+      "priceValue": 5000000,
+      "priceUnit": "total",
+      "currency": "INR",
+      "possessionStatus": "Under Construction",
+      "bhkType": "2 BHK, 3 BHK, 4 BHK, Villas",
+      "furnishingStatus": "Semi-Furnished",
+      "tags": ["F1 Racing Theme", "Luxury Living", "Buddh International Circuit", "Near Jewar Airport", "Premium Amenities"],
+      "min_plot_size_sqyd": null,
+      "max_plot_size_sqyd": null,
+      "bedrooms": "2-4",
+      "bathrooms": "2-5",
+      "area_sqft": 1000,
+      "location": "Sector-25, Jaypee Greens, Sports City, Greater Noida, Gautam Budh Nagar, U.P.-201308",
+      "rera_id": "Contact for RERA Details",
+      "possession_date": "Contact for Details",
+      "description": "Solitairian City 111 by Solitairian Group redefines luxury living with its unique F1 Racing theme. Located within the iconic Buddh International Circuit in Greater Noida, this premium development offers 2, 3, 4 BHK apartments and exclusive villas. The project features themed towers named 'Turbo', 'Speed', and 'Pace', with roads designed like F1 tracks with meandering curves. Experience world-class amenities including plunge pools, sky lounges, and a club house with pool deck. With superior connectivity via Yamuna Expressway, proposed metro station, and just 25 minutes from Jewar Airport, this is where luxury meets convenience.",
+      "highlights": [
+        "Unique F1 Racing Theme - Roads Based on F1 Track Model",
+        "Located within Buddh International Circuit",
+        "Premium Towers: Turbo, Speed, Pace, Blue Tower, Iconic Square Tower",
+        "2, 3, 4 BHK Apartments & Luxury Villas",
+        "Apartments: 1000 to 4350 Sq. Ft.",
+        "Villas: 3100 to 4650 Sq. Ft. with Private Pools",
+        "25 Minutes Drive to Jewar Airport",
+        "Proposed Metro Station Nearby",
+        "Walking Distance to Galgotias University",
+        "Superior Connectivity - Yamuna & Eastern Peripheral Expressway",
+        "Earthquake Resistant RCC Structure",
+        "Sky Lounge, Sky Gym, Jacuzzi",
+        "Cricket Stadium 1 KM Away"
+      ],
+      "amenities": [
+        "Club House with Pool Deck",
+        "Swimming Pool",
+        "Plunge Pools (Select Units)",
+        "Sky Lounge",
+        "Sky Gym",
+        "Jacuzzi",
+        "Party Lawn",
+        "Cricket Practice Pitch",
+        "Badminton Court",
+        "Half Court Basketball",
+        "Indoor Sports Court",
+        "Jogging & Cycling Trail",
+        "Iconic Tower Architecture",
+        "Skywalk",
+        "Terrace Garden",
+        "Landscaped Greens",
+        "Double Height Entrance Lobby",
+        "24x7 CCTV Surveillance",
+        "Power Backup",
+        "High-Speed Elevators",
+        "Independent Car Parking",
+        "Earthquake Resistant Structure",
+        "UPVC/Aluminum Composite Windows",
+        "Modular Kitchen with Granite Counter",
+        "Vitrified Tiles Flooring",
+        "Laminated Wooden Flooring (Master Bedroom)"
+      ],
+      "image_main": "/images/properties/solitarian-city-main.png",
+      "images_gallery": [
+        "/images/properties/solitarian-city-1.png",
+        "/images/properties/solitarian-city-2.png",
+        "/images/properties/solitarian-city-3.png",
+        "/images/properties/solitarian-city-4.png",
+        "/images/properties/solitarian-city-5.png",
+        "/images/properties/solitarian-city-6.png",
+        "/images/properties/solitarian-city-7.png",
+        "/images/properties/solitarian-city-8.png",
+        "/images/properties/solitarian-city-9.png",
+        "/images/properties/solitarian-city-10.png"
+      ],
+      "video_url": "",
+      "nearby": [
+        {
+          "name": "Jewar Airport",
+          "distance": "25 min drive"
+        },
+        {
+          "name": "Galgotias University",
+          "distance": "Walking Distance"
+        },
+        {
+          "name": "Noida International University",
+          "distance": "2 km"
+        },
+        {
+          "name": "Gautam Buddh University",
+          "distance": "3 km"
+        },
+        {
+          "name": "Cricket Stadium",
+          "distance": "1 km"
+        },
+        {
+          "name": "Buddh International Circuit",
+          "distance": "Within Complex"
+        },
+        {
+          "name": "Night Safari",
+          "distance": "5 km"
+        },
+        {
+          "name": "Yamuna Expressway",
+          "distance": "1 km"
+        },
+        {
+          "name": "Proposed Metro Station",
+          "distance": "500 m"
+        }
+      ],
+      "floorPlans": [
+        {
+          "type": "2 BHK Apartment (Unit B)",
+          "built_area": "1000 Sq. Ft.",
+          "configuration": "2 Bedrooms + 2 Toilets",
+          "tower": "T2, T3 (Ground to 22nd Floor)",
+          "price": "₹50-60 Lac"
+        },
+        {
+          "type": "2 BHK Apartment (Unit C)",
+          "built_area": "1012 Sq. Ft.",
+          "configuration": "2 Bedrooms + 2 Toilets",
+          "tower": "T2, T3 (Ground to 22nd Floor)",
+          "price": "₹50-60 Lac"
+        },
+        {
+          "type": "2 BHK Premium (Unit P)",
+          "built_area": "1925 Sq. Ft.",
+          "configuration": "2 Bedrooms + 4 Toilets + Utility + Plunge Pool",
+          "tower": "S1 (1st Floor)",
+          "price": "₹95 Lac - ₹1.1 Cr"
+        },
+        {
+          "type": "3 BHK Premium (Unit Q)",
+          "built_area": "2400 Sq. Ft.",
+          "configuration": "3 Bedrooms + 4 Toilets + Utility + Plunge Pool",
+          "tower": "S1 (2nd to 27th Floor)",
+          "price": "₹1.2 Cr - ₹1.5 Cr"
+        },
+        {
+          "type": "4 BHK Premium (Unit R)",
+          "built_area": "4350 Sq. Ft.",
+          "configuration": "4 Bedrooms + 5 Toilets + Utility + Plunge Pool",
+          "tower": "S1 (Ground to 27th Floor)",
+          "price": "₹2.2 Cr - ₹2.8 Cr"
+        },
+        {
+          "type": "Standard Villa",
+          "built_area": "3100 Sq. Ft.",
+          "configuration": "5 Bedrooms (1+3+1) + Plunge Pool + Terrace",
+          "floors": "Ground (1125 sf) + 1st (1105 sf) + 2nd (870 sf)",
+          "features": "Plunge Pool, Lawn, Car Parking, TV Lounge, Servant Room",
+          "price": "₹1.5 Cr - ₹1.8 Cr"
+        },
+        {
+          "type": "Large Villa",
+          "built_area": "4650 Sq. Ft.",
+          "configuration": "5 Bedrooms (1+3+1) + Pool + Bar + Lawn + Gym",
+          "floors": "Ground (1640 sf) + 1st (1586 sf) + 2nd (1424 sf)",
+          "features": "Swimming Pool, Bar, Gym, Landscape Terrace, 2 Car Parking",
+          "price": "₹2.2 Cr - ₹3 Cr"
+        }
+      ],
+      "specifications": {
+        "structure": "Earthquake Resistant RCC Framed Structure (Latest Seismic Code)",
+        "flooring": {
+          "living_dining_kitchen": "Vitrified Tiles",
+          "master_bedroom": "Laminated Wooden Flooring",
+          "balconies": "Designer Anti-Skid Tiles"
+        },
+        "kitchen": "Granite Counter with Stainless Steel Sink, Designer Ceramic Tiles (2 ft above counter)",
+        "doors_windows": {
+          "internal": "Designer Flush Doors in Polish/Duco Paint fixed in Hardwood",
+          "external": "UPVC/Aluminum Composite Sliding or Openable Doors & Windows"
+        },
+        "wall_finish": {
+          "external": "Modern & Elegant Permanent Finish with High Quality Texture Paint",
+          "internal": "P.O.P. Work of Punning, Painted using O.B.D."
+        },
+        "electrical": "Fire Resistant Copper Wiring in Concealed PVC Conduits, Modular Switches"
+      },
+      "notes": [
+        "Unique F1 Racing themed luxury development - 'Redefine Luxury, Luxury in Each Detail'",
+        "Located within the iconic Buddh International Circuit in Greater Noida.",
+        "Premium towers named Turbo, Speed, and Pace with F1 track-inspired roads.",
+        "Multiple configurations: 2 BHK (1000-1925 sq.ft), 3 BHK (2400 sq.ft), 4 BHK (4350 sq.ft)",
+        "Exclusive villas: Standard (3100 sq.ft) and Large (4650 sq.ft) with private pools.",
+        "Premium units feature plunge pools, private terraces, and luxury amenities.",
+        "Villas include swimming pool, bar, gym, landscape terrace, and servant quarters.",
+        "World-class amenities: Sky Lounge, Sky Gym, Jacuzzi, Club House with pool deck.",
+        "Sports facilities: Cricket pitch, badminton, basketball, jogging/cycling trails.",
+        "Just 25 minutes from Jewar Airport with proposed metro station nearby.",
+        "Walking distance to Galgotias University, close to multiple educational institutions.",
+        "Superior connectivity via Yamuna Expressway and Eastern Peripheral Expressway.",
+        "Earthquake resistant structure with premium specifications and branded fittings.",
+        "High-speed elevators, 24x7 CCTV, power backup, and independent car parking.",
+        "10 minutes from offices, schools, and healthcare facilities.",
+        "Contact Dua Property for detailed floor plans, payment plans, and site visit."
+      ]
     }
 ]
