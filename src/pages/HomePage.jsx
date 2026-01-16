@@ -181,7 +181,7 @@ function HomePage() {
                         </p>
                         
                         <div className="flex items-center justify-between">
-                          <span className="inline-block bg-dua-accent/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-dua-primary border border-dua-accent/30">
+                          <span className="inline-block bg-dua-accent/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-black border border-dua-accent/30">
                             {propertyCount} {propertyCount === 1 ? 'Property' : 'Properties'}
                           </span>
                           
