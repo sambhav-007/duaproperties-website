@@ -162,7 +162,7 @@ function HeroSlideshow({ properties }) {
                 >
                   <Link
                     to={`/property/${currentProperty.id}`}
-                    className="bg-dua-accent text-dua-primary font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-105"
+                    className="bg-dua-accent text-black font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-105"
                   >
                     View Details
                   </Link>
