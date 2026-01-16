@@ -21,15 +21,17 @@ function Navbar() {
   const isHome = location.pathname === '/';
   const navbarClasses = `
     fixed w-full top-0 left-0 z-50 p-4 transition-all duration-500 ease-in-out
-    ${scrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-2xl border-b border-white/10' : 'bg-transparent'}
+    ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-200' : 'bg-transparent'}
   `;
 
   // NavLink styling
   const navLinkClasses = ({ isActive }) =>
-    `relative font-medium text-sm sm:text-base group py-1 px-2 transition-all duration-300 text-white ${
+    `relative font-medium text-sm sm:text-base group py-1 px-2 transition-all duration-300 ${
+      scrolled ? 'text-dua-text' : 'text-white drop-shadow-lg'
+    } ${
       isActive
-        ? 'font-bold border-b-2 border-dua-accent text-dua-accent'
-        : 'hover:text-dua-accent hover:border-b-2 hover:border-dua-accent border-b-2 border-transparent'
+        ? `font-bold border-b-2 ${scrolled ? 'border-dua-primary text-dua-primary' : 'border-white text-white'}` 
+        : `hover:border-b-2 border-b-2 border-transparent ${scrolled ? 'hover:text-dua-primary hover:border-dua-primary' : 'hover:text-gray-200 hover:border-white/80'}`
     }`;
 
   return (
@@ -39,7 +41,9 @@ function Navbar() {
         {/* Logo and Brand */}
         <Link to="/" className="flex items-center space-x-2">
           <img src="/dua-logo.jpg" alt="Dua Property Logo" className="h-8 sm:h-10 w-auto rounded-md" />
-          <span className="text-lg sm:text-2xl font-bold text-white transition-colors duration-300">
+          <span className={`text-lg sm:text-2xl font-bold transition-colors duration-300 ${
+            scrolled ? 'text-dua-primary' : 'text-white drop-shadow-lg'
+          }`}>
             Dua Property
           </span>
         </Link>
@@ -56,7 +60,9 @@ function Navbar() {
         <div className="md:hidden z-50">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-2xl text-white transition-colors duration-300 p-2 hover:bg-white/10 rounded-lg"
+            className={`text-2xl transition-colors duration-300 p-2 rounded-lg ${
+              scrolled ? 'text-dua-text hover:bg-gray-100' : 'text-white hover:bg-white/20 drop-shadow-lg'
+            }`}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <FaTimes /> : <FaBars />}
@@ -66,7 +72,7 @@ function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`md:hidden fixed top-[72px] left-0 w-full shadow-2xl transition-all duration-300 bg-gray-900/98 backdrop-blur-lg border-t border-white/10 ${
+        className={`md:hidden fixed top-[72px] left-0 w-full shadow-2xl transition-all duration-300 bg-white backdrop-blur-lg border-t border-gray-200 ${
           isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
@@ -81,10 +87,10 @@ function Navbar() {
             to={link.path}
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
-              `block py-4 px-6 text-base font-medium transition-all duration-200 border-b border-white/10 ${
+              `block py-4 px-6 text-base font-medium transition-all duration-200 border-b border-gray-200 ${
                 isActive
-                  ? 'bg-dua-accent/20 text-dua-accent border-l-4 border-l-dua-accent'
-                  : 'text-white hover:bg-white/10 hover:text-dua-accent hover:border-l-4 hover:border-l-dua-accent'
+                  ? 'bg-dua-primary/10 text-dua-primary border-l-4 border-l-dua-primary'
+                  : 'text-dua-text hover:bg-gray-100 hover:text-dua-primary hover:border-l-4 hover:border-l-dua-primary'
               }`
             }
           >

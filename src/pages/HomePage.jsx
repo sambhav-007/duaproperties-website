@@ -48,14 +48,14 @@ function HomePage() {
       </header>
 
       {/* Main H1 Heading Section - SEO Critical */}
-      <section className="py-12 sm:py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+      <section className="py-12 sm:py-16 bg-gradient-to-b from-dua-primary to-cyan-600">
         <div className="container mx-auto px-4 text-center">
           <motion.h1
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight drop-shadow-lg"
           >
             Premium Real Estate in Mohali, Chandigarh, Kharar & Dubai
           </motion.h1>
@@ -64,7 +64,7 @@ function HomePage() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto mb-6 sm:mb-8 px-2"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-white/95 max-w-4xl mx-auto mb-6 sm:mb-8 px-2 drop-shadow"
           >
             Discover RERA-approved luxury apartments, residential plots & commercial properties with India's trusted real estate partner
           </motion.p>
@@ -77,13 +77,13 @@ function HomePage() {
           >
             <Link
               to="/properties"
-              className="w-full sm:w-auto bg-dua-accent hover:bg-dua-accent/90 text-dua-primary font-bold py-3 sm:py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
+              className="w-full sm:w-auto bg-white hover:bg-gray-50 text-dua-primary font-bold py-3 sm:py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
             >
               Browse All Properties
             </Link>
             <Link
               to="/contact"
-              className="w-full sm:w-auto bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20 text-white font-bold py-3 sm:py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 shadow-lg text-sm sm:text-base"
+              className="w-full sm:w-auto bg-dua-accent hover:bg-amber-500 text-white font-bold py-3 sm:py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
             >
               Contact Us
             </Link>
@@ -92,7 +92,7 @@ function HomePage() {
       </section>
 
       {/* Browse by Property Type Section - With Property Images */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-900/30 to-gray-900/60" aria-labelledby="property-categories">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-blue-50" aria-labelledby="property-categories">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -101,10 +101,10 @@ function HomePage() {
             transition={{ duration: 1 }}
             className="text-center mb-10 sm:mb-12 md:mb-16"
           >
-            <h2 id="property-categories" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
+            <h2 id="property-categories" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dua-text mb-3 sm:mb-4">
               Browse by Property Type
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto px-2">
+            <p className="text-sm sm:text-base md:text-lg text-dua-body max-w-2xl mx-auto px-2">
               Find your perfect property from our diverse collection of residential and commercial options
             </p>
           </motion.div>
@@ -210,7 +210,7 @@ function HomePage() {
           >
             <Link
               to="/properties"
-              className="inline-block bg-dua-accent/90 backdrop-blur-sm border border-dua-accent/30 text-dua-primary font-bold py-3 sm:py-4 px-8 sm:px-12 rounded-lg hover:bg-dua-accent hover:scale-105 hover:shadow-[0_0_30px_rgba(193,154,107,0.4)] transition-all duration-300 shadow-lg text-base sm:text-lg"
+              className="inline-block bg-dua-accent hover:bg-amber-500 text-white font-bold py-3 sm:py-4 px-8 sm:px-12 rounded-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 shadow-lg text-base sm:text-lg"
             >
               View All Properties
             </Link>
@@ -219,7 +219,7 @@ function HomePage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gray-900/50 backdrop-blur-sm" aria-labelledby="why-choose-us">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-blue-50 to-white" aria-labelledby="why-choose-us">
         <div className="container mx-auto px-4 text-center">
           <motion.h2
             id="why-choose-us"
@@ -227,7 +227,7 @@ function HomePage() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-dua-text mb-4 sm:mb-6"
           >
             Why Choose Dua Property?
           </motion.h2>
@@ -236,7 +236,7 @@ function HomePage() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-base sm:text-lg text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto px-2"
+            className="text-base sm:text-lg text-dua-body mb-8 sm:mb-12 max-w-3xl mx-auto px-2"
           >
             Exceptional service and perfect property solutions in the Tricity area (Mohali, Chandigarh, Kharar) and Dubai. Trust Dua Property for your next home or investment.
           </motion.p>
@@ -254,11 +254,11 @@ function HomePage() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
-                className="flex flex-col items-center bg-white/10 backdrop-blur-lg border border-white/20 p-5 sm:p-6 rounded-xl shadow-2xl hover:shadow-[0_0_30px_rgba(193,154,107,0.2)] hover:bg-white/20 transition-all duration-300"
+                className="flex flex-col items-center bg-white border border-gray-200 p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl hover:border-dua-primary transition-all duration-300 hover:-translate-y-1"
               >
-                <feature.icon className="h-12 w-12 sm:h-14 sm:w-14 text-dua-accent mb-3 sm:mb-4" />
-                <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-300 text-xs sm:text-sm text-center">{feature.desc}</p>
+                <feature.icon className="h-12 w-12 sm:h-14 sm:w-14 text-dua-primary mb-3 sm:mb-4" />
+                <h3 className="text-lg sm:text-xl font-semibold text-dua-text mb-2">{feature.title}</h3>
+                <p className="text-dua-body text-xs sm:text-sm text-center">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -266,7 +266,7 @@ function HomePage() {
       </section>
 
       {/* Featured Locations Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gray-900/70" aria-labelledby="featured-locations">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-cyan-50" aria-labelledby="featured-locations">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -275,10 +275,10 @@ function HomePage() {
             transition={{ duration: 1 }}
             className="text-center mb-8 sm:mb-10 md:mb-12"
           >
-            <h2 id="featured-locations" className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+            <h2 id="featured-locations" className="text-2xl sm:text-3xl md:text-4xl font-bold text-dua-text mb-3 sm:mb-4">
               Explore Properties by Location
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto px-2">
+            <p className="text-sm sm:text-base md:text-lg text-dua-body max-w-2xl mx-auto px-2">
               Find your perfect property in prime locations across Tricity and Dubai
             </p>
           </motion.div>
@@ -299,18 +299,18 @@ function HomePage() {
               >
                 <Link
                   to={location.link}
-                  className="block bg-white/10 backdrop-blur-lg border border-white/20 p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-[0_0_30px_rgba(193,154,107,0.2)] hover:bg-white/20 transition-all duration-300 hover:-translate-y-1"
+                  className="block bg-white border border-gray-200 p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl hover:border-dua-primary hover:bg-dua-primary/5 transition-all duration-300 hover:-translate-y-1"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{location.name}</h3>
-                  <p className="text-gray-300 text-xs sm:text-sm mt-2">Browse properties →</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-dua-text mb-2">{location.name}</h3>
+                  <p className="text-dua-primary text-xs sm:text-sm mt-2 font-semibold">Browse properties →</p>
                 </Link>
               </motion.div>
             ))}
           </div>
 
           <div className="mt-8 sm:mt-10 md:mt-12 text-center px-2">
-            <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">
-              Looking for expert guidance? <Link to="/about" className="text-dua-accent hover:underline font-semibold">Learn more about Dua Property</Link> or <Link to="/contact" className="text-dua-accent hover:underline font-semibold">contact our team</Link> for personalized assistance.
+            <p className="text-sm sm:text-base text-dua-body mb-4 sm:mb-6">
+              Looking for expert guidance? <Link to="/about" className="text-dua-primary hover:underline font-semibold">Learn more about Dua Property</Link> or <Link to="/contact" className="text-dua-primary hover:underline font-semibold">contact our team</Link> for personalized assistance.
             </p>
           </div>
         </div>

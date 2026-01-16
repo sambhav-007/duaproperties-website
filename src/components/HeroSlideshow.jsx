@@ -53,7 +53,7 @@ function HeroSlideshow({ properties }) {
   const currentProperty = properties[currentIndex];
 
   return (
-    <section className="relative h-[90vh] md:h-screen overflow-hidden bg-black">
+    <section className="relative h-[55vh] md:h-screen overflow-hidden bg-black">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentIndex}
@@ -86,9 +86,9 @@ function HeroSlideshow({ properties }) {
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+          {/* Subtle Gradient Overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
 
           {/* Content */}
           <div className="absolute inset-0 flex items-center">
@@ -99,7 +99,7 @@ function HeroSlideshow({ properties }) {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-full mb-4 font-bold text-sm"
+                  className="inline-flex items-center gap-2 bg-red-600 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-3 font-bold text-xs md:text-sm"
                 >
                   🔥 HOT PROPERTY
                 </motion.div>
@@ -109,7 +109,7 @@ function HeroSlideshow({ properties }) {
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4 }}
-                  className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight"
+                  className="text-3xl md:text-6xl lg:text-7xl font-bold mb-3 leading-tight"
                 >
                   {currentProperty.name}
                 </motion.h1>
@@ -119,10 +119,10 @@ function HeroSlideshow({ properties }) {
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="flex items-start gap-2 mb-4"
+                  className="flex items-start gap-2 mb-3"
                 >
-                  <MapPinIcon className="w-6 h-6 text-dua-accent flex-shrink-0 mt-1" />
-                  <p className="text-lg md:text-xl text-gray-200">
+                  <MapPinIcon className="w-5 h-5 md:w-6 md:h-6 text-dua-accent flex-shrink-0 mt-1" />
+                  <p className="text-base md:text-xl text-gray-200">
                     {currentProperty.location}
                   </p>
                 </motion.div>
@@ -132,13 +132,13 @@ function HeroSlideshow({ properties }) {
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.6 }}
-                  className="flex flex-wrap items-center gap-4 mb-6"
+                  className="flex flex-wrap items-center gap-3 mb-4"
                 >
-                  <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <HomeIcon className="w-5 h-5" />
+                  <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm md:text-base">
+                    <HomeIcon className="w-4 h-4 md:w-5 md:h-5" />
                     <span className="font-semibold">{currentProperty.type}</span>
                   </div>
-                  <div className="text-2xl md:text-3xl font-bold text-dua-accent">
+                  <div className="text-xl md:text-3xl font-bold text-dua-accent">
                     {currentProperty.price}
                   </div>
                 </motion.div>
@@ -148,7 +148,7 @@ function HeroSlideshow({ properties }) {
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.7 }}
-                  className="text-base md:text-lg text-gray-300 mb-8 line-clamp-3"
+                  className="text-sm md:text-lg text-gray-300 mb-5 md:mb-8 line-clamp-2 md:line-clamp-3"
                 >
                   {currentProperty.description}
                 </motion.p>
@@ -158,17 +158,17 @@ function HeroSlideshow({ properties }) {
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.8 }}
-                  className="flex flex-wrap gap-4"
+                  className="flex flex-wrap gap-3"
                 >
                   <Link
                     to={`/property/${currentProperty.id}`}
-                    className="bg-dua-accent text-dua-primary font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-105"
+                    className="bg-dua-accent text-dua-primary font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-105"
                   >
                     View Details
                   </Link>
                   <Link
                     to="/properties"
-                    className="bg-white/20 backdrop-blur-sm text-white font-semibold py-4 px-8 rounded-lg text-lg border-2 border-white/30 hover:bg-white/30 transition-all duration-300"
+                    className="bg-white/20 backdrop-blur-sm text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg border-2 border-white/30 hover:bg-white/30 transition-all duration-300"
                   >
                     Browse All
                   </Link>

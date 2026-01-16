@@ -12,30 +12,30 @@ function Footer() {
   const contactEmail = "duaproperty123@gmail.com";
 
   return (
-    <footer className="bg-gray-900/95 backdrop-blur-lg border-t border-white/10 text-white p-6 sm:p-8 shadow-2xl mt-auto">
+    <footer className="bg-white border-t border-gray-200 text-dua-text p-6 sm:p-8 shadow-lg mt-auto">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
           {/* Quick Links */}
           <div className="text-center md:text-left">
-            <h3 className="font-bold text-lg mb-4 text-dua-accent">Quick Links</h3>
+            <h3 className="font-bold text-lg mb-4 text-dua-primary">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-sm hover:text-dua-accent transition-colors duration-300 inline-block">
+                <Link to="/" className="text-sm hover:text-dua-primary transition-colors duration-300 inline-block">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/properties" className="text-sm hover:text-dua-accent transition-colors duration-300 inline-block">
+                <Link to="/properties" className="text-sm hover:text-dua-primary transition-colors duration-300 inline-block">
                   All Properties
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-sm hover:text-dua-accent transition-colors duration-300 inline-block">
+                <Link to="/about" className="text-sm hover:text-dua-primary transition-colors duration-300 inline-block">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-sm hover:text-dua-accent transition-colors duration-300 inline-block">
+                <Link to="/contact" className="text-sm hover:text-dua-primary transition-colors duration-300 inline-block">
                   Contact Us
                 </Link>
               </li>
@@ -44,25 +44,25 @@ function Footer() {
 
           {/* Property Types */}
           <div className="text-center md:text-left">
-            <h3 className="font-bold text-lg mb-4 text-dua-accent">Property Types</h3>
+            <h3 className="font-bold text-lg mb-4 text-dua-primary">Property Types</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/properties?types=Residential%20Plot" className="text-sm hover:text-dua-accent transition-colors duration-300 inline-block">
+                <Link to="/properties?types=Residential%20Plot" className="text-sm hover:text-dua-primary transition-colors duration-300 inline-block">
                   Residential Plots
                 </Link>
               </li>
               <li>
-                <Link to="/properties?types=Apartment,Independent%20Floor" className="text-sm hover:text-dua-accent transition-colors duration-300 inline-block">
+                <Link to="/properties?types=Apartment,Independent%20Floor" className="text-sm hover:text-dua-primary transition-colors duration-300 inline-block">
                   Apartments & Floors
                 </Link>
               </li>
               <li>
-                <Link to="/properties?types=Commercial" className="text-sm hover:text-dua-accent transition-colors duration-300 inline-block">
+                <Link to="/properties?types=Commercial" className="text-sm hover:text-dua-primary transition-colors duration-300 inline-block">
                   Commercial Spaces
                 </Link>
               </li>
               <li>
-                <Link to="/properties?types=Villa" className="text-sm hover:text-dua-accent transition-colors duration-300 inline-block">
+                <Link to="/properties?types=Villa" className="text-sm hover:text-dua-primary transition-colors duration-300 inline-block">
                   Luxury Villas
                 </Link>
               </li>
@@ -71,12 +71,12 @@ function Footer() {
 
           {/* Contact Info */}
           <div className="text-center md:text-left">
-            <h3 className="font-bold text-lg mb-4 text-dua-accent">Contact Us</h3>
+            <h3 className="font-bold text-lg mb-4 text-dua-primary">Contact Us</h3>
             <div className="space-y-2">
               <a href={`tel:${contactNumber.replace(/\s/g, '')}`} className="block text-sm hover:text-dua-accent transition-colors duration-300">
                 {contactNumber}
               </a>
-              <a href={`mailto:${contactEmail}`} className="block text-sm hover:text-dua-accent transition-colors duration-300 break-all">
+              <a href={`mailto:${contactEmail}`} className="block text-sm hover:text-dua-primary transition-colors duration-300 break-all">
                 {contactEmail}
               </a>
             </div>
@@ -84,18 +84,18 @@ function Footer() {
         </div>
 
         {/* Social Media Links & Copyright */}
-        <div className="border-t border-white/10 pt-6 text-center">
+        <div className="border-t border-gray-200 pt-6 text-center">
           <div className="flex justify-center space-x-6 sm:space-x-8 mb-4">
-            <a href={facebookUrl} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-xl sm:text-2xl hover:text-dua-accent transition-all duration-300 hover:scale-110 transform">
+            <a href={facebookUrl} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-xl sm:text-2xl text-gray-600 hover:text-dua-primary transition-all duration-300 hover:scale-110 transform">
               <FaFacebookF />
             </a>
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-xl sm:text-2xl hover:text-dua-accent transition-all duration-300 hover:scale-110 transform">
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-xl sm:text-2xl text-gray-600 hover:text-dua-primary transition-all duration-300 hover:scale-110 transform">
               <FaInstagram />
             </a>
-            <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-xl sm:text-2xl hover:text-dua-accent transition-all duration-300 hover:scale-110 transform">
+            <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-xl sm:text-2xl text-gray-600 hover:text-dua-primary transition-all duration-300 hover:scale-110 transform">
               <FaYoutube />
             </a>
-            <a href={`mailto:${contactEmail}`} aria-label="Email" className="text-xl sm:text-2xl hover:text-dua-accent transition-all duration-300 hover:scale-110 transform">
+            <a href={`mailto:${contactEmail}`} aria-label="Email" className="text-xl sm:text-2xl text-gray-600 hover:text-dua-primary transition-all duration-300 hover:scale-110 transform">
               <FaEnvelope />
             </a>
           </div>
