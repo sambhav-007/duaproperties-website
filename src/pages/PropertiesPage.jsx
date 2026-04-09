@@ -280,8 +280,8 @@ function PropertiesPage() {
                           onClick={() => setActiveTypeFilter(filter)}
                           className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
                             activeTypeFilter === filter
-                              ? 'bg-dua-accent text-dua-primary shadow-lg scale-105'
-                              : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                              ? 'bg-dua-accent text-white shadow-lg scale-105'
+                              : 'bg-gray-100 text-dua-text hover:bg-gray-200 border border-gray-300'
                           }`}
                         >
                           {filter}

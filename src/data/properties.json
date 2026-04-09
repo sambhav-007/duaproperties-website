@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "1",
     "name": "Amayra Vista - Premium Residential Plots",
@@ -6,8 +6,8 @@
     "subType": "Plotted Development",
     "status": "Sale",
     "propertyFor": "Sale",
-    "price": "₹54,900 / Sq. Yd.",
-    "priceDisplay": "₹54,900 / Sq. Yd.",
+    "price": "Price on Request",
+    "priceDisplay": "Price on Request",
     "priceValue": 54900,
     "priceUnit": "per_sqyd",
     "currency": "INR",
@@ -56,7 +56,7 @@
     ],
     "video_url": null,
     "payment_plan": {
-      "basic_price": "₹54,900 / Per Square Yard",
+      "basic_price": "â‚¹54,900 / Per Square Yard",
       "plot_sizes": ["100 Sq.Yds.", "111.11 Sq.Yds.", "125 Sq.Yds.", "127.77 Sq.Yds.", "133.33 Sq.Yds.", "150 Sq.Yds."],
       "stages": [
         { "name": "On Booking", "amount": "10%" },
@@ -68,8 +68,8 @@
     },
     "other_charges": [
       { "name": "PLC Charges", "details": "As Applicable (Front Facing, Corner, Wide Road & Front Open & Park on Back)" },
-      { "name": "Interest Free Maintenance Charges (IFMS)", "amount": "₹500 / Per Square Yard" },
-      { "name": "Community Center Charges", "amount": "₹500 / Per Square Yard" },
+      { "name": "Interest Free Maintenance Charges (IFMS)", "amount": "â‚¹500 / Per Square Yard" },
+      { "name": "Community Center Charges", "amount": "â‚¹500 / Per Square Yard" },
       { "name": "Other Feature / Service Charges", "details": "As Applicable" }
     ],
     "notes": [
@@ -205,19 +205,19 @@
       "Fire Fighting Systems"
     ],
     "payment_plan": {
-      "basic_price": "₹14,000 / Sq. Ft.",
+      "basic_price": "â‚¹14,000 / Sq. Ft.",
       "stages": [
         { "name": "Booking Amount", "amount": "On Request" },
         { "name": "Construction Linked Plan", "details": "As per schedule" }
       ]
     },
     "other_charges": [
-      { "name": "Club Membership", "amount": "₹25 Lakhs" },
-      { "name": "Car Parking", "amount": "₹15 Lakhs" },
-      { "name": "Power Backup (KVA)", "amount": "₹30,000 / KVA" },
-      { "name": "Interest Free Maintenance Security (IFMS)", "amount": "₹72 / Sq. Ft." },
-      { "name": "Annual Maintenance Contract (AMC)", "amount": "₹216 / Sq. Ft." },
-      { "name": "Monthly Maintenance", "amount": "₹6 / Sq. Ft." },
+      { "name": "Club Membership", "amount": "â‚¹25 Lakhs" },
+      { "name": "Car Parking", "amount": "â‚¹15 Lakhs" },
+      { "name": "Power Backup (KVA)", "amount": "â‚¹30,000 / KVA" },
+      { "name": "Interest Free Maintenance Security (IFMS)", "amount": "â‚¹72 / Sq. Ft." },
+      { "name": "Annual Maintenance Contract (AMC)", "amount": "â‚¹216 / Sq. Ft." },
+      { "name": "Monthly Maintenance", "amount": "â‚¹6 / Sq. Ft." },
       { "name": "GST", "details": "As applicable" },
       { "name": "Registry Charges", "details": "Extra" }
     ],
@@ -240,8 +240,8 @@
     "type": "Apartment",
     "subType": "Luxury Apartment",
     "configuration": "3 & 4 BHK Luxury Apartments",
-    "price": "₹1.49 Cr - 2.10 Cr",
-    "priceDisplay": "₹1.49 Cr - 2.10 Cr",
+    "price": "Price on Request",
+    "priceDisplay": "Price on Request",
     "priceValue": 14900000,
     "priceUnit": "total",
     "currency": "INR",
@@ -287,11 +287,11 @@
       ]
     },
     "other_charges": [
-      { "name": "Club Membership", "amount": "₹3.5 Lakhs" },
-      { "name": "Car Parking", "amount": "₹4.5 Lakhs" },
-      { "name": "Power Backup (Per KVA)", "amount": "₹30,000 / KVA" },
-      { "name": "Interest Free Maintenance Security (IFMS)", "amount": "₹75 / Sq. Ft." },
-      { "name": "Monthly Maintenance", "amount": "₹5 / Sq. Ft." },
+      { "name": "Club Membership", "amount": "â‚¹3.5 Lakhs" },
+      { "name": "Car Parking", "amount": "â‚¹4.5 Lakhs" },
+      { "name": "Power Backup (Per KVA)", "amount": "â‚¹30,000 / KVA" },
+      { "name": "Interest Free Maintenance Security (IFMS)", "amount": "â‚¹75 / Sq. Ft." },
+      { "name": "Monthly Maintenance", "amount": "â‚¹5 / Sq. Ft." },
       { "name": "GST", "details": "As applicable" },
       { "name": "Registry Charges", "details": "Extra" }
     ],
@@ -428,8 +428,8 @@
     "type": "Independent Floor",
     "subType": "Luxury Builder Floor",
     "configuration": "3 BHK Luxury Flats (1170 sq.ft Super Built-up Area)",
-    "price": "₹58.90 Lacs",
-    "priceDisplay": "₹58.90 Lacs",
+    "price": "Price on Request",
+    "priceDisplay": "Price on Request",
     "priceValue": 5890000,
     "priceUnit": "total",
     "currency": "INR",
@@ -478,7 +478,7 @@
     "payment_plan": {
       "basic_price_type": "Lacs",
       "stages": [
-        { "name": "Total Price", "amount": "₹58.90" }
+        { "name": "Total Price", "amount": "â‚¹58.90" }
       ]
     },
     "other_charges": [
@@ -503,7 +503,7 @@
       "location": "Sector 74-A, Mohali",
       "type": "Residential Plot",
       "configuration": "170 Sq. Yds. Plots",
-      "price": "₹1.10 Lacs/Sq. Yd.",
+      "price": "Price on Request",
       "status": "Sale",
       "rera_id": "Not Available",
       "possession": "1.5 Years",
@@ -525,7 +525,7 @@
         "Good connectivity"
       ],
       "payment_plan": {
-        "basic_price_type": "Plots @ ₹1.10 Lacs/Sq. Yd.",
+        "basic_price_type": "Plots @ â‚¹1.10 Lacs/Sq. Yd.",
         "stages": [
           {"name": "Booking Amount", "amount": "10%"},
           {"name": "Within 30 Days", "amount": "15%"},
@@ -614,8 +614,8 @@
       "type": "Villa",
       "subType": "Independent House",
       "configuration": "4 BHK Corner Double Story House",
-      "price": "₹1.75 Cr",
-      "priceDisplay": "₹1.75 Cr",
+      "price": "Price on Request",
+      "priceDisplay": "Price on Request",
       "priceValue": 17500000,
       "priceUnit": "total",
       "currency": "INR",
@@ -661,7 +661,7 @@
       "payment_plan": {
         "basic_price_type": "Total Price",
         "stages": [
-          { "name": "Total Price", "amount": "₹1.75 Crore (Negotiable)" }
+          { "name": "Total Price", "amount": "â‚¹1.75 Crore (Negotiable)" }
         ]
       },
       "other_charges": [
@@ -700,8 +700,8 @@
       "type": "Independent Floor",
       "subType": "Ultra Premium Builder Floor",
       "configuration": "3 BHK Ultra Premium Floors",
-      "price": "₹1.21 Cr onwards",
-      "priceDisplay": "₹1.21 Cr onwards",
+      "price": "Price on Request",
+      "priceDisplay": "Price on Request",
       "priceValue": 12100000,
       "priceUnit": "total",
       "currency": "INR",
@@ -716,13 +716,13 @@
       "area_sqft": null,
       "rera_id": "GMADA Approved",
       "possession_date": "Ready to Move",
-      "description": "Experience ultra-luxury living at Bollywood Green City in Sector 113, Mohali. These premium 3 BHK independent floors are ready to move and GMADA approved, offering modern amenities and sophisticated design. Located in the prime Sector 113, this gated community provides an ideal blend of comfort, security, and connectivity. With prices starting from ₹1.21 Crore, these ultra-premium floors are perfect for families seeking a luxurious lifestyle in Mohali's developing IT corridor.",
+      "description": "Experience ultra-luxury living at Bollywood Green City in Sector 113, Mohali. These premium 3 BHK independent floors are ready to move and GMADA approved, offering modern amenities and sophisticated design. Located in the prime Sector 113, this gated community provides an ideal blend of comfort, security, and connectivity. With prices starting from â‚¹1.21 Crore, these ultra-premium floors are perfect for families seeking a luxurious lifestyle in Mohali's developing IT corridor.",
       "highlights": [
         "3 BHK Ultra Premium Independent Floors",
         "Ready to Move Property",
         "GMADA Approved Project",
         "Prime Location in Sector 113, Mohali",
-        "Starting Price: ₹1.21 Crore",
+        "Starting Price: â‚¹1.21 Crore",
         "Gated Community with Modern Infrastructure",
         "Close to IT Park & Commercial Hub",
         "Excellent Connectivity to Airport Road",
@@ -748,7 +748,7 @@
       "payment_plan": {
         "basic_price_type": "Starting Price",
         "stages": [
-          { "name": "Starting Price", "amount": "₹1.21 Crore onwards" }
+          { "name": "Starting Price", "amount": "â‚¹1.21 Crore onwards" }
         ]
       },
       "other_charges": [
@@ -760,7 +760,7 @@
       "notes": [
         "Ready to Move property - Immediate possession available.",
         "GMADA approved project ensuring quality standards.",
-        "Price starting from ₹1.21 Crore - subject to floor selection and other factors.",
+        "Price starting from â‚¹1.21 Crore - subject to floor selection and other factors.",
         "All Government charges to be borne by the buyer as per actuals."
       ],
       "image_main": "/images/properties/bollywood-green-city-main.jpg",
@@ -879,8 +879,8 @@
       "type": "Residential Plot",
       "subType": "Premium Township",
       "configuration": "100, 110, 125, 133, 142, 150 Sq. Yds. Plots",
-      "price": "₹36,900 / Sq. Yd.",
-      "priceDisplay": "₹36,900 / Sq. Yd.",
+      "price": "Price on Request",
+      "priceDisplay": "Price on Request",
       "priceValue": 36900,
       "priceUnit": "per_sqyd",
       "currency": "INR",
@@ -897,12 +897,12 @@
       "area_sqft": null,
       "rera_id": "RERA Application in Progress",
       "possession_date": "1.5 Years from Booking",
-      "description": "Your Gateway to a Planned, Premium Life! Introducing Guru Residences & HG Group by Gurmehar Developer – A premium 21-acre township strategically located right on NH-05 (Chandigarh-Ludhiana Highway). This meticulously planned residential project offers premium plots ranging from 100 to 150 Sq. Yds. with a massive 1700 ft frontage on the highway. The township features commercial spaces with major brands already signed including McDonald's Drive-Thru, Domino's, and Gopal, along with a 3-acre green park and modern amenities. Located just minutes from Chandigarh University and major industrial hubs, this is your opportunity to invest in a premium lifestyle at pre-launch prices.",
+      "description": "Your Gateway to a Planned, Premium Life! Introducing Guru Residences & HG Group by Gurmehar Developer â€“ A premium 21-acre township strategically located right on NH-05 (Chandigarh-Ludhiana Highway). This meticulously planned residential project offers premium plots ranging from 100 to 150 Sq. Yds. with a massive 1700 ft frontage on the highway. The township features commercial spaces with major brands already signed including McDonald's Drive-Thru, Domino's, and Gopal, along with a 3-acre green park and modern amenities. Located just minutes from Chandigarh University and major industrial hubs, this is your opportunity to invest in a premium lifestyle at pre-launch prices.",
       "highlights": [
         "Premium 21-Acre Township on NH-05",
         "1700 ft Frontage on Chandigarh-Ludhiana Highway",
-        "Residential Plots: 100–150 Sq. Yds.",
-        "Pre-Launch Prices: ₹36,900 / Sq. Yd.",
+        "Residential Plots: 100â€“150 Sq. Yds.",
+        "Pre-Launch Prices: â‚¹36,900 / Sq. Yd.",
         "Commercial Space with McDonald's Drive-Thru, Domino's, Gopal",
         "3-Acre Green Park & Modern Amenities",
         "Minutes from Chandigarh University",
@@ -928,7 +928,7 @@
         "Near Chandigarh University"
       ],
       "payment_plan": {
-        "basic_price": "₹36,900 / Per Square Yard",
+        "basic_price": "â‚¹36,900 / Per Square Yard",
         "plot_sizes": ["100 Sq. Yds.", "110 Sq. Yds.", "125 Sq. Yds.", "133 Sq. Yds.", "142 Sq. Yds.", "150 Sq. Yds."],
         "stages": [
           { "name": "Booking Amount", "amount": "25% of Total" },
@@ -967,8 +967,8 @@
       "subType": "Independent House",
       "status": "Sale",
       "propertyFor": "Sale",
-      "price": "₹55 Lac - ₹1.15 Cr",
-      "priceDisplay": "₹55 Lac - ₹1.15 Cr",
+      "price": "Price on Request",
+      "priceDisplay": "Price on Request",
       "priceValue": 5500000,
       "priceUnit": "total",
       "currency": "INR",
@@ -1053,22 +1053,22 @@
           "type": "3 BHK Villa",
           "plot_size": "125 Sq. Yards",
           "built_area": "1350 Sq. Ft.",
-          "price": "₹55-65 Lac",
+          "price": "Price on Request",
           "rooms": "3 Bedrooms + Drawing Room + Kitchen + Store + Parking"
         },
         {
           "type": "4 BHK Villa",
           "plot_size": "200-250 Sq. Yards",
           "built_area": "2250-2700 Sq. Ft.",
-          "price": "₹95 Lac - ₹1.15 Cr",
+          "price": "Price on Request",
           "rooms": "4 Bedrooms + Drawing Room + Kitchen + Store + 2 Parking"
         }
       ],
       "notes": [
         "Ready to move independent villas - immediate possession available.",
         "Freehold property with clear title and all legal documentation.",
-        "3 BHK villas starting from ₹55 Lac on 125 Sq. Yard plots.",
-        "4 BHK villas from ₹95 Lac to ₹1.15 Cr on 200-250 Sq. Yard plots.",
+        "3 BHK villas starting from â‚¹55 Lac on 125 Sq. Yard plots.",
+        "4 BHK villas from â‚¹95 Lac to â‚¹1.15 Cr on 200-250 Sq. Yard plots.",
         "Each villa includes modular kitchen with chimney and premium fittings.",
         "Covered car parking + additional open parking space.",
         "Separate store room and pooja room in each unit.",
@@ -1087,8 +1087,8 @@
       "subType": "Builder Floor",
       "status": "Sale",
       "propertyFor": "Sale",
-      "price": "Contact for Price",
-      "priceDisplay": "Best Price with Easy Payment Plan",
+      "price": "Price on Request",
+      "priceDisplay": "Price on Request",
       "priceValue": 0,
       "priceUnit": "total",
       "currency": "INR",
@@ -1208,8 +1208,8 @@
       "subType": "High-Rise Apartments & Villas",
       "status": "Sale",
       "propertyFor": "Sale",
-      "price": "₹50 Lac - ₹3 Cr",
-      "priceDisplay": "₹50 Lac - ₹3 Cr",
+      "price": "Price on Request",
+      "priceDisplay": "Price on Request",
       "priceValue": 5000000,
       "priceUnit": "total",
       "currency": "INR",
@@ -1327,35 +1327,35 @@
           "built_area": "1000 Sq. Ft.",
           "configuration": "2 Bedrooms + 2 Toilets",
           "tower": "T2, T3 (Ground to 22nd Floor)",
-          "price": "₹50-60 Lac"
+          "price": "Price on Request"
         },
         {
           "type": "2 BHK Apartment (Unit C)",
           "built_area": "1012 Sq. Ft.",
           "configuration": "2 Bedrooms + 2 Toilets",
           "tower": "T2, T3 (Ground to 22nd Floor)",
-          "price": "₹50-60 Lac"
+          "price": "Price on Request"
         },
         {
           "type": "2 BHK Premium (Unit P)",
           "built_area": "1925 Sq. Ft.",
           "configuration": "2 Bedrooms + 4 Toilets + Utility + Plunge Pool",
           "tower": "S1 (1st Floor)",
-          "price": "₹95 Lac - ₹1.1 Cr"
+          "price": "Price on Request"
         },
         {
           "type": "3 BHK Premium (Unit Q)",
           "built_area": "2400 Sq. Ft.",
           "configuration": "3 Bedrooms + 4 Toilets + Utility + Plunge Pool",
           "tower": "S1 (2nd to 27th Floor)",
-          "price": "₹1.2 Cr - ₹1.5 Cr"
+          "price": "Price on Request"
         },
         {
           "type": "4 BHK Premium (Unit R)",
           "built_area": "4350 Sq. Ft.",
           "configuration": "4 Bedrooms + 5 Toilets + Utility + Plunge Pool",
           "tower": "S1 (Ground to 27th Floor)",
-          "price": "₹2.2 Cr - ₹2.8 Cr"
+          "price": "Price on Request"
         },
         {
           "type": "Standard Villa",
@@ -1363,7 +1363,7 @@
           "configuration": "5 Bedrooms (1+3+1) + Plunge Pool + Terrace",
           "floors": "Ground (1125 sf) + 1st (1105 sf) + 2nd (870 sf)",
           "features": "Plunge Pool, Lawn, Car Parking, TV Lounge, Servant Room",
-          "price": "₹1.5 Cr - ₹1.8 Cr"
+          "price": "Price on Request"
         },
         {
           "type": "Large Villa",
@@ -1371,7 +1371,7 @@
           "configuration": "5 Bedrooms (1+3+1) + Pool + Bar + Lawn + Gym",
           "floors": "Ground (1640 sf) + 1st (1586 sf) + 2nd (1424 sf)",
           "features": "Swimming Pool, Bar, Gym, Landscape Terrace, 2 Car Parking",
-          "price": "₹2.2 Cr - ₹3 Cr"
+          "price": "Price on Request"
         }
       ],
       "specifications": {
