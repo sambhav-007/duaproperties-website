@@ -1410,5 +1410,72 @@
         "10 minutes from offices, schools, and healthcare facilities.",
         "Contact Dua Property for detailed floor plans, payment plans, and site visit."
       ]
+    },
+    {
+      "id": "17",
+      "name": "Maya Antara - Built-up Commercial SCO",
+      "developer": "Maya Antara",
+      "location": "Kharar - Kurali Highway, Mohali, Punjab",
+      "type": "Commercial",
+      "subType": "SCO Site",
+      "configuration": "SCO Sizes: 14x40, 14x50, 15x55, 15x60, 16x60, 18x50, 18x55 (B+G+1+2)",
+      "price": "Price on Request",
+      "priceDisplay": "Price on Request",
+      "priceValue": 0,
+      "priceUnit": "total",
+      "currency": "INR",
+      "status": "Sale",
+      "propertyFor": "Sale",
+      "possessionStatus": "Possession in 12 months",
+      "bhkType": "NA",
+      "furnishingStatus": "NA",
+      "tags": ["Commercial SCO", "Kharar-Kurali Highway", "Drive-Thru", "Flexible Payment Plan", "Investment Opportunity"],
+      "bedrooms": null,
+      "bathrooms": null,
+      "area_sqft": null,
+      "rera_id": "Approved Project",
+      "possession_date": "12 Months from Booking",
+      "description": "Exclusive opportunity to invest in Maya Antara, a built-up commercial SCO project on Kharar-Kurali Highway. Designed to blend luxury and sustainability, this project offers strong growth and return-on-investment potential. The development includes multiple SCO plot sizes, built as B+G+1+2, with modern commercial planning, two drive-thru provisions, and ample parking.",
+      "highlights": [
+        "Built-up Commercial SCO Project",
+        "Prime Location: Kharar-Kurali Highway",
+        "Approved Project",
+        "SCO Sizes: 14x40, 14x50, 15x55, 15x60, 16x60, 18x50, 18x55",
+        "Built Configuration: B+G+1+2",
+        "2 Drive-Thru Points",
+        "High ROI and Growth Potential",
+        "Possession in 12 Months"
+      ],
+      "amenities": [
+        "Ample Parking",
+        "Drive-Thru Access",
+        "Prime Highway Frontage",
+        "Planned Commercial Layout"
+      ],
+      "payment_plan": {
+        "basic_price_type": "On Request",
+        "stages": [
+          { "name": "Booking Amount", "amount": "25%" },
+          { "name": "Balance Payment", "amount": "As per Flexible Payment Plan" }
+        ]
+      },
+      "other_charges": [
+        { "name": "GST", "details": "As applicable" },
+        { "name": "Registration Charges", "details": "As applicable" },
+        { "name": "Other Statutory Charges", "details": "As applicable" }
+      ],
+      "notes": [
+        "Exclusive commercial investment opportunity.",
+        "Project details and inventory are subject to availability.",
+        "Possession timeline is 12 months from booking as per current plan.",
+        "Contact Dua Property for current pricing and complete payment schedule."
+      ],
+      "image_main": "/images/properties/maya-antara-main.png",
+      "images_gallery": [
+        "/images/properties/maya-antara-1.jpeg",
+        "/images/properties/maya-antara-2.jpeg",
+        "/images/properties/maya-antara-3.jpeg"
+      ],
+      "video_url": null
     }
 ]
