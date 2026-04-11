@@ -3,6 +3,15 @@ import Property from '../_lib/propertyModel.js';
 import { methodNotAllowed, parseBody, sendJson } from '../_lib/http.js';
 import { requireAdmin } from '../_lib/auth.js';
 
+function classifyApiError(error) {
+  const name = String(error?.name || '');
+  const message = String(error?.message || '').toLowerCase();
+
+  if (message.includes('missing mongodb_uri')) return 'MISSING_MONGODB_URI';
+  if (name.includes('Mongo') || message.includes('mongodb')) return 'DB_CONNECTION_ERROR';
+  return 'API_RUNTIME_ERROR';
+}
+
 export default async function handler(req, res) {
   try {
     await connectToDatabase();
@@ -43,7 +52,16 @@ export default async function handler(req, res) {
 
     return methodNotAllowed(res, ['GET', 'POST']);
   } catch (error) {
-    console.error('Error in /api/properties:', error);
-    return sendJson(res, 500, { error: 'Internal server error' });
+    const code = classifyApiError(error);
+    console.error('Error in /api/properties:', {
+      code,
+      name: error?.name,
+      message: error?.message,
+      stack: error?.stack,
+    });
+    return sendJson(res, 500, {
+      error: 'Internal server error',
+      code,
+    });
   }
 }
