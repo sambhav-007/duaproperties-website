@@ -1,19 +1,33 @@
 // src/pages/HomePage.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import propertiesData from '../data/properties.json';
-import PropertyCard from '../components/PropertyCard';
 import HeroSlideshow from '../components/HeroSlideshow';
 import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
+import { getAllProperties } from '../services/propertyApi';
+import { getPropertyMainImage } from '../utils/propertyMappers';
 
 function HomePage() {
-  // Hot properties for hero slideshow (IDs: 2, 3, 5, 9, 11)
-  const hotProperties = propertiesData.filter(p => ['2', '3', '5', '9', '11'].includes(p.id));
-  
-  // All properties for display
-  const allProperties = propertiesData;
+  const [allProperties, setAllProperties] = useState([]);
+
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const data = await getAllProperties();
+        setAllProperties(data);
+      } catch (error) {
+        console.error('Failed to load properties:', error);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
+  // Show first 5 newest properties in hero.
+  const hotProperties = [...allProperties]
+    .sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0))
+    .slice(0, 5);
 
   return (
     <>
@@ -115,26 +129,26 @@ function HomePage() {
               { 
                 title: 'Residential Plots', 
                 desc: 'Premium plots for your dream home',
-                types: ['Residential Plot'],
+                types: ['Residential Plot', 'plot'],
               },
               { 
                 title: 'Apartments & Floors', 
                 desc: 'Luxury apartments and independent floors',
-                types: ['Apartment', 'Independent Floor'],
+                types: ['Apartment', 'Independent Floor', 'apartment', 'independent-floor'],
               },
               { 
                 title: 'Commercial', 
                 desc: 'Prime commercial spaces for business',
-                types: ['Commercial'],
+                types: ['Commercial', 'commercial'],
               },
               { 
                 title: 'Villas', 
                 desc: 'Exclusive villas with premium lifestyle',
-                types: ['Villa'],
+                types: ['Villa', 'villa'],
               }
             ].map((category, idx) => {
               const categoryProperties = allProperties.filter(p => 
-                category.types.some(type => p.type?.toLowerCase() === type.toLowerCase())
+                category.types.some(type => p.type?.toLowerCase().replace(/\s+/g, '-') === type.toLowerCase().replace(/\s+/g, '-'))
               );
               const propertyCount = categoryProperties.length;
               const typeParam = category.types.join(',');
@@ -158,7 +172,7 @@ function HomePage() {
                       {featuredProperty && (
                         <>
                           <img
-                            src={featuredProperty.image_main}
+                            src={getPropertyMainImage(featuredProperty)}
                             alt={category.title}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           />

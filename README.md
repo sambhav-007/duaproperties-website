@@ -1,16 +1,110 @@
-# React + Vite
+# Dua Property Full-Stack (100% Free Stack)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is now a full-stack, serverless real estate app:
 
-Currently, two official plugins are available:
+- Frontend: React + Vite hosted on Vercel
+- API: Vercel Serverless Functions (`/api/*`)
+- Database: MongoDB Atlas free tier (M0)
+- Image Storage: Cloudinary free tier
+- Admin Auth: JWT session in secure HttpOnly cookie
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+No Express server and no separate backend hosting is required.
 
-## React Compiler
+## Architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Browser calls frontend pages (`/`, `/properties`, `/property/:id`, `/admin/*`)
+2. Frontend calls Vercel serverless APIs (`/api/properties`, `/api/auth/*`)
+3. APIs use a cached MongoDB connection for serverless performance
+4. Admin uploads images directly to Cloudinary and stores returned URLs in MongoDB
+5. Public pages fetch live property data from MongoDB through the same APIs
 
-## Expanding the ESLint configuration
+## Property Schema (MongoDB)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Implemented in `api/_lib/propertyModel.js`:
+
+- `title` (string, required)
+- `price` (string/number, required)
+- `location` (string, required)
+- `type` (enum: `1BHK`, `2BHK`, `3BHK`, `plot`, etc.)
+- `images` (array of URLs)
+- `description` (string)
+- `createdAt` (date)
+
+## API Routes
+
+- `GET /api/properties` -> fetch all properties
+- `POST /api/properties` -> create property (admin only)
+- `PUT /api/properties/:id` -> update property (admin only)
+- `DELETE /api/properties/:id` -> delete property (admin only)
+- `POST /api/auth/login` -> admin login
+- `POST /api/auth/logout` -> admin logout
+- `GET /api/auth/me` -> validate current admin session
+
+## Admin Panel
+
+- `/admin/login` -> login page
+- `/admin` -> dashboard
+
+Dashboard features:
+
+- Add property form
+- Edit property form
+- Delete property
+- Multi-image upload via Cloudinary
+- List all properties
+
+## Environment Variables
+
+Copy `.env.example` to `.env` and fill values.
+
+Required:
+
+- `MONGODB_URI`
+- `JWT_SECRET`
+- `ADMIN_EMAIL`
+- `ADMIN_PASSWORD_HASH` (recommended) or `ADMIN_PASSWORD`
+- `VITE_CLOUDINARY_CLOUD_NAME`
+- `VITE_CLOUDINARY_UPLOAD_PRESET`
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install --legacy-peer-deps
+```
+
+Run dev server:
+
+```bash
+npm run dev
+```
+
+## Seed Existing JSON Data
+
+To import current listings from [src/data/properties.json](src/data/properties.json) into MongoDB:
+
+```bash
+npm run seed
+```
+
+To clear existing properties first, then re-import:
+
+```bash
+npm run seed:reset
+```
+
+Notes:
+
+1. Ensure [.env](.env.example) values are set, especially `MONGODB_URI`.
+2. The script maps legacy fields (`name`, `image_main`, `images_gallery`) to the new schema (`title`, `images`).
+3. Seeding is idempotent by title + location (it updates existing records instead of creating duplicates).
+
+## Vercel Deployment (Free)
+
+1. Push repository to GitHub
+2. Import project in Vercel (free plan)
+3. Add all environment variables in Vercel project settings
+4. Deploy
+
+`vercel.json` already includes rewrite rules for SPA routes and API routes.

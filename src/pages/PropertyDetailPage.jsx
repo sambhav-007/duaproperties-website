@@ -3,31 +3,45 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import propertiesData from '../data/properties.json';
 import PropertyCard from '../components/PropertyCard';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { getAllProperties, getPropertyById } from '../services/propertyApi';
+import { getPropertyGallery, getPropertyId, getPropertyMainImage, getPropertyTitle } from '../utils/propertyMappers';
 
 function PropertyDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [property, setProperty] = useState(null);
+  const [allProperties, setAllProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
   useEffect(() => {
-    setLoading(true);
-    const foundProperty = propertiesData.find(p => String(p.id) === id);
-    if (foundProperty) {
-      setProperty(foundProperty);
-    } else {
-      navigate('/properties', { replace: true });
-    }
-    setLoading(false);
-    
-    // Scroll to top when property changes
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const fetchProperty = async () => {
+      setLoading(true);
+      try {
+        const properties = await getAllProperties();
+        setAllProperties(properties);
+        const foundProperty = await getPropertyById(id);
+
+        if (foundProperty) {
+          setProperty(foundProperty);
+        } else {
+          navigate('/properties', { replace: true });
+        }
+      } catch (error) {
+        console.error('Failed to load property details:', error);
+        navigate('/properties', { replace: true });
+      } finally {
+        setLoading(false);
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    fetchProperty();
   }, [id, navigate]);
 
   // Get related properties based on type or location
@@ -35,8 +49,8 @@ function PropertyDetailPage() {
     if (!property) return [];
     
     // Filter properties that match type or location, but exclude current property
-    const related = propertiesData.filter(p => {
-      if (String(p.id) === String(property.id)) return false;
+    const related = allProperties.filter(p => {
+      if (String(getPropertyId(p)) === String(getPropertyId(property))) return false;
       
       // Check if same type or similar type
       const sameType = p.type === property.type;
@@ -58,7 +72,10 @@ function PropertyDetailPage() {
 
   const relatedProperties = property ? getRelatedProperties() : [];
 
-  const slides = property?.images_gallery?.map(img => ({ src: img })) || [];
+  const galleryImages = getPropertyGallery(property);
+  const propertyTitle = getPropertyTitle(property);
+  const propertyMainImage = getPropertyMainImage(property);
+  const slides = galleryImages.map(img => ({ src: img })) || [];
   const openLightbox = (index) => {
     setLightboxIndex(index);
     setLightboxOpen(true);
@@ -113,18 +130,18 @@ function PropertyDetailPage() {
     );
   }
 
-  const pageTitle = `${property.name} | ${property.type} in ${property.location} - Dua Property`;
-  const pageDescription = `Explore details for ${property.name}, a ${property.configuration || property.type} located in ${property.location}. View amenities, payment plan, gallery, and contact Dua Property for inquiries about this property in the Tricity area.`;
-  const canonicalUrl = `https://www.duaproperty.com/property/${property.id}`;
+  const pageTitle = `${propertyTitle} | ${property.type} in ${property.location} - Dua Property`;
+  const pageDescription = `Explore details for ${propertyTitle}, a ${property.configuration || property.type} located in ${property.location}. View amenities, payment plan, gallery, and contact Dua Property for inquiries about this property in the Tricity area.`;
+  const canonicalUrl = `https://www.duaproperty.com/property/${getPropertyId(property)}`;
 
   // Structured Data for Property
   const propertyStructuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
-    "name": property.name,
+    "name": propertyTitle,
     "description": property.description || pageDescription,
     "url": canonicalUrl,
-    "image": `https://www.duaproperty.com${property.image_main}`,
+    "image": propertyMainImage,
     "offers": {
       "@type": "Offer",
       "price": property.price,
@@ -158,7 +175,7 @@ function PropertyDetailPage() {
       {
         "@type": "ListItem",
         "position": 3,
-        "name": property.name,
+        "name": propertyTitle,
         "item": canonicalUrl
       }
     ]
@@ -176,13 +193,13 @@ function PropertyDetailPage() {
         <meta property="og:description" content={pageDescription} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`https://www.duaproperty.com${property.image_main}`} />
+        <meta property="og:image" content={propertyMainImage} />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content={`https://www.duaproperty.com${property.image_main}`} />
+        <meta name="twitter:image" content={propertyMainImage} />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -206,7 +223,7 @@ function PropertyDetailPage() {
           </Link>
 
           {/* Property Title & Price */}
-          <h1 className="text-4xl md:text-5xl font-bold text-dua-text mb-2 animate-fade-scale">{property.name}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-dua-text mb-2 animate-fade-scale">{propertyTitle}</h1>
           <p className="text-2xl text-dua-primary font-semibold mb-4 animate-fade-scale">{property.price}</p>
           {property.rera_id && <p className="text-sm text-gray-600 mb-6">{`RERA ID: ${property.rera_id}`}</p>}
 
@@ -214,8 +231,8 @@ function PropertyDetailPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
             <div className="animate-fade-scale">
               <img
-                src={property.image_main}
-                alt={`Main view of ${property.name} in ${property.location}`}
+                src={propertyMainImage}
+                alt={`Main view of ${propertyTitle} in ${property.location}`}
                 loading="lazy"
                 className="w-full h-96 object-cover rounded-lg shadow-2xl border border-gray-200 transition-transform duration-500 hover:scale-105"
               />
@@ -271,16 +288,16 @@ function PropertyDetailPage() {
         )}
 
         {/* Gallery */}
-        {property.images_gallery?.length > 0 && (
+        {galleryImages.length > 0 && (
           <div className="mt-10 mb-16 animate-fade-in">
             <h2 className="text-2xl font-bold text-dua-text mb-4">Gallery</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {property.images_gallery.map((img, i) => (
+              {galleryImages.map((img, i) => (
                 <img
                   key={i}
                   src={img}
                   loading="lazy"
-                  alt={`${property.name} gallery image ${i + 1} - ${property.location}`}
+                  alt={`${propertyTitle} gallery image ${i + 1} - ${property.location}`}
                   className="w-full h-48 object-cover rounded-lg shadow-lg border border-gray-200 cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
                   onClick={() => openLightbox(i)}
                 />
@@ -299,7 +316,7 @@ function PropertyDetailPage() {
                   <iframe
                     className="absolute top-0 left-0 w-full h-full rounded-lg"
                     src={`https://www.youtube.com/embed/${getYouTubeVideoId(property.video_url)}?autoplay=1&mute=1&loop=1&playlist=${getYouTubeVideoId(property.video_url)}`}
-                    title={`${property.name} Video Tour`}
+                    title={`${propertyTitle} Video Tour`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -345,7 +362,7 @@ function PropertyDetailPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {relatedProperties.map((relatedProp, index) => (
                 <motion.div
-                  key={relatedProp.id}
+                  key={getPropertyId(relatedProp)}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}

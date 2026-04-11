@@ -1,12 +1,11 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
 
   // Detect scroll for background and text color change
   useEffect(() => {
@@ -18,7 +17,6 @@ function Navbar() {
   }, []);
 
   // Navbar style changes:
-  const isHome = location.pathname === '/';
   const navbarClasses = `
     fixed w-full top-0 left-0 z-50 p-4 transition-all duration-500 ease-in-out
     ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-200' : 'bg-transparent'}

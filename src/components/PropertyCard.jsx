@@ -3,14 +3,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPinIcon, BuildingOffice2Icon, HomeIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
+import { getPropertyId, getPropertyMainImage, getPropertyTitle } from '../utils/propertyMappers';
 
 function PropertyCard({ property }) {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const propertyId = getPropertyId(property);
+  const propertyTitle = getPropertyTitle(property);
+  const propertyImage = getPropertyMainImage(property);
   
   if (!property) return null;
 
   const formatPrice = (price) => {
-    return price.replace(/crore/i, 'Cr').replace(/lakh/i, 'L').replace(/₹/g, '₹');
+    if (price === null || price === undefined || price === '') return 'Price on Request';
+    return String(price).replace(/crore/i, 'Cr').replace(/lakh/i, 'L').replace(/₹/g, '₹');
   };
 
   return (
@@ -21,7 +26,7 @@ function PropertyCard({ property }) {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="group bg-white border border-gray-200 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-dua-primary hover:-translate-y-2 h-full flex flex-col"
     >
-      <Link to={`/property/${property.id}`} className="flex flex-col h-full">
+      <Link to={`/property/${propertyId}`} className="flex flex-col h-full">
         {/* Image Container with Overlay */}
         <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100 flex-shrink-0">
           {!imageLoaded && (
@@ -30,8 +35,8 @@ function PropertyCard({ property }) {
             </div>
           )}
           <img
-            src={property.image_main}
-            alt={`Image of ${property.name}`}
+            src={propertyImage}
+            alt={`Image of ${propertyTitle}`}
             className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-110 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
@@ -49,11 +54,11 @@ function PropertyCard({ property }) {
           {/* Status Badge */}
           <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
             <span className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs font-bold shadow-lg border ${
-              property.status === 'Sale' 
+              (property.status || 'Sale') === 'Sale' 
                 ? 'bg-emerald-500 text-white border-emerald-600' 
                 : 'bg-blue-500 text-white border-blue-600'
             }`}>
-              For {property.status}
+              For {property.status || 'Sale'}
             </span>
           </div>
 
@@ -71,7 +76,7 @@ function PropertyCard({ property }) {
         <div className="p-4 sm:p-5 flex flex-col flex-grow">
           {/* Property Name */}
           <h3 className="text-lg sm:text-xl font-bold text-dua-text mb-2 line-clamp-2 min-h-[3rem] sm:min-h-[3.5rem] group-hover:text-dua-primary transition-colors duration-300">
-            {property.name}
+            {propertyTitle}
           </h3>
 
           {/* Location */}

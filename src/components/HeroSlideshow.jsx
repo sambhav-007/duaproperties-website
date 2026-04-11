@@ -4,19 +4,32 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { MapPinIcon, HomeIcon } from '@heroicons/react/24/outline';
+import { getPropertyId, getPropertyMainImage, getPropertyTitle } from '../utils/propertyMappers';
 
 function HeroSlideshow({ properties }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
   useEffect(() => {
+    if (!properties || properties.length === 0) {
+      return;
+    }
+
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prevIndex) => (prevIndex + 1) % properties.length);
     }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(timer);
-  }, [properties.length]);
+  }, [properties]);
+
+  if (!properties || properties.length === 0) {
+    return (
+      <section className="relative h-[55vh] md:h-screen overflow-hidden bg-black flex items-center justify-center">
+        <p className="text-white text-lg">Loading featured properties...</p>
+      </section>
+    );
+  }
 
   const slideVariants = {
     enter: (direction) => ({
@@ -51,6 +64,9 @@ function HeroSlideshow({ properties }) {
   };
 
   const currentProperty = properties[currentIndex];
+  const currentPropertyTitle = getPropertyTitle(currentProperty);
+  const currentPropertyImage = getPropertyMainImage(currentProperty);
+  const currentPropertyId = getPropertyId(currentProperty);
 
   return (
     <section className="relative h-[55vh] md:h-screen overflow-hidden bg-black">
@@ -81,8 +97,8 @@ function HeroSlideshow({ properties }) {
         >
           {/* Background Image */}
           <img
-            src={currentProperty.image_main}
-            alt={currentProperty.name}
+            src={currentPropertyImage}
+            alt={currentPropertyTitle}
             className="absolute inset-0 w-full h-full object-cover"
           />
 
@@ -111,7 +127,7 @@ function HeroSlideshow({ properties }) {
                   transition={{ delay: 0.4 }}
                   className="text-3xl md:text-6xl lg:text-7xl font-bold mb-3 leading-tight"
                 >
-                  {currentProperty.name}
+                  {currentPropertyTitle}
                 </motion.h1>
 
                 {/* Location */}
@@ -161,7 +177,7 @@ function HeroSlideshow({ properties }) {
                   className="flex flex-wrap gap-3"
                 >
                   <Link
-                    to={`/property/${currentProperty.id}`}
+                    to={`/property/${currentPropertyId}`}
                     className="bg-dua-accent text-black font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-105"
                   >
                     View Details

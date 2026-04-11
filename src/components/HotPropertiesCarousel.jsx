@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getPropertyId, getPropertyMainImage, getPropertyTitle } from '../utils/propertyMappers';
 
 function HotPropertiesCarousel({ properties }) {
   const scrollContainerRef = useRef(null);
@@ -55,7 +56,6 @@ function HotPropertiesCarousel({ properties }) {
 
       const scrollSpeed = 0.5; // Pixels per frame (slow speed)
       const currentScroll = container.scrollLeft;
-      const maxScroll = container.scrollWidth - container.offsetWidth;
       const oneThirdScroll = container.scrollWidth / 3;
 
       // Reset to beginning when we've scrolled through one set
@@ -128,21 +128,22 @@ function HotPropertiesCarousel({ properties }) {
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {duplicatedProperties.map((property, index) => (
+          
           <motion.div
-            key={`${property.id}-${index}`}
+            key={`${getPropertyId(property)}-${index}`}
             className="flex-shrink-0 w-[280px] md:w-[350px]"
-            onMouseEnter={() => handleMouseEnter(property.id)}
+            onMouseEnter={() => handleMouseEnter(getPropertyId(property))}
             onMouseLeave={handleMouseLeave}
             whileHover={{ scale: 1.05, zIndex: 10 }}
             transition={{ duration: 0.3 }}
           >
-            <Link to={`/property/${property.id}`}>
+            <Link to={`/property/${getPropertyId(property)}`}>
               <div className="relative bg-white rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
                 {/* Property Image */}
                 <div className="relative h-[400px] md:h-[450px] overflow-hidden">
                   <img
-                    src={property.image_main}
-                    alt={property.name}
+                    src={getPropertyMainImage(property)}
+                    alt={getPropertyTitle(property)}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                   
@@ -163,7 +164,7 @@ function HotPropertiesCarousel({ properties }) {
                   {/* Property Info Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                     <h3 className="text-lg font-bold mb-1 line-clamp-2">
-                      {property.name}
+                      {getPropertyTitle(property)}
                     </h3>
                     <p className="text-sm text-gray-200 mb-2 line-clamp-1 flex items-center">
                       <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -184,7 +185,7 @@ function HotPropertiesCarousel({ properties }) {
 
                 {/* Hover Details (Netflix-style expansion) */}
                 <AnimatePresence>
-                  {hoveredId === property.id && (
+                  {hoveredId === getPropertyId(property) && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}

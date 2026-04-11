@@ -4,8 +4,9 @@ import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MagnifyingGlassIcon, FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import propertiesData from '../data/properties.json';
 import PropertyCard from '../components/PropertyCard';
+import { getAllProperties } from '../services/propertyApi';
+import { getPropertyId, getPropertyTitle } from '../utils/propertyMappers';
 
 const locationFilters = ['All Locations', 'Mohali', 'Chandigarh', 'Kharar', 'Dubai'];
 const typeFilters = ['All Types', 'Residential', 'Commercial', 'Apartment', 'Independent Floor', 'Residential Plot', 'Villa'];
@@ -56,13 +57,20 @@ function PropertiesPage() {
     }
   }, [searchParams]);
 
-  // Simulate loading delay for skeletons
+  // Fetch properties from the serverless API.
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setAllProperties(propertiesData);
-      setLoading(false);
-    }, 500);
-    return () => clearTimeout(timer);
+    const fetchProperties = async () => {
+      try {
+        const data = await getAllProperties();
+        setAllProperties(data);
+      } catch (error) {
+        console.error('Failed to load properties:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProperties();
   }, []);
 
   const filteredProperties = useMemo(() => {
@@ -106,7 +114,7 @@ function PropertiesPage() {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(
         (property) =>
-          property.name?.toLowerCase().includes(query) ||
+          getPropertyTitle(property)?.toLowerCase().includes(query) ||
           property.location?.toLowerCase().includes(query) ||
           property.type?.toLowerCase().includes(query) ||
           property.developer?.toLowerCase().includes(query) ||
@@ -116,11 +124,11 @@ function PropertiesPage() {
 
     // Sort
     if (sortBy === 'name-asc') {
-      filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+      filtered = [...filtered].sort((a, b) => getPropertyTitle(a).localeCompare(getPropertyTitle(b)));
     } else if (sortBy === 'name-desc') {
-      filtered = [...filtered].sort((a, b) => b.name.localeCompare(a.name));
+      filtered = [...filtered].sort((a, b) => getPropertyTitle(b).localeCompare(getPropertyTitle(a)));
     } else if (sortBy === 'newest') {
-      filtered = [...filtered].reverse();
+      filtered = [...filtered].sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
     }
 
     return filtered;
@@ -349,7 +357,7 @@ function PropertiesPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredProperties.map((property, index) => (
                   <motion.div
-                    key={property.id}
+                    key={getPropertyId(property)}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}

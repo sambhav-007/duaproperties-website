@@ -6,7 +6,7 @@ import { FaFacebookF, FaInstagram, FaYoutube, FaEnvelope } from 'react-icons/fa'
 function Footer() {
   const currentYear = new Date().getFullYear();
   const facebookUrl = "https://www.facebook.com/share/19Kioy5Sco/"; 
-  const instagramUrl = "https://www.instagram.com/_duaproperties?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="; 
+  const instagramUrl = "https://www.instagram.com/_duaproperty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="; 
   const youtubeUrl = "https://www.youtube.com/@DuaProperty";
   const contactNumber = "+91 99960 09729"; 
   const contactEmail = "duaproperty123@gmail.com";
