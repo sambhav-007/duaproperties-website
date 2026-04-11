@@ -2,10 +2,9 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 const TOKEN_COOKIE_NAME = 'admin_token';
-const JWT_SECRET = process.env.JWT_SECRET;
 
-if (!JWT_SECRET) {
-  throw new Error('Missing JWT_SECRET environment variable.');
+function getJwtSecret() {
+  return process.env.JWT_SECRET;
 }
 
 function parseCookies(cookieHeader = '') {
@@ -42,7 +41,11 @@ export async function validateAdminCredentials(email, password) {
 }
 
 export function createAdminToken(email) {
-  return jwt.sign({ role: 'admin', email }, JWT_SECRET, { expiresIn: '8h' });
+  const jwtSecret = getJwtSecret();
+  if (!jwtSecret) {
+    throw new Error('Missing JWT_SECRET environment variable.');
+  }
+  return jwt.sign({ role: 'admin', email }, jwtSecret, { expiresIn: '8h' });
 }
 
 export function setAuthCookie(res, token) {
@@ -72,11 +75,14 @@ function getTokenFromRequest(req) {
 }
 
 export function requireAdmin(req) {
+  const jwtSecret = getJwtSecret();
+  if (!jwtSecret) return null;
+
   const token = getTokenFromRequest(req);
   if (!token) return null;
 
   try {
-    return jwt.verify(token, JWT_SECRET);
+    return jwt.verify(token, jwtSecret);
   } catch {
     return null;
   }
