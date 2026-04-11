@@ -22,6 +22,24 @@ const getPropertyRegion = (locationString) => {
   return 'Other';
 };
 
+const normalizeTypeValue = (value) =>
+  String(value || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[_\s]+/g, '-');
+
+const getTypeAliases = (value) => {
+  const normalized = normalizeTypeValue(value);
+
+  if (!normalized) return [];
+  if (normalized === 'residential-plot') return ['residential-plot', 'plot'];
+  if (normalized === 'plot') return ['plot', 'residential-plot'];
+  if (normalized === 'independent-floor') return ['independent-floor', 'independent-floors'];
+  if (normalized === 'independent-floors') return ['independent-floors', 'independent-floor'];
+
+  return [normalized];
+};
+
 function PropertiesPage() {
   const [searchParams] = useSearchParams();
   
@@ -86,19 +104,26 @@ function PropertiesPage() {
     // Type filter
     if (activeTypeFilter !== 'All Types') {
       filtered = filtered.filter((property) => {
+        const propertyType = normalizeTypeValue(property.type);
+
         // Handle multiple types (comma-separated)
         if (activeTypeFilter.includes(',')) {
-          const types = activeTypeFilter.split(',').map(t => t.trim().toLowerCase());
-          return types.some(type => property.type?.toLowerCase() === type);
+          const types = activeTypeFilter
+            .split(',')
+            .map((t) => t.trim())
+            .flatMap((type) => getTypeAliases(type));
+          return types.includes(propertyType);
         }
         
         if (activeTypeFilter === 'Residential') {
-          return property.type?.toLowerCase().includes('residential') || 
-                 property.type?.toLowerCase().includes('apartment') ||
-                 property.type?.toLowerCase().includes('independent floor') ||
+          return propertyType.includes('residential') || 
+                 propertyType.includes('apartment') ||
+                 propertyType.includes('independent-floor') ||
                  property.configuration?.toLowerCase().includes('bhk');
         }
-        return property.type?.toLowerCase().includes(activeTypeFilter.toLowerCase());
+
+        const expectedTypes = getTypeAliases(activeTypeFilter);
+        return expectedTypes.includes(propertyType);
       });
     }
 

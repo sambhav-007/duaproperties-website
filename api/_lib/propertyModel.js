@@ -49,6 +49,11 @@ const PropertySchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
+    featuredInSlideshow: {
+      type: Boolean,
+      default: false,
+      index: true,
+    },
     description: {
       type: String,
       default: '',

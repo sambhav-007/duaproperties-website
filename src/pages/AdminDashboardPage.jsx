@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import { createProperty, deleteProperty, updateProperty } from '../services/propertyApi';
+import { createProperty, deleteProperty, invalidatePropertiesCache, setPropertySlideshowStatus, updateProperty } from '../services/propertyApi';
 import { getCurrentAdmin, logoutAdmin } from '../services/authApi';
 import { uploadImagesToCloudinary } from '../services/cloudinaryApi';
 import { apiRequest } from '../services/apiClient';
@@ -32,6 +32,7 @@ const initialForm = {
   amenities: '',
   description: '',
   images: [],
+  featuredInSlideshow: false,
 };
 
 function toLinesArray(value) {
@@ -56,6 +57,12 @@ function AdminDashboardPage() {
   const [editingId, setEditingId] = useState(null);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [operationPopup, setOperationPopup] = useState({
+    open: false,
+    status: 'loading',
+    message: '',
+  });
+  const popupTimeoutRef = useRef(null);
 
   const formTitle = useMemo(() => (editingId ? 'Edit Property' : 'Add Property'), [editingId]);
 
@@ -93,6 +100,38 @@ function AdminDashboardPage() {
     setEditingId(null);
   };
 
+  const clearPopupTimeout = () => {
+    if (popupTimeoutRef.current) {
+      clearTimeout(popupTimeoutRef.current);
+      popupTimeoutRef.current = null;
+    }
+  };
+
+  const showLoadingPopup = (popupMessage) => {
+    clearPopupTimeout();
+    setOperationPopup({ open: true, status: 'loading', message: popupMessage });
+  };
+
+  const showSuccessPopup = (popupMessage) => {
+    clearPopupTimeout();
+    setOperationPopup({ open: true, status: 'success', message: popupMessage });
+    popupTimeoutRef.current = setTimeout(() => {
+      setOperationPopup((prev) => ({ ...prev, open: false }));
+      popupTimeoutRef.current = null;
+    }, 1400);
+  };
+
+  const hideOperationPopup = () => {
+    clearPopupTimeout();
+    setOperationPopup((prev) => ({ ...prev, open: false }));
+  };
+
+  useEffect(() => {
+    return () => {
+      clearPopupTimeout();
+    };
+  }, []);
+
   const setField = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
@@ -123,6 +162,7 @@ function AdminDashboardPage() {
     setSaving(true);
     setError('');
     setMessage('');
+    showLoadingPopup(editingId ? 'Updating property...' : 'Adding property...');
 
     try {
       const payload = {
@@ -130,19 +170,25 @@ function AdminDashboardPage() {
         price: Number.isNaN(Number(form.price)) ? form.price : Number(form.price),
         highlights: toLinesArray(form.highlights),
         amenities: toLinesArray(form.amenities),
+        featuredInSlideshow: Boolean(form.featuredInSlideshow),
       };
 
       if (editingId) {
         await updateProperty(editingId, payload);
+        invalidatePropertiesCache();
         setMessage('Property updated successfully.');
+        showSuccessPopup('Property updated successfully.');
       } else {
         await createProperty(payload);
+        invalidatePropertiesCache();
         setMessage('Property added successfully.');
+        showSuccessPopup('Property added successfully.');
       }
 
       clearForm();
       await loadProperties();
     } catch (err) {
+      hideOperationPopup();
       setError(err.message || 'Could not save property.');
     } finally {
       setSaving(false);
@@ -161,8 +207,36 @@ function AdminDashboardPage() {
       amenities: toMultiline(property.amenities),
       description: property.description || '',
       images: existingImages,
+      featuredInSlideshow: Boolean(property.featuredInSlideshow),
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSlideshowToggle = async (property) => {
+    setError('');
+    setMessage('');
+    const willBeFeatured = !property.featuredInSlideshow;
+    showLoadingPopup(willBeFeatured ? 'Adding to slideshow...' : 'Removing from slideshow...');
+
+    try {
+      const id = getPropertyId(property);
+      await setPropertySlideshowStatus(id, willBeFeatured);
+      invalidatePropertiesCache();
+      setMessage(
+        willBeFeatured
+          ? 'Property added to slideshow.'
+          : 'Property removed from slideshow.'
+      );
+      showSuccessPopup(
+        willBeFeatured
+          ? 'Property added to slideshow.'
+          : 'Property removed from slideshow.'
+      );
+      await loadProperties();
+    } catch (err) {
+      hideOperationPopup();
+      setError(err.message || 'Could not update slideshow status.');
+    }
   };
 
   const handleDelete = async (id) => {
@@ -171,15 +245,19 @@ function AdminDashboardPage() {
 
     setError('');
     setMessage('');
+    showLoadingPopup('Deleting property...');
 
     try {
       await deleteProperty(id);
+      invalidatePropertiesCache();
       setMessage('Property deleted successfully.');
+      showSuccessPopup('Property deleted successfully.');
       await loadProperties();
       if (editingId === id) {
         clearForm();
       }
     } catch (err) {
+      hideOperationPopup();
       setError(err.message || 'Delete failed.');
     }
   };
@@ -206,13 +284,13 @@ function AdminDashboardPage() {
         <title>Admin Dashboard | Dua Property</title>
       </Helmet>
 
-      <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white pt-24 pb-10 px-4">
+      <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white pt-24 pb-10 px-3 sm:px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
             <h1 className="text-2xl sm:text-3xl font-bold text-dua-text">Admin Dashboard</h1>
             <button
               onClick={handleLogout}
-              className="px-4 py-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 font-semibold text-dua-text"
+              className="w-full sm:w-auto px-4 py-2.5 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 font-semibold text-dua-text"
             >
               Logout
             </button>
@@ -310,6 +388,18 @@ function AdminDashboardPage() {
               </div>
 
               <div className="md:col-span-2">
+                <label className="inline-flex items-center gap-3 text-sm font-semibold text-dua-text">
+                  <input
+                    type="checkbox"
+                    checked={Boolean(form.featuredInSlideshow)}
+                    onChange={(e) => setField('featuredInSlideshow', e.target.checked)}
+                    className="h-4 w-4"
+                  />
+                  Feature this property in homepage slideshow
+                </label>
+              </div>
+
+              <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-dua-text mb-1">Upload Images</label>
                 <input
                   type="file"
@@ -321,7 +411,7 @@ function AdminDashboardPage() {
                 {uploading && <p className="text-sm text-dua-body mt-2">Uploading images...</p>}
 
                 {form.images.length > 0 && (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mt-3">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3 mt-3">
                     {form.images.map((url) => (
                       <div key={url} className="relative">
                         <img src={url} alt="Uploaded property" className="h-24 w-full object-cover rounded-lg border" />
@@ -338,11 +428,11 @@ function AdminDashboardPage() {
                 )}
               </div>
 
-              <div className="md:col-span-2 flex flex-wrap gap-3">
+              <div className="md:col-span-2 flex flex-col sm:flex-row sm:flex-wrap gap-3">
                 <button
                   type="submit"
                   disabled={saving || uploading}
-                  className="px-5 py-2.5 rounded-lg bg-dua-primary hover:bg-cyan-700 text-white font-semibold disabled:opacity-60"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-dua-primary hover:bg-cyan-700 text-white font-semibold disabled:opacity-60"
                 >
                   {saving ? 'Saving...' : editingId ? 'Update Property' : 'Add Property'}
                 </button>
@@ -351,7 +441,7 @@ function AdminDashboardPage() {
                   <button
                     type="button"
                     onClick={clearForm}
-                    className="px-5 py-2.5 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 font-semibold"
+                    className="w-full sm:w-auto px-5 py-2.5 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 font-semibold"
                   >
                     Cancel Edit
                   </button>
@@ -368,49 +458,138 @@ function AdminDashboardPage() {
             ) : properties.length === 0 ? (
               <p className="text-dua-body">No properties yet. Add your first listing above.</p>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[700px] text-left border-collapse">
-                  <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="py-2 pr-3">Title</th>
-                      <th className="py-2 pr-3">Type</th>
-                      <th className="py-2 pr-3">Location</th>
-                      <th className="py-2 pr-3">Price</th>
-                      <th className="py-2 pr-3">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {properties.map((property) => (
-                      <tr key={getPropertyId(property)} className="border-b border-gray-100 align-top">
-                        <td className="py-3 pr-3 font-medium text-dua-text">{getPropertyTitle(property)}</td>
-                        <td className="py-3 pr-3">{property.type}</td>
-                        <td className="py-3 pr-3">{property.location}</td>
-                        <td className="py-3 pr-3">{String(property.price)}</td>
-                        <td className="py-3 pr-3">
-                          <div className="flex flex-wrap gap-2">
-                            <button
-                              onClick={() => handleEdit(property)}
-                              className="px-3 py-1.5 text-sm rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100"
-                            >
-                              Edit
-                            </button>
-                            <button
-                              onClick={() => handleDelete(getPropertyId(property))}
-                              className="px-3 py-1.5 text-sm rounded-md bg-red-50 text-red-700 border border-red-200 hover:bg-red-100"
-                            >
-                              Delete
-                            </button>
-                          </div>
-                        </td>
+              <>
+                <div className="md:hidden space-y-3">
+                  {properties.map((property) => (
+                    <article key={getPropertyId(property)} className="rounded-xl border border-gray-200 p-4 bg-gray-50">
+                      <h3 className="font-semibold text-dua-text text-base mb-2 line-clamp-2">{getPropertyTitle(property)}</h3>
+                      <dl className="text-sm space-y-1">
+                        <div className="flex items-start justify-between gap-3">
+                          <dt className="text-gray-500">Type</dt>
+                          <dd className="text-dua-text text-right">{property.type}</dd>
+                        </div>
+                        <div className="flex items-start justify-between gap-3">
+                          <dt className="text-gray-500">Location</dt>
+                          <dd className="text-dua-text text-right">{property.location}</dd>
+                        </div>
+                        <div className="flex items-start justify-between gap-3">
+                          <dt className="text-gray-500">Price</dt>
+                          <dd className="text-dua-text text-right">{String(property.price)}</dd>
+                        </div>
+                        <div className="flex items-start justify-between gap-3">
+                          <dt className="text-gray-500">Slideshow</dt>
+                          <dd className={`text-right font-medium ${property.featuredInSlideshow ? 'text-emerald-700' : 'text-gray-500'}`}>
+                            {property.featuredInSlideshow ? 'Featured' : 'Not Featured'}
+                          </dd>
+                        </div>
+                      </dl>
+
+                      <div className="grid grid-cols-1 gap-2 mt-3">
+                        <button
+                          type="button"
+                          onClick={() => handleSlideshowToggle(property)}
+                          className={`w-full px-3 py-2 text-sm rounded-md border ${property.featuredInSlideshow ? 'bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100' : 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'}`}
+                        >
+                          {property.featuredInSlideshow ? 'Remove From Slideshow' : 'Add To Slideshow'}
+                        </button>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2 mt-2">
+                        <button
+                          type="button"
+                          onClick={() => handleEdit(property)}
+                          className="w-full px-3 py-2 text-sm rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleDelete(getPropertyId(property))}
+                          className="w-full px-3 py-2 text-sm rounded-md bg-red-50 text-red-700 border border-red-200 hover:bg-red-100"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                <div className="hidden md:block overflow-x-auto">
+                  <table className="w-full min-w-[700px] text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-gray-200">
+                        <th className="py-2 pr-3">Title</th>
+                        <th className="py-2 pr-3">Type</th>
+                        <th className="py-2 pr-3">Location</th>
+                        <th className="py-2 pr-3">Price</th>
+                        <th className="py-2 pr-3">Slideshow</th>
+                        <th className="py-2 pr-3">Actions</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody>
+                      {properties.map((property) => (
+                        <tr key={getPropertyId(property)} className="border-b border-gray-100 align-top">
+                          <td className="py-3 pr-3 font-medium text-dua-text">{getPropertyTitle(property)}</td>
+                          <td className="py-3 pr-3">{property.type}</td>
+                          <td className="py-3 pr-3">{property.location}</td>
+                          <td className="py-3 pr-3">{String(property.price)}</td>
+                          <td className="py-3 pr-3">
+                            <button
+                              type="button"
+                              onClick={() => handleSlideshowToggle(property)}
+                              className={`px-3 py-1.5 text-sm rounded-md border ${property.featuredInSlideshow ? 'bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100' : 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'}`}
+                            >
+                              {property.featuredInSlideshow ? 'Remove' : 'Add'}
+                            </button>
+                          </td>
+                          <td className="py-3 pr-3">
+                            <div className="flex flex-wrap gap-2">
+                              <button
+                                type="button"
+                                onClick={() => handleEdit(property)}
+                                className="px-3 py-1.5 text-sm rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100"
+                              >
+                                Edit
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => handleDelete(getPropertyId(property))}
+                                className="px-3 py-1.5 text-sm rounded-md bg-red-50 text-red-700 border border-red-200 hover:bg-red-100"
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
             )}
           </section>
         </div>
       </main>
+
+      {operationPopup.open && (
+        <div className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex items-center justify-center px-4">
+          <div className="w-full max-w-sm rounded-2xl bg-white shadow-2xl border border-gray-200 p-6 text-center">
+            {operationPopup.status === 'loading' ? (
+              <>
+                <div className="mx-auto h-12 w-12 rounded-full border-4 border-dua-primary/20 border-t-dua-primary animate-spin" />
+                <p className="mt-4 text-dua-text font-semibold">{operationPopup.message || 'Processing...'}</p>
+              </>
+            ) : (
+              <>
+                <div className="mx-auto h-12 w-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-bold">
+                  ✓
+                </div>
+                <p className="mt-4 text-dua-text font-semibold">{operationPopup.message || 'Success'}</p>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }

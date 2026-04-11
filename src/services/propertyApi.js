@@ -7,6 +7,17 @@ const CACHE_TTL_MS = 5 * 60 * 1000;
 let inFlightAllProperties = null;
 let inMemoryCache = null;
 
+export function invalidatePropertiesCache() {
+  inMemoryCache = null;
+  inFlightAllProperties = null;
+
+  try {
+    sessionStorage.removeItem(CACHE_KEY);
+  } catch {
+    // Ignore storage access issues.
+  }
+}
+
 function readCachedProperties() {
   if (inMemoryCache && Date.now() - inMemoryCache.timestamp < CACHE_TTL_MS) {
     return inMemoryCache.data;
@@ -102,6 +113,14 @@ export async function updateProperty(id, payload) {
   const data = await apiRequest(`/api/properties/${id}`, {
     method: 'PUT',
     body: JSON.stringify(payload),
+  });
+  return data.data;
+}
+
+export async function setPropertySlideshowStatus(id, featuredInSlideshow) {
+  const data = await apiRequest(`/api/properties/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({ featuredInSlideshow: Boolean(featuredInSlideshow) }),
   });
   return data.data;
 }

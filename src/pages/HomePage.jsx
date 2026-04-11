@@ -35,27 +35,25 @@ function HomePage() {
     staticProperties.map((property) => [String(property.id), normalizeText(property.name || property.title)])
   );
 
-  // Prefer explicitly chosen featured properties for hero slideshow.
-  // In MongoDB data, numeric legacy IDs are not stored, so we match by legacy title fallback.
-  const selectedHotProperties = FEATURED_PROPERTY_IDS.map((id) => {
-    const byId = allProperties.find((property) => String(getPropertyId(property)) === id);
-    if (byId) return byId;
+  const adminFeaturedProperties = allProperties.filter((property) => Boolean(property.featuredInSlideshow));
 
-    const legacyTitle = featuredTitleById.get(id);
-    if (!legacyTitle) return null;
+  // Use exactly the properties selected in admin for slideshow (dynamic count, no auto-fill).
+  // If no admin selections exist yet, fall back to legacy defaults.
+  const hotProperties =
+    adminFeaturedProperties.length > 0
+      ? adminFeaturedProperties
+      : FEATURED_PROPERTY_IDS.map((id) => {
+          const byId = allProperties.find((property) => String(getPropertyId(property)) === id);
+          if (byId) return byId;
 
-    return allProperties.find((property) => {
-      const currentTitle = normalizeText(property.title || property.name);
-      return currentTitle === legacyTitle;
-    });
-  }).filter(Boolean);
+          const legacyTitle = featuredTitleById.get(id);
+          if (!legacyTitle) return null;
 
-  // Fallback: if some chosen IDs are missing, fill remaining slots with newest properties.
-  const fallbackNewest = [...allProperties]
-    .filter((property) => !selectedHotProperties.some((selected) => String(getPropertyId(selected)) === String(getPropertyId(property))))
-    .sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
-
-  const hotProperties = [...selectedHotProperties, ...fallbackNewest].slice(0, 5);
+          return allProperties.find((property) => {
+            const currentTitle = normalizeText(property.title || property.name);
+            return currentTitle === legacyTitle;
+          });
+        }).filter(Boolean);
 
   return (
     <>

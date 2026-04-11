@@ -28,7 +28,7 @@ export default async function handler(req, res) {
       }
 
       const body = parseBody(req);
-      const { title, price, location, type, images, highlights, amenities, description } = body;
+      const { title, price, location, type, images, highlights, amenities, description, featuredInSlideshow } = body;
 
       if (!title || price === undefined || !location || !type) {
         return sendJson(res, 400, {
@@ -44,6 +44,7 @@ export default async function handler(req, res) {
         images: Array.isArray(images) ? images : [],
         highlights: Array.isArray(highlights) ? highlights : [],
         amenities: Array.isArray(amenities) ? amenities : [],
+        featuredInSlideshow: Boolean(featuredInSlideshow),
         description: description || '',
       });
 
