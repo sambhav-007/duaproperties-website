@@ -1,9 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import { createProperty, deleteProperty, getAllProperties, updateProperty } from '../services/propertyApi';
+import { createProperty, deleteProperty, updateProperty } from '../services/propertyApi';
 import { getCurrentAdmin, logoutAdmin } from '../services/authApi';
 import { uploadImagesToCloudinary } from '../services/cloudinaryApi';
+import { apiRequest } from '../services/apiClient';
+import { getPropertyGallery, getPropertyId, getPropertyTitle } from '../utils/propertyMappers';
 
 const PROPERTY_TYPES = [
   '1BHK',
@@ -60,8 +62,9 @@ function AdminDashboardPage() {
   const loadProperties = async () => {
     setLoadingList(true);
     try {
-      const data = await getAllProperties();
-      setProperties(data);
+      // Admin should always read live API data (no static fallback/cache shape drift).
+      const response = await apiRequest('/api/properties', { method: 'GET' });
+      setProperties(Array.isArray(response?.data) ? response.data : []);
     } catch (err) {
       setError(err.message || 'Could not fetch properties.');
     } finally {
@@ -147,16 +150,17 @@ function AdminDashboardPage() {
   };
 
   const handleEdit = (property) => {
-    setEditingId(property._id);
+    const existingImages = getPropertyGallery(property);
+    setEditingId(getPropertyId(property));
     setForm({
-      title: property.title || '',
+      title: getPropertyTitle(property),
       price: property.price ?? '',
       location: property.location || '',
       type: property.type || 'apartment',
       highlights: toMultiline(property.highlights),
       amenities: toMultiline(property.amenities),
       description: property.description || '',
-      images: property.images || [],
+      images: existingImages,
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -377,8 +381,8 @@ function AdminDashboardPage() {
                   </thead>
                   <tbody>
                     {properties.map((property) => (
-                      <tr key={property._id} className="border-b border-gray-100 align-top">
-                        <td className="py-3 pr-3 font-medium text-dua-text">{property.title}</td>
+                      <tr key={getPropertyId(property)} className="border-b border-gray-100 align-top">
+                        <td className="py-3 pr-3 font-medium text-dua-text">{getPropertyTitle(property)}</td>
                         <td className="py-3 pr-3">{property.type}</td>
                         <td className="py-3 pr-3">{property.location}</td>
                         <td className="py-3 pr-3">{String(property.price)}</td>
@@ -391,7 +395,7 @@ function AdminDashboardPage() {
                               Edit
                             </button>
                             <button
-                              onClick={() => handleDelete(property._id)}
+                              onClick={() => handleDelete(getPropertyId(property))}
                               className="px-3 py-1.5 text-sm rounded-md bg-red-50 text-red-700 border border-red-200 hover:bg-red-100"
                             >
                               Delete
