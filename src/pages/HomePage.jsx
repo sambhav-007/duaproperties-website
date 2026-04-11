@@ -6,7 +6,14 @@ import HeroSlideshow from '../components/HeroSlideshow';
 import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { getAllProperties } from '../services/propertyApi';
-import { getPropertyMainImage } from '../utils/propertyMappers';
+import { getPropertyId, getPropertyMainImage } from '../utils/propertyMappers';
+import staticProperties from '../data/properties.json';
+
+const FEATURED_PROPERTY_IDS = ['2', '3', '5', '9', '11'];
+
+function normalizeText(value) {
+  return String(value || '').trim().toLowerCase();
+}
 
 function HomePage() {
   const [allProperties, setAllProperties] = useState([]);
@@ -24,10 +31,31 @@ function HomePage() {
     fetchProperties();
   }, []);
 
-  // Show first 5 newest properties in hero.
-  const hotProperties = [...allProperties]
-    .sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0))
-    .slice(0, 5);
+  const featuredTitleById = new Map(
+    staticProperties.map((property) => [String(property.id), normalizeText(property.name || property.title)])
+  );
+
+  // Prefer explicitly chosen featured properties for hero slideshow.
+  // In MongoDB data, numeric legacy IDs are not stored, so we match by legacy title fallback.
+  const selectedHotProperties = FEATURED_PROPERTY_IDS.map((id) => {
+    const byId = allProperties.find((property) => String(getPropertyId(property)) === id);
+    if (byId) return byId;
+
+    const legacyTitle = featuredTitleById.get(id);
+    if (!legacyTitle) return null;
+
+    return allProperties.find((property) => {
+      const currentTitle = normalizeText(property.title || property.name);
+      return currentTitle === legacyTitle;
+    });
+  }).filter(Boolean);
+
+  // Fallback: if some chosen IDs are missing, fill remaining slots with newest properties.
+  const fallbackNewest = [...allProperties]
+    .filter((property) => !selectedHotProperties.some((selected) => String(getPropertyId(selected)) === String(getPropertyId(property))))
+    .sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+
+  const hotProperties = [...selectedHotProperties, ...fallbackNewest].slice(0, 5);
 
   return (
     <>
