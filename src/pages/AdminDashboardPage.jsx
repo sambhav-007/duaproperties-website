@@ -144,6 +144,7 @@ function AdminDashboardPage() {
     setError('');
     setMessage('');
     setUploading(true);
+    showLoadingPopup('Uploading media...');
 
     try {
       const uploads = await uploadMediaToCloudinary(files);
@@ -156,7 +157,9 @@ function AdminDashboardPage() {
         video_url: videoUrls.at(-1) || prev.video_url,
       }));
       setMessage('Media uploaded successfully.');
+      showSuccessPopup('Media uploaded successfully.');
     } catch (err) {
+      hideOperationPopup();
       setError(err.message || 'Media upload failed.');
     } finally {
       setUploading(false);
@@ -391,10 +394,9 @@ function AdminDashboardPage() {
                   accept="image/*,video/*"
                   multiple
                   onChange={handleMediaUpload}
-                  className="w-full px-3 py-2.5 rounded-lg border border-gray-300"
+                  disabled={uploading}
+                  className="w-full px-3 py-2.5 rounded-lg border border-gray-300 disabled:cursor-not-allowed disabled:opacity-60"
                 />
-
-                {uploading && <p className="text-sm text-dua-body mt-2">Uploading media...</p>}
 
                 {form.images.length > 0 && (
                   <div className="mt-3">
