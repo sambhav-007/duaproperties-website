@@ -10,6 +10,7 @@ function Footer() {
   const youtubeUrl = "https://www.youtube.com/@DuaProperty";
   const contactNumber = "+91 99960 09729"; 
   const contactEmail = "duaproperty123@gmail.com";
+  const developerWebsite = "https://www.viltrumate.live";
 
   return (
     <footer className="bg-white border-t border-gray-200 text-dua-text p-6 sm:p-8 shadow-lg mt-auto">
@@ -103,6 +104,17 @@ function Footer() {
           {/* Copyright */}
           <p className="text-xs sm:text-sm text-gray-300">&copy; {currentYear} Dua Property. All rights reserved.</p>
           <p className="mt-1 text-xs sm:text-sm text-dua-accent">Unlock Your Future with Us</p>
+          <p className="mt-1 text-xs sm:text-sm text-gray-400">
+            Made by{' '}
+            <a
+              href={developerWebsite}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-dua-primary hover:text-dua-accent transition-colors duration-300 font-medium"
+            >
+              Viltrumate Technologies
+            </a>
+          </p>
         </div>
       </div>
     </footer>

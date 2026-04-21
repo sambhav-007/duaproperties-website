@@ -69,7 +69,7 @@ function HeroSlideshow({ properties }) {
   const currentPropertyId = getPropertyId(currentProperty);
 
   return (
-    <section className="relative h-[55vh] md:h-screen overflow-hidden bg-black">
+    <section className="relative h-[68vh] md:h-screen overflow-hidden bg-black">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentIndex}
@@ -102,20 +102,20 @@ function HeroSlideshow({ properties }) {
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          {/* Subtle Gradient Overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          {/* Stronger mobile-first gradients for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent md:from-black/30 md:via-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent md:from-black/40 md:via-transparent"></div>
 
           {/* Content */}
-          <div className="absolute inset-0 flex items-center">
-            <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="absolute inset-0 flex items-end md:items-center">
+            <div className="container mx-auto px-4 md:px-8 pb-16 md:pb-0 max-w-7xl">
               <div className="max-w-2xl text-white">
                 {/* Hot Badge */}
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="inline-flex items-center gap-2 bg-red-600 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-3 font-bold text-xs md:text-sm"
+                  className="hidden md:inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-full mb-3 font-bold text-sm"
                 >
                   🔥 HOT PROPERTY
                 </motion.div>
@@ -125,7 +125,7 @@ function HeroSlideshow({ properties }) {
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4 }}
-                  className="text-3xl md:text-6xl lg:text-7xl font-bold mb-3 leading-tight"
+                  className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold mb-2 md:mb-3 leading-tight line-clamp-2"
                 >
                   {currentPropertyTitle}
                 </motion.h1>
@@ -135,10 +135,10 @@ function HeroSlideshow({ properties }) {
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="flex items-start gap-2 mb-3"
+                  className="flex items-start gap-2 mb-2 md:mb-3"
                 >
-                  <MapPinIcon className="w-5 h-5 md:w-6 md:h-6 text-dua-accent flex-shrink-0 mt-1" />
-                  <p className="text-base md:text-xl text-gray-200">
+                  <MapPinIcon className="w-4 h-4 md:w-6 md:h-6 text-dua-accent flex-shrink-0 mt-1" />
+                  <p className="text-lg md:text-xl text-gray-200 line-clamp-1">
                     {currentProperty.location}
                   </p>
                 </motion.div>
@@ -148,13 +148,13 @@ function HeroSlideshow({ properties }) {
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.6 }}
-                  className="flex flex-wrap items-center gap-3 mb-4"
+                  className="flex flex-wrap items-center gap-2 md:gap-3 mb-3 md:mb-4"
                 >
-                  <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm md:text-base">
+                  <div className="hidden md:flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-lg text-base">
                     <HomeIcon className="w-4 h-4 md:w-5 md:h-5" />
                     <span className="font-semibold">{currentProperty.type}</span>
                   </div>
-                  <div className="text-xl md:text-3xl font-bold text-dua-accent">
+                  <div className="text-4xl md:text-3xl font-bold text-dua-accent">
                     {currentProperty.price}
                   </div>
                 </motion.div>
@@ -164,7 +164,7 @@ function HeroSlideshow({ properties }) {
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.7 }}
-                  className="text-sm md:text-lg text-gray-300 mb-5 md:mb-8 line-clamp-2 md:line-clamp-3"
+                  className="hidden md:block text-lg text-gray-300 mb-8 line-clamp-3"
                 >
                   {currentProperty.description}
                 </motion.p>
@@ -174,17 +174,17 @@ function HeroSlideshow({ properties }) {
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.8 }}
-                  className="flex flex-wrap gap-3"
+                  className="flex gap-3"
                 >
                   <Link
                     to={`/property/${currentPropertyId}`}
-                    className="bg-dua-accent text-black font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-105"
+                    className="bg-dua-accent text-black font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg text-xl md:text-lg shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-105"
                   >
                     View Details
                   </Link>
                   <Link
                     to="/properties"
-                    className="bg-white/20 backdrop-blur-sm text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg border-2 border-white/30 hover:bg-white/30 transition-all duration-300"
+                    className="hidden md:inline-flex bg-white/20 backdrop-blur-sm text-white font-semibold py-4 px-8 rounded-lg text-lg border-2 border-white/30 hover:bg-white/30 transition-all duration-300"
                   >
                     Browse All
                   </Link>
@@ -198,7 +198,7 @@ function HeroSlideshow({ properties }) {
       {/* Navigation Arrows */}
       <button
         onClick={() => paginate(-1)}
-        className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-10 bg-black/40 backdrop-blur-sm hover:bg-black/60 text-white p-2 md:p-3 rounded-full transition-all duration-300 group"
+        className="absolute left-2 md:left-8 top-auto md:top-1/2 bottom-28 md:bottom-auto md:-translate-y-1/2 z-10 bg-black/45 backdrop-blur-sm hover:bg-black/65 text-white p-2 md:p-3 rounded-full transition-all duration-300 group"
         aria-label="Previous slide"
       >
         <ChevronLeftIcon className="w-5 h-5 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
@@ -206,14 +206,14 @@ function HeroSlideshow({ properties }) {
 
       <button
         onClick={() => paginate(1)}
-        className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-10 bg-black/40 backdrop-blur-sm hover:bg-black/60 text-white p-2 md:p-3 rounded-full transition-all duration-300 group"
+        className="absolute right-2 md:right-8 top-auto md:top-1/2 bottom-28 md:bottom-auto md:-translate-y-1/2 z-10 bg-black/45 backdrop-blur-sm hover:bg-black/65 text-white p-2 md:p-3 rounded-full transition-all duration-300 group"
         aria-label="Next slide"
       >
         <ChevronRightIcon className="w-5 h-5 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
         {properties.map((_, index) => (
           <button
             key={index}
@@ -223,8 +223,8 @@ function HeroSlideshow({ properties }) {
             }}
             className={`transition-all duration-300 rounded-full ${
               index === currentIndex
-                ? 'bg-dua-accent w-12 h-3'
-                : 'bg-white/50 w-3 h-3 hover:bg-white/80'
+                ? 'bg-dua-accent w-8 md:w-12 h-2.5 md:h-3'
+                : 'bg-white/50 w-2.5 md:w-3 h-2.5 md:h-3 hover:bg-white/80'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -235,7 +235,7 @@ function HeroSlideshow({ properties }) {
       <motion.div
         animate={{ y: [0, 15, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 text-white text-3xl"
+        className="hidden md:block absolute bottom-20 left-1/2 -translate-x-1/2 z-10 text-white text-3xl"
       >
         ↓
       </motion.div>

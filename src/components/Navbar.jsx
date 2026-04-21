@@ -18,7 +18,7 @@ function Navbar() {
 
   // Navbar style changes:
   const navbarClasses = `
-    fixed w-full top-0 left-0 z-50 p-4 transition-all duration-500 ease-in-out
+    fixed w-full top-0 left-0 z-50 px-3 py-3 sm:p-4 transition-all duration-500 ease-in-out
     ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-200' : 'bg-transparent'}
   `;
 
@@ -39,7 +39,7 @@ function Navbar() {
         {/* Logo and Brand */}
         <Link to="/" className="flex items-center space-x-2">
           <img src="/dua-logo.jpg" alt="Dua Property Logo" className="h-8 sm:h-10 w-auto rounded-md" />
-          <span className={`text-lg sm:text-2xl font-bold transition-colors duration-300 ${
+          <span className={`text-base sm:text-2xl font-bold transition-colors duration-300 truncate max-w-[145px] sm:max-w-none ${
             scrolled ? 'text-dua-primary' : 'text-white drop-shadow-lg'
           }`}>
             Dua Property
@@ -70,7 +70,7 @@ function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`md:hidden fixed top-[72px] left-0 w-full shadow-2xl transition-all duration-300 bg-white backdrop-blur-lg border-t border-gray-200 ${
+        className={`md:hidden fixed top-[64px] sm:top-[72px] left-0 w-full shadow-2xl transition-all duration-300 bg-white backdrop-blur-lg border-t border-gray-200 ${
           isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
