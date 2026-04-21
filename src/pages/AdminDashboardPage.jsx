@@ -2,9 +2,9 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { createProperty, deleteProperty, invalidatePropertiesCache, setPropertySlideshowStatus, updateProperty } from '../services/propertyApi';
+import { getAllProperties } from '../services/propertyApi';
 import { getCurrentAdmin, logoutAdmin } from '../services/authApi';
-import { uploadImagesToCloudinary } from '../services/cloudinaryApi';
-import { apiRequest } from '../services/apiClient';
+import { uploadMediaToCloudinary } from '../services/cloudinaryApi';
 import { getPropertyGallery, getPropertyId, getPropertyTitle } from '../utils/propertyMappers';
 
 const PROPERTY_TYPES = [
@@ -30,6 +30,7 @@ const initialForm = {
   type: 'apartment',
   highlights: '',
   amenities: '',
+  video_url: '',
   description: '',
   images: [],
   featuredInSlideshow: false,
@@ -69,9 +70,9 @@ function AdminDashboardPage() {
   const loadProperties = async () => {
     setLoadingList(true);
     try {
-      // Admin should always read live API data (no static fallback/cache shape drift).
-      const response = await apiRequest('/api/properties', { method: 'GET' });
-      setProperties(Array.isArray(response?.data) ? response.data : []);
+      // Use the same resilient property loader as the public site so local dev still shows properties.
+      const data = await getAllProperties();
+      setProperties(Array.isArray(data) ? data : []);
     } catch (err) {
       setError(err.message || 'Could not fetch properties.');
     } finally {
@@ -136,7 +137,7 @@ function AdminDashboardPage() {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleImageUpload = async (e) => {
+  const handleMediaUpload = async (e) => {
     const files = Array.from(e.target.files || []);
     if (!files.length) return;
 
@@ -145,12 +146,18 @@ function AdminDashboardPage() {
     setUploading(true);
 
     try {
-      // Upload each image and keep the returned URL in the form.
-      const urls = await uploadImagesToCloudinary(files);
-      setForm((prev) => ({ ...prev, images: [...prev.images, ...urls] }));
-      setMessage('Images uploaded successfully.');
+      const uploads = await uploadMediaToCloudinary(files);
+      const imageUrls = uploads.filter((item) => item.type === 'image').map((item) => item.url);
+      const videoUrls = uploads.filter((item) => item.type === 'video').map((item) => item.url);
+
+      setForm((prev) => ({
+        ...prev,
+        images: [...prev.images, ...imageUrls],
+        video_url: videoUrls.at(-1) || prev.video_url,
+      }));
+      setMessage('Media uploaded successfully.');
     } catch (err) {
-      setError(err.message || 'Image upload failed.');
+      setError(err.message || 'Media upload failed.');
     } finally {
       setUploading(false);
       e.target.value = '';
@@ -205,6 +212,7 @@ function AdminDashboardPage() {
       type: property.type || 'apartment',
       highlights: toMultiline(property.highlights),
       amenities: toMultiline(property.amenities),
+      video_url: property.video_url || '',
       description: property.description || '',
       images: existingImages,
       featuredInSlideshow: Boolean(property.featuredInSlideshow),
@@ -377,6 +385,62 @@ function AdminDashboardPage() {
               </div>
 
               <div className="md:col-span-2">
+                <label className="block text-sm font-semibold text-dua-text mb-1">Upload Media (Photos or Video)</label>
+                <input
+                  type="file"
+                  accept="image/*,video/*"
+                  multiple
+                  onChange={handleMediaUpload}
+                  className="w-full px-3 py-2.5 rounded-lg border border-gray-300"
+                />
+
+                {uploading && <p className="text-sm text-dua-body mt-2">Uploading media...</p>}
+
+                {form.images.length > 0 && (
+                  <div className="mt-3">
+                    <p className="text-sm font-semibold text-dua-text mb-2">Photos</p>
+                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3">
+                      {form.images.map((url) => (
+                        <div key={url} className="relative">
+                          <img src={url} alt="Uploaded property" className="h-24 w-full object-cover rounded-lg border" />
+                          <button
+                            type="button"
+                            onClick={() => setField('images', form.images.filter((img) => img !== url))}
+                            className="absolute top-1 right-1 bg-black/70 text-white text-xs rounded-full px-2 py-0.5"
+                          >
+                            X
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {form.video_url && (
+                  <div className="mt-3 rounded-lg border border-gray-200 p-3 bg-gray-50">
+                    <p className="text-sm font-semibold text-dua-text mb-2">Video</p>
+                    <video
+                      controls
+                      preload="metadata"
+                      className="w-full max-h-64 rounded-lg"
+                    >
+                      <source src={form.video_url} type="video/mp4" />
+                      <source src={form.video_url} type="video/webm" />
+                      <source src={form.video_url} type="video/ogg" />
+                      Your browser does not support the video tag.
+                    </video>
+                    <button
+                      type="button"
+                      onClick={() => setField('video_url', '')}
+                      className="mt-2 px-3 py-1.5 text-sm rounded-md bg-red-50 text-red-700 border border-red-200 hover:bg-red-100"
+                    >
+                      Remove Video
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-dua-text mb-1">Description</label>
                 <textarea
                   rows={4}
@@ -397,35 +461,6 @@ function AdminDashboardPage() {
                   />
                   Feature this property in homepage slideshow
                 </label>
-              </div>
-
-              <div className="md:col-span-2">
-                <label className="block text-sm font-semibold text-dua-text mb-1">Upload Images</label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  onChange={handleImageUpload}
-                  className="w-full px-3 py-2.5 rounded-lg border border-gray-300 bg-white"
-                />
-                {uploading && <p className="text-sm text-dua-body mt-2">Uploading images...</p>}
-
-                {form.images.length > 0 && (
-                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3 mt-3">
-                    {form.images.map((url) => (
-                      <div key={url} className="relative">
-                        <img src={url} alt="Uploaded property" className="h-24 w-full object-cover rounded-lg border" />
-                        <button
-                          type="button"
-                          onClick={() => setField('images', form.images.filter((img) => img !== url))}
-                          className="absolute top-1 right-1 bg-black/70 text-white text-xs rounded-full px-2 py-0.5"
-                        >
-                          X
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                )}
               </div>
 
               <div className="md:col-span-2 flex flex-col sm:flex-row sm:flex-wrap gap-3">

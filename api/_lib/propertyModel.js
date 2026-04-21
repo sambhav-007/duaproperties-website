@@ -54,6 +54,12 @@ const PropertySchema = new mongoose.Schema(
       default: false,
       index: true,
     },
+    video_url: {
+      type: String,
+      default: '',
+      trim: true,
+      maxlength: 1000,
+    },
     description: {
       type: String,
       default: '',

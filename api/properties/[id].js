@@ -48,6 +48,7 @@ export default async function handler(req, res) {
         highlights: Array.isArray(body.highlights) ? body.highlights : [],
         amenities: Array.isArray(body.amenities) ? body.amenities : [],
         featuredInSlideshow: Boolean(body.featuredInSlideshow),
+        video_url: body.video_url || '',
         description: body.description || '',
       };
 
