@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import HeroSlideshow from '../components/HeroSlideshow';
 import { ShieldCheckIcon, MapPinIcon, UserGroupIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
-import { getAllProperties } from '../services/propertyApi';
+import { getAllProperties, getFeaturedProperties } from '../services/propertyApi';
 import { getPropertyId, getPropertyMainImage } from '../utils/propertyMappers';
 import staticProperties from '../data/properties.json';
 
@@ -21,8 +21,17 @@ function HomePage() {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const data = await getAllProperties();
-        setAllProperties(data);
+        // Fetch featured properties immediately for fast slideshow
+        const featured = await getFeaturedProperties();
+        if (featured.length > 0) {
+          setAllProperties(featured);
+        }
+
+        // Then fetch all properties for the category cards
+        const all = await getAllProperties();
+        if (all.length > 0) {
+          setAllProperties(all);
+        }
       } catch (error) {
         console.error('Failed to load properties:', error);
       }

@@ -17,7 +17,10 @@ export default async function handler(req, res) {
     await connectToDatabase();
 
     if (req.method === 'GET') {
-      const properties = await Property.find({}).sort({ createdAt: -1 }).lean();
+      const properties = await Property.find({})
+        .select('title price location type images video_url featuredInSlideshow createdAt')
+        .sort({ createdAt: -1 })
+        .lean();
       return sendJson(res, 200, { data: properties });
     }
 

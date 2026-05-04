@@ -138,6 +138,20 @@ export async function getAllProperties() {
   return inFlightAllProperties;
 }
 
+export async function getFeaturedProperties() {
+  try {
+    const data = await apiRequest('/api/properties/featured', { method: 'GET' });
+    if (Array.isArray(data?.data)) {
+      return data.data;
+    }
+  } catch {
+    // Fall back to querying all properties and filtering
+  }
+
+  const allProps = await getAllProperties();
+  return allProps.filter((p) => p.featuredInSlideshow).slice(0, 20);
+}
+
 export async function getPropertyById(id) {
   const cached = readCachedProperties();
   if (cached) {

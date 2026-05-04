@@ -54,6 +54,12 @@ const PropertySchema = new mongoose.Schema(
       default: false,
       index: true,
     },
+    type: {
+      index: true,
+    },
+    location: {
+      index: true,
+    },
     video_url: {
       type: String,
       default: '',
