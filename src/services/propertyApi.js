@@ -3,7 +3,7 @@ import staticProperties from '../data/properties.json';
 
 const CACHE_KEY = 'dua_properties_cache_v1';
 const LOCAL_STORE_KEY = 'dua_properties_local_store_v1';
-const CACHE_TTL_MS = 5 * 60 * 1000;
+const CACHE_TTL_MS = 0; // Disabled cache to ensure fresh data across devices
 
 let inFlightAllProperties = null;
 let inMemoryCache = null;
