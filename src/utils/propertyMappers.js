@@ -22,3 +22,21 @@ export function getPropertyGallery(property) {
   }
   return [];
 }
+
+export function slugify(text) {
+  return String(text || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[\s_]+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-');
+}
+
+export function getPropertySlug(property) {
+  const title = getPropertyTitle(property);
+  const id = getPropertyId(property);
+  const baseSlug = slugify(title);
+  
+  if (!baseSlug) return id;
+  return `${baseSlug}-${id}`;
+}

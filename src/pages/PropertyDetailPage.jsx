@@ -10,7 +10,13 @@ import { getAllProperties, getPropertyById } from '../services/propertyApi';
 import { getPropertyGallery, getPropertyId, getPropertyMainImage, getPropertyTitle } from '../utils/propertyMappers';
 
 function PropertyDetailPage() {
-  const { id } = useParams();
+  const { slug } = useParams();
+  
+  // Extract actual ID (it's the last part after a hyphen)
+  // This handles both new SEO slugs (e.g., /property/luxury-villa-64ac88...) and old links (e.g., /property/64ac88...)
+  const idParts = String(slug || '').split('-');
+  const id = idParts[idParts.length - 1];
+
   const navigate = useNavigate();
   const [property, setProperty] = useState(null);
   const [allProperties, setAllProperties] = useState([]);

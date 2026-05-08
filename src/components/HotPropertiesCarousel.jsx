@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getPropertyId, getPropertyMainImage, getPropertyTitle } from '../utils/propertyMappers';
+import { getPropertyId, getPropertyMainImage, getPropertyTitle, getPropertySlug } from '../utils/propertyMappers';
 
 function HotPropertiesCarousel({ properties }) {
   const scrollContainerRef = useRef(null);
@@ -137,7 +137,7 @@ function HotPropertiesCarousel({ properties }) {
             whileHover={{ scale: 1.05, zIndex: 10 }}
             transition={{ duration: 0.3 }}
           >
-            <Link to={`/property/${getPropertyId(property)}`}>
+            <Link to={`/property/${getPropertySlug(property)}`}>
               <div className="relative bg-white rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
                 {/* Property Image */}
                 <div className="relative h-[400px] md:h-[450px] overflow-hidden">

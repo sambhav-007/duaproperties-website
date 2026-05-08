@@ -31,7 +31,7 @@ function AppLayout() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/properties" element={<PropertiesPage />} />
-          <Route path="/property/:id" element={<PropertyDetailPage />} />
+          <Route path="/property/:slug" element={<PropertyDetailPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/admin/login" element={<AdminLoginPage />} />

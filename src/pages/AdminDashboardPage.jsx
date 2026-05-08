@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import { createProperty, deleteProperty, invalidatePropertiesCache, setPropertySlideshowStatus, updateProperty } from '../services/propertyApi';
+import { createProperty, deleteProperty, invalidatePropertiesCache, setPropertySlideshowStatus, updateProperty, getPropertyById } from '../services/propertyApi';
 import { getAllProperties } from '../services/propertyApi';
 import { getCurrentAdmin, logoutAdmin } from '../services/authApi';
 import { uploadMediaToCloudinary } from '../services/cloudinaryApi';
@@ -205,22 +205,30 @@ function AdminDashboardPage() {
     }
   };
 
-  const handleEdit = (property) => {
-    const existingImages = getPropertyGallery(property);
-    setEditingId(getPropertyId(property));
-    setForm({
-      title: getPropertyTitle(property),
-      price: property.price ?? '',
-      location: property.location || '',
-      type: property.type || 'apartment',
-      highlights: toMultiline(property.highlights),
-      amenities: toMultiline(property.amenities),
-      video_url: property.video_url || '',
-      description: property.description || '',
-      images: existingImages,
-      featuredInSlideshow: Boolean(property.featuredInSlideshow),
-    });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleEdit = async (property) => {
+    showLoadingPopup('Loading property details...');
+    try {
+      const fullProperty = await getPropertyById(getPropertyId(property)) || property;
+      const existingImages = getPropertyGallery(fullProperty);
+      setEditingId(getPropertyId(fullProperty));
+      setForm({
+        title: getPropertyTitle(fullProperty),
+        price: fullProperty.price ?? '',
+        location: fullProperty.location || '',
+        type: fullProperty.type || 'apartment',
+        highlights: toMultiline(fullProperty.highlights),
+        amenities: toMultiline(fullProperty.amenities),
+        video_url: fullProperty.video_url || '',
+        description: fullProperty.description || '',
+        images: existingImages,
+        featuredInSlideshow: Boolean(fullProperty.featuredInSlideshow),
+      });
+      hideOperationPopup();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      hideOperationPopup();
+      setError('Could not load full property details.');
+    }
   };
 
   const handleSlideshowToggle = async (property) => {

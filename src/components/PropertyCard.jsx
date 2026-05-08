@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPinIcon, BuildingOffice2Icon, HomeIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
-import { getPropertyId, getPropertyMainImage, getPropertyTitle } from '../utils/propertyMappers';
+import { getPropertyId, getPropertyMainImage, getPropertyTitle, getPropertySlug } from '../utils/propertyMappers';
 
 function PropertyCard({ property }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const propertyId = getPropertyId(property);
+  const propertySlug = getPropertySlug(property);
   const propertyTitle = getPropertyTitle(property);
   const propertyImage = getPropertyMainImage(property);
   
@@ -26,7 +27,7 @@ function PropertyCard({ property }) {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="group bg-white border border-gray-200 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-dua-primary hover:-translate-y-2 h-full flex flex-col"
     >
-      <Link to={`/property/${propertyId}`} className="flex flex-col h-full">
+      <Link to={`/property/${propertySlug}`} className="flex flex-col h-full">
         {/* Image Container with Overlay */}
         <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100 flex-shrink-0">
           {!imageLoaded && (

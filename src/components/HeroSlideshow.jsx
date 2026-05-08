@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { MapPinIcon, HomeIcon } from '@heroicons/react/24/outline';
-import { getPropertyId, getPropertyMainImage, getPropertyTitle } from '../utils/propertyMappers';
+import { getPropertyId, getPropertyMainImage, getPropertyTitle, getPropertySlug } from '../utils/propertyMappers';
 
 function HeroSlideshow({ properties }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -67,6 +67,7 @@ function HeroSlideshow({ properties }) {
   const currentPropertyTitle = getPropertyTitle(currentProperty);
   const currentPropertyImage = getPropertyMainImage(currentProperty);
   const currentPropertyId = getPropertyId(currentProperty);
+  const currentPropertySlug = getPropertySlug(currentProperty);
 
   return (
     <section className="relative h-[68vh] md:h-screen overflow-hidden bg-black">
@@ -177,7 +178,7 @@ function HeroSlideshow({ properties }) {
                   className="flex gap-3"
                 >
                   <Link
-                    to={`/property/${currentPropertyId}`}
+                    to={`/property/${currentPropertySlug}`}
                     className="bg-dua-accent text-black font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg text-xl md:text-lg shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-105"
                   >
                     View Details
