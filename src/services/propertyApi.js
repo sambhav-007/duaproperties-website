@@ -125,7 +125,8 @@ export async function getAllProperties() {
       const sortedFallback = sortPropertiesNewestFirst(fallbackProperties);
       writeCachedProperties(sortedFallback);
       return sortedFallback;
-    } catch {
+    } catch (err) {
+      console.error('Failed to fetch properties from API, falling back to local storage/JSON. Error:', err);
       const fallbackProperties = getFallbackPropertyCollection();
       const sortedFallback = sortPropertiesNewestFirst(fallbackProperties);
       writeCachedProperties(sortedFallback);
